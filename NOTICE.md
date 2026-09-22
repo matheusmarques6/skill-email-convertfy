@@ -39,14 +39,14 @@ http://www.apache.org/licenses/LICENSE-2.0
 | msigor/humanizer-br | https://github.com/msigor/humanizer-br | (nada ate agora) |
 | ravidsrk/slop-detect | https://github.com/ravidsrk/slop-detect | Metodo de limiar por densidade (adaptado para contagem absoluta por e-mail) e o catalogo de padroes de design, em `scripts/lint_copy.py` e `shared/anti-vicios-design.md` |
 | emilkowalski/skills | https://github.com/emilkowalski/skills | O principio de que aprovacao se conquista (review-animations), em `shared/postura-revisao.md` |
-| CosmoBlk/email-marketing-bible | https://github.com/CosmoBlk/email-marketing-bible | Laco de critica com nota e teto de 4 rodadas, em `shared/postura-revisao.md` |
-| 808enzo/chappie | https://github.com/808enzo/chappie | (nada ate agora) |
-| davidharttx/email-campaign-skill | https://github.com/davidharttx/email-campaign-skill | (nada ate agora) |
-| framix-team/skill-email-html-mjml | https://github.com/framix-team/skill-email-html-mjml | (nada ate agora) |
-| EmailBoutique-Digital-Inc/email-html-qa-skill | https://github.com/EmailBoutique-Digital-Inc/email-html-qa-skill | (nada ate agora) |
-| jayreis/prescott-amelia-agents | https://github.com/jayreis/prescott-amelia-agents | (nada ate agora) |
-| thatrebeccarae/claude-marketing | https://github.com/thatrebeccarae/claude-marketing | (nada ate agora) |
-| olivalcf/klaviyo-audit-agent-skill | https://github.com/olivalcf/klaviyo-audit-agent-skill | (nada ate agora) |
+| CosmoBlk/email-marketing-bible | https://github.com/CosmoBlk/email-marketing-bible | Laco de critica com nota e teto de 4 rodadas (`shared/postura-revisao.md`); checklist pre-envio, par "dois leitores", ban do gradiente roxo-azul e do banho bege, `#121212` no dark mode, limiares de entregabilidade e benchmarks rotulados como direcionais (`skills/email-design/draft/`, `skills/auditoria-omnisend/draft/`) |
+| 808enzo/chappie | https://github.com/808enzo/chappie | Disciplina de fronteira na `description` (o que a skill nao cobre), promessa herdada e nao inventada, gatilho como regra, e estados de bloco na montagem, em `skills/email-flows/draft/` e `skills/email-design/draft/` |
+| davidharttx/email-campaign-skill | https://github.com/davidharttx/email-campaign-skill | Modelo de duas camadas (entrada por fonte / ciclo de vida), ordem de prioridade de receita, as 10 especificacoes de flow, matriz de colisao entre flows e disciplina de fallback em merge tag, em `skills/email-flows/draft/` |
+| framix-team/skill-email-html-mjml | https://github.com/framix-team/skill-email-html-mjml | Gotchas de Outlook (VML, fonte com fallback), atributo de componente sobre classe CSS no Gmail, `#121212` em vez de `#000`, bug do `vertical-align`, ban de accordion e carousel, em `skills/email-design/draft/`. A toolchain MJML NAO foi adotada |
+| EmailBoutique-Digital-Inc/email-html-qa-skill | https://github.com/EmailBoutique-Digital-Inc/email-html-qa-skill | O de maior aproveitamento: principio de verificar mecanica e nao suficiencia, as duas metas de `color-scheme`, alt intencional, os tres overrides de auto-link, leitura de `Authentication-Results` e `List-Unsubscribe-Post` a partir do `.eml`, matriz de QA de dark mode e escala de severidade, em `skills/email-design/draft/` e `skills/auditoria-omnisend/draft/` |
+| jayreis/prescott-amelia-agents | https://github.com/jayreis/prescott-amelia-agents | Placeholder marcado em vez de invencao, um nivel de card, piso de tamanho de fonte com "corte a copy, nao a fonte", tratar `<style>` como melhor esforco, cards de mesma altura e area de toque de 44px, em `skills/email-design/draft/`. Title Case em headline e a proibicao de `<head>` foram DESCARTADOS |
+| thatrebeccarae/claude-marketing | https://github.com/thatrebeccarae/claude-marketing | Framework de auditoria em 4 fases, recomendacao em tres camadas e checklist dos 10 flows essenciais (klaviyo-analyst), em `skills/auditoria-omnisend/draft/` |
+| olivalcf/klaviyo-audit-agent-skill | https://github.com/olivalcf/klaviyo-audit-agent-skill | Regras de seguranca inegociaveis, marcar `unverifiable` em vez de afirmar que uma checagem passou, os tres modos de auditoria, formato do achado e estrutura da rubrica (repontuada), em `skills/auditoria-omnisend/draft/` |
 
 A licenca MIT exige preservar aviso de copyright e de permissao em copias
 ou porcoes substanciais do software. Como nao copiamos, o credito acima
