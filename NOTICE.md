@@ -67,11 +67,11 @@ nao e versionado.
 
 | Repo | Fonte | Reaproveitado |
 |---|---|---|
-| Leonxlnx/taste-skill | https://github.com/Leonxlnx/taste-skill | (nada ate agora) |
+| Leonxlnx/taste-skill | https://github.com/Leonxlnx/taste-skill | Via F10 da pesquisa: a disciplina contra truncamento (secao faltando, placeholder repetido, "o resto segue o padrao"), reescrita em P04 de `shared/anti-vicios-processo.md`. Os numeros de `research/laziness` foram DESCARTADOS por serem folclore sem fonte primaria |
 | blader/humanizer | https://github.com/blader/humanizer | Taxonomia de 25 padroes de escrita de IA, reescrita nos IDs C10 a C26 de `shared/anti-vicios-copy.md` |
 | Henzen3d/Deslop-ptBR | https://github.com/Henzen3d/Deslop-ptBR | A ideia de tiers por severidade, reescrita na escala B/A/M e em `shared/lexico/pt-br.txt` |
-| mackswendhell/humanizer-pt-br | https://github.com/mackswendhell/humanizer-pt-br | (nada ate agora) |
-| msigor/humanizer-br | https://github.com/msigor/humanizer-br | (nada ate agora) |
+| mackswendhell/humanizer-pt-br | https://github.com/mackswendhell/humanizer-pt-br | Via F6 da pesquisa: os 25 padroes de pt-BR, reescritos em C10 a C26 de `shared/anti-vicios-copy.md` e nas entradas de `shared/lexico/pt-br.txt` |
+| msigor/humanizer-br | https://github.com/msigor/humanizer-br | Via F6 da pesquisa: a observacao de uniformidade no tamanho das frases, que virou C18, e itens de vocabulario em `shared/lexico/pt-br.txt` |
 | ravidsrk/slop-detect | https://github.com/ravidsrk/slop-detect | Metodo de limiar por densidade (adaptado para contagem absoluta por e-mail) e o catalogo de padroes de design, em `scripts/lint_copy.py` e `shared/anti-vicios-design.md` |
 | emilkowalski/skills | https://github.com/emilkowalski/skills | O principio de que aprovacao se conquista (review-animations), em `shared/postura-revisao.md` |
 | CosmoBlk/email-marketing-bible | https://github.com/CosmoBlk/email-marketing-bible | Laco de critica com nota e teto de 4 rodadas (`shared/postura-revisao.md`); checklist pre-envio, par "dois leitores", ban do gradiente roxo-azul e do banho bege, `#121212` no dark mode, limiares de entregabilidade e benchmarks rotulados como direcionais (`skills/email-design/draft/`, `skills/auditoria-omnisend/draft/`) |
@@ -87,6 +87,22 @@ A licenca MIT exige preservar aviso de copyright e de permissao em copias
 ou porcoes substanciais do software. Como nao copiamos, o credito acima
 cumpre a intencao; se algum trecho for copiado literalmente, o aviso
 completo do repo de origem tem que vir junto.
+
+## Caminho do reaproveitamento
+
+Um esclarecimento que a tabela acima nao mostra sozinha: na maior parte
+dos casos **nao derivamos repo por repo**. As duas pesquisas em
+`docs/pesquisa/` ja haviam destilado as fontes F5 a F10, e foi delas que
+as regras C01 a C47 sairam. Os repos serviram para conferir a destilacao
+e para pegar o que a pesquisa nao cobria.
+
+Por isso ha creditos marcados "via F6" ou "via F10": a ideia e do repo, o
+caminho ate aqui passou pela pesquisa. O credito e devido do mesmo jeito.
+
+As excecoes, onde lemos o repo direto e nao a pesquisa, sao
+`email-html-qa-skill`, `skill-email-html-mjml`, `prescott-amelia-agents`,
+`chappie`, `email-campaign-skill`, `claude-marketing` e
+`klaviyo-audit-agent-skill`: nenhum deles esta nas duas pesquisas.
 
 ## Sem licenca declarada
 
