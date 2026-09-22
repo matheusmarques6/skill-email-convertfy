@@ -13,6 +13,7 @@ marca_usa_emoji: true
 container_px: 600
 altura_alvo_px: [2000, 3200]
 media_por_mil_trimestre_usd: 43.58
+endereco: "[FALTA: endereco fisico do remetente, exigido por CAN-SPAM]"
 ---
 
 # Blue Wolf

@@ -36,3 +36,5 @@ out/
 
 # Pacotes gerados por scripts/build_zip.py
 dist/
+out/
+evals/render/

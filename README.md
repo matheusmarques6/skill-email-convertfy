@@ -52,6 +52,65 @@ python3 scripts/build_zip.py email-qa   # so uma
 Cada zip e autocontido: leva junto os arquivos de `shared/` e `scripts/`
 que a skill cita, com os caminhos reescritos.
 
+## Ver a peça antes de entregar
+
+A suíte não entrega HTML sem alguém olhar. O ciclo é:
+
+```bash
+python3 scripts/render.py peca.html --nome minha-peca
+```
+
+Saídas em `evals/render/minha-peca/`:
+
+| Arquivo | O que é |
+|---|---|
+| `desktop-600.png` | 600 px, página inteira |
+| `mobile-375.png` | 375 px, viewport de celular |
+| `dark-600.png` | dark mode **com inversão forçada**, como o app do Gmail |
+| `relatorio.json` e `.md` | altura, peso, imagem quebrada, CTA na dobra |
+
+**Os PNGs precisam ser abertos, não só gerados.** O `render.py` mede R01
+a R10 sozinho. De R11 em diante (deserto branco, peça anêmica, promessa
+sem bloco, hierarquia achatada, dark mode com texto invisível) só o olho
+pega. Catálogo em `shared/anti-vicios-visuais.md`, passo a passo em
+`skills/email-design/references/ciclo-de-render.md`.
+
+Máximo 3 rodadas. Sobrou problema, entrega com a lista.
+
+### Dependência
+
+```bash
+python3 -m pip install playwright
+```
+
+**Não rode `playwright install`.** O Chromium já existe no ambiente, em
+`PLAYWRIGHT_BROWSERS_PATH` (`/opt/pw-browsers`). O `render.py` procura o
+binário sozinho, porque a versão do pacote pip costuma não bater com a
+build instalada e o launch padrão falha pedindo download.
+
+## Produzir um lote
+
+```bash
+python3 scripts/produzir_lote.py --loja blue-wolf --limite 5
+```
+
+Lê um arquivo de briefs (padrão:
+`fontes/BFCM-2026-Convertfy/09_Dados/Briefs_Q4_2026_Convertfy.json`) e,
+por brief, faz copy → estrutura → HTML → render → lint → nota.
+
+Saída em `out/<loja>/<data-hora>-<slug>/` com `email.html`, os três PNGs,
+`copy.json` e `relatorio.md`. Mais `out/<loja>/index.html`, a galeria para
+aprovar tudo em uma tela.
+
+Peça com violação B ou nota abaixo de 8 vai para `out/<loja>/_reprovados/`
+com `MOTIVO.txt`.
+
+**A nota do lote é mecânica**, derivada do lint e dos avisos de render.
+Não substitui o `email-revisor`, que precisa ler os PNGs em contexto
+limpo. O relatório de cada peça diz isso.
+
+`out/` e `evals/render/` estão no `.gitignore`.
+
 ## O gate
 
 Nada sai com violacao de severidade B.

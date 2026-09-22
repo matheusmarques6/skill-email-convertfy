@@ -332,12 +332,48 @@ inferencia, nem copie o `aliviador` de uma variante parecida.
 
 Ver `docs/vault/migracao-contrato.md`.
 
+
+## Ciclo de render: olhar e corrigir
+
+O HTML **não é entregue sem passar pelo render**. Gerar sem olhar é o
+defeito que este ciclo existe para acabar.
+
+```bash
+python3 scripts/render.py peca.html --nome <slug>
+```
+
+Saídas em `evals/render/<slug>/`: `desktop-600.png`, `mobile-375.png`,
+`dark-600.png` e o relatório com altura, peso e imagem quebrada.
+
+**Abra os três.** O `render.py` mede R01 a R10 sozinho; de R11 em diante
+(deserto branco, peça anêmica, promessa sem bloco, hierarquia achatada,
+dark mode com texto invisível) só o olho pega.
+
+| Rodada | O que fazer |
+|---|---|
+| 1 | Listar tudo, corrigir o estrutural |
+| 2 | Conferir o corrigido, pegar o que a correção quebrou |
+| 3 | Última. **Entregar com a lista do que ficou** |
+
+Depois do ciclo, nesta ordem: `lint_email.py`, `lint_copy.py`, e o
+**revisor em contexto limpo**, que recebe só os três PNGs e a ficha da
+marca.
+
+Se existir `briefs/<campanha>/referencia.png`, compare e aproxime o que
+der, registrando as diferenças que são limitação de e-mail.
+
+Passo a passo, o que olhar em cada captura e a tabela de diferenças
+inevitáveis: `references/ciclo-de-render.md`.
+Catálogo dos vícios visuais: `shared/anti-vicios-visuais.md`.
+
 ## Referências
 
 | Arquivo | Quando abrir |
 |---|---|
 | `references/checklist-tecnico.md` | Ao montar ou revisar o HTML |
 | `references/dark-mode.md` | Sempre que a peça tiver logo, botão colorido ou fundo que não seja branco liso |
+| `references/ciclo-de-render.md` | Rodar o ciclo e ler as capturas |
+| `shared/anti-vicios-visuais.md` | Os IDs R01 a R22 |
 | `references/vicios-de-design.md` | Ao julgar se um padrão é vício ou convenção |
 | `shared/anti-vicios-design.md` | Sempre |
 | `vault/componentes/_protocolo-de-selecao.md` | Para escolher variante |
