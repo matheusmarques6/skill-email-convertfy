@@ -240,6 +240,47 @@ class CasosNegativosConvertfy(unittest.TestCase):
                 self.assertIn("C03", regras(r))
                 self.assertTrue(r["bloqueia"])
 
+    def test_c34_title_case_so_vale_em_pt_br(self):
+        """C34 e escopo de idioma, nao cobertura faltando.
+
+        Loja inglesa pode usar Title Case no assunto: la e convencao
+        editorial. Em pt-BR continua sendo vicio.
+        """
+        titulo = "Free Shipping On All Orders Today"
+        p_en = copy.deepcopy(BASE_EN)
+        p_en["assunto"] = titulo
+        self.assertNotIn("C34", regras(roda(p_en)))
+
+        p_pt = copy.deepcopy(BASE_PT)
+        p_pt["blocos"] = ["Frete Gratis Em Todo O Site Hoje"]
+        self.assertIn("C34", regras(roda(p_pt)))
+
+    def test_c31_emoji_no_assunto_depende_da_ficha(self):
+        """Emoji no assunto so quando marcas/<cliente>.md autoriza.
+
+        Sem ficha, ou com o campo ausente, o padrao e nao permitir.
+        """
+        base = copy.deepcopy(BASE_PT)
+        base["assunto"] = "Chegou a novidade \U0001F389"
+
+        sem_ficha = copy.deepcopy(base)
+        sem_ficha.pop("marca_usa_emoji", None)
+        self.assertIn("C31", regras(roda(sem_ficha)))
+
+        proibido = copy.deepcopy(base)
+        proibido["marca_usa_emoji"] = False
+        self.assertIn("C31", regras(roda(proibido)))
+
+        permitido = copy.deepcopy(base)
+        permitido["marca_usa_emoji"] = True
+        self.assertNotIn("C31", regras(roda(permitido)))
+
+    def test_c31_emoji_no_corpo_nunca_sem_ficha(self):
+        p = copy.deepcopy(BASE_PT)
+        p["blocos"] = ["Aproveite \U0001F525 hoje."]
+        p["marca_usa_emoji"] = False
+        self.assertIn("C31", regras(roda(p)))
+
     def test_cupom_no_idioma_errado_bloqueia(self):
         p = copy.deepcopy(BASE_EN)
         p["blocos"] = ["Use code PEDIDO18 today for 18% off."]

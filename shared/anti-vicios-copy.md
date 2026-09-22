@@ -283,6 +283,14 @@ Evidência fraca a moderada. Vale a ficha da marca: no máximo 1 no assunto quan
 a marca usa, 0 no corpo fora isso. No corpus humano, os 8 emojis estavam
 concentrados em 1 marca de 35.
 
+**Emoji no assunto só se a ficha da marca permitir.** O campo é
+`marca_usa_emoji` em `marcas/<cliente>.md`. Sem ficha, ou com o campo
+ausente, o padrão é **não permitir**: o lint trata como `false`.
+
+Permitido significa no máximo 1 no assunto, nunca no corpo. Marca que usa
+emoji no corpo declara isso na ficha e a divergência fica registrada lá.
+
+
 ### C32 Negrito pulverizado
 **M · R · F5, F6 · confirmada**
 Mais de 2 `<strong>` no mesmo parágrafo. Negrito é para o código do cupom e para
@@ -297,7 +305,18 @@ O preheader da Insider (F4) usa enchimento invisível: não copie isso.
 **M · R · F6 · interna**
 - Ruim pt: `Frete Grátis Em Todo O Site`, `Uma Nova Era Começa`
 - Bom pt: `Frete grátis em todo o site` ou `FRETE GRÁTIS`
-Não se aplica ao inglês, onde Title Case é convenção.
+
+**Escopo: só pt-BR.** Loja de idioma inglês **pode** usar Title Case no
+assunto e no corpo, porque lá é convenção editorial, não vício. O lint
+devolve zero achados de C34 quando `idioma` não é `pt-br`, e isso é
+deliberado: não é lacuna de cobertura.
+
+O idioma vem da ficha da loja (`marcas/<cliente>.md`), não do texto. Loja
+inglesa com uma frase em português segue sendo loja inglesa.
+
+Conflito conhecido: `vault/componentes/doutrina/subject-line-e-preview.md`
+prescreve Title Case sem qualificar idioma. Em pt-BR, C34 vence. A
+correção a fazer no vault está em `docs/pesquisa/vault-correcoes.md`.
 
 ### C35 Caixa alta em parágrafo
 **M · R · arsenal · interna**
