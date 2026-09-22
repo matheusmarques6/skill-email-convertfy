@@ -67,6 +67,31 @@ parte de julgamento de C02 (o número existe, mas mede o que a frase diz?).
 
 ## 5.1 Regras duras da Convertfy
 
+
+## Regras confirmadas pelos dados da própria carteira
+
+Nível 2 da hierarquia do `CLAUDE.md`. Estas regras deixaram de depender
+só da pesquisa publicada: a carteira da Convertfy mede o mesmo.
+
+| Regra | Dado interno | Fonte |
+|---|---|---|
+| C01 travessão | "Sem travessão" é regra dura da casa | `05_Modelos_validados/regras-de-copy-de-campanha.md` |
+| C02 número inventado | "Número de prova só se for real da loja" | idem |
+| C04 idioma do cupom | "Idioma certo" no checklist de agendamento | idem |
+| C06 urgência falsa | "Avaliação, estoque, contador e número só se forem reais da loja. Sem o dado, o bloco sai" | `08_Skill/SKILL...md`, princípio 3 |
+| C20 superlativo vazio | Esquenta em tom de anúncio, sem número nem prazo: **1 pedido** | `08_Skill/SKILL...md`, seção 3 |
+| C41 preheader | "O pré-cabeçalho completa o assunto com a oferta ou o prazo" | `08_Skill/SKILL...md`, seção 11 |
+| C42 oferta em texto vivo | "Oferta na primeira tela", "Oferta em 3 segundos" | `regras-de-copy-de-campanha.md` |
+| C43 e C44 CTA | "Um botão principal" por e-mail | `08_Skill/SKILL...md`, seção 10 |
+| C46 condição da oferta | "Prazo com data e hora", "Cupom testado e com limite real" | `regras-de-copy-de-campanha.md` |
+| C34 Title Case | Assuntos validados da Blue Wolf são em inglês com Title Case | `04_Assuntos/` |
+
+Nove regras do catálogo estão em disputa com os dados e **não foram
+alteradas**: C03, C05, C22, C30, C31, C45 e P09, mais D01 a D05 e D13.
+A redação proposta para cada uma está em
+`docs/reconciliacao-regras-dados.md`, aguardando aprovação.
+
+
 ### C01 Travessão em qualquer campo
 **B · R · F1 · refinada**
 A evidência publicada sustenta "proibir como padrão", não proibição absoluta: o
