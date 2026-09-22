@@ -1,0 +1,23 @@
+# Referencias externas: clonadas localmente, nunca versionadas
+vendor/
+
+# Vault Obsidian (fonte de verdade, somente leitura, fora do git)
+vault
+vault/
+
+# Sistema / editores
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Runtime
+node_modules/
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+tmp/
+out/
