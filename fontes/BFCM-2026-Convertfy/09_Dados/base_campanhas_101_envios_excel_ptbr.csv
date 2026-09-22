@@ -1,0 +1,102 @@
+﻿loja;mercado;idioma;mes;data_envio;campanha_modelo;ciclo_papel;segmento_22k;modelo;estrutura;altura_px;desconto_pct_cupom;envios;aberturas;cliques;pedidos;receita_usd;descadastros;spam;abertura_pct;clique_pct;clique_em_pedido_pct;rpm_usd;indice_vs_media_loja;descadastro_pct
+Blue Wolf;Global;en;jun;17/06;Semana Copa 2;tematica;nao;imagem;;;;13599;5107;418;12;896,49;88;2;37,6;3,07;2,9;65,9;1,51;0,65
+Blue Wolf;Global;en;jun;19/06;Album figurinha;gamificada;nao;imagem;;;;13681;4983;219;6;513,06;43;3;36,4;1,6;2,7;37,5;0,86;0,31
+Blue Wolf;Global;en;jun;26/06;Social proof;prova;nao;imagem;;;;13790;4013;143;5;343,9;48;4;29,1;1,04;3,5;24,9;0,57;0,35
+Blue Wolf;Global;en;jul;01/07;Antecip 7.7 #1 convite;esquenta;nao;imagem;B;2514;;13961;5728;343;8;653,83;97;6;41,0;2,46;2,3;46,8;1,07;0,69
+Blue Wolf;Global;en;jul;03/07;Antecip 7.7 #2 agenda;esquenta;nao;imagem;B;3133;;13937;6171;265;14;1171,42;97;7;44,3;1,9;5,3;84,1;1,93;0,7
+Blue Wolf;Global;en;jul;06/07;Antecip 7.7 #3 acesso pendente;vespera;nao;texto;D;;;13760;5390;215;7;874,32;115;3;39,2;1,56;3,3;63,5;1,46;0,84
+Blue Wolf;Global;en;jul;07/07 07h;7.7 #1 cupom aprovado;pico1;nao;texto;D;;17;13698;5507;201;6;336,88;91;3;40,2;1,47;3,0;24,6;0,56;0,66
+Blue Wolf;Global;en;jul;07/07 11h;7.7 #2 role ate o fim;pico2;nao;imagem;;3414;17;13679;4528;174;12;737,68;70;3;33,1;1,27;6,9;53,9;1,24;0,51
+Blue Wolf;Global;en;jul;07/07 18h;7.7 #3 final call;pico3;nao;imagem;A;3178;17;13629;5288;417;14;1435,34;94;1;38,8;3,06;3,4;105,3;2,42;0,69
+Blue Wolf;Global;en;jul;15/07;Favoritos do 7.7;ressaca;nao;imagem;;2520;;15714;5773;502;14;1120,67;94;5;36,7;3,19;2,8;71,3;1,64;0,6
+Blue Wolf;Global;en;jul;18/07;Final Copa;tematica;nao;imagem;;3154;;15542;5408;357;13;862,76;72;6;34,8;2,3;3,6;55,5;1,27;0,46
+Blue Wolf;Global;en;jul;20/07;Revele seu desconto;gamificada;nao;imagem;A;2169;15;15575;5572;258;18;1066,14;99;5;35,8;1,66;7,0;68,5;1,57;0,64
+Blue Wolf;Global;en;jul;22/07;Jornal;notificacao;nao;imagem;A;2469;15;15606;5515;318;15;1122,53;100;4;35,3;2,04;4,7;71,9;1,65;0,64
+Blue Wolf;Global;en;jul;24/07;Ligacao;notificacao;nao;imagem;A;2312;15;15437;5320;261;11;755,69;69;6;34,5;1,69;4,2;49,0;1,12;0,45
+Blue Wolf;Global;en;jul;25/07;Reabertura;ressaca;nao;texto;D;;;15472;5671;191;8;775,77;84;6;36,7;1,23;4,2;50,1;1,15;0,54
+Blue Wolf;Global;en;jul;27/07;Segunda da sorte;gamificada;nao;imagem;;1796;;15521;5363;282;3;267,44;84;3;34,6;1,82;1,1;17,2;0,4;0,54
+Blue Wolf;Global;en;jul;29/07;UGC social proof;prova;nao;imagem;;3960;;15531;4136;142;7;522,07;45;4;26,6;0,91;4,9;33,6;0,77;0,29
+Blue Wolf;Global;en;jul;31/07;Sexta premiada;gamificada;nao;imagem;;1934;;15584;5210;247;9;781,91;66;1;33,4;1,58;3,6;50,2;1,15;0,42
+Blue Wolf;Global;en;ago;03/08;Esq 8.8 #1 warm-up;esquenta;nao;imagem;;2830;;15680;5334;192;1;72,85;65;4;34,0;1,22;0,5;4,6;0,11;0,41
+Blue Wolf;Global;en;ago;05/08;Esq 8.8 #2 bom motivo;esquenta;nao;imagem;;3399;;15591;5316;154;6;477,95;52;2;34,1;0,99;3,9;30,7;0,7;0,33
+Blue Wolf;Global;en;ago;07/08;Esq 8.8 #3 amanha;vespera;nao;imagem;;3250;;15643;5338;206;10;718,08;59;3;34,1;1,32;4,9;45,9;1,05;0,38
+Blue Wolf;Global;en;ago;08/08 07h;8.8 #1 Fwd lista;pico1;nao;texto;D;;18;15676;6116;186;7;503,65;87;3;39,0;1,19;3,8;32,1;0,74;0,55
+Blue Wolf;Global;en;ago;08/08 11h;8.8 #2 primeiros 100;pico2;nao;imagem;A;2770;18;15644;5311;205;8;571,52;64;3;33,9;1,31;3,9;36,5;0,84;0,41
+Blue Wolf;Global;en;ago;08/08 18h;8.8 #3 status mudou;pico3;nao;imagem;A;3230;18;15561;6572;325;18;1673,53;129;4;42,2;2,09;5,5;107,5;2,47;0,83
+Blue Wolf;Global;en;ago;11/08;Ressaca 8.8;ressaca;nao;imagem;;1863;;15572;6027;191;8;628,85;80;1;38,7;1,23;4,2;40,4;0,93;0,51
+Blue Wolf;Global;en;ago;14/08;Sextou;recorrente;nao;imagem;;2579;;15577;5397;219;6;543,51;56;3;34,6;1,41;2,7;34,9;0,8;0,36
+Blue Wolf;Global;en;ago;17/08;Segunda turbo;gamificada;nao;imagem;;2635;;15725;5308;236;6;950,45;55;0;33,8;1,5;2,5;60,4;1,39;0,35
+Blue Wolf;Global;en;ago;19/08;UGC dia da foto;prova;nao;imagem;;2803;;16361;5287;165;5;408,2;62;1;32,3;1,01;3,0;24,9;0,57;0,38
+Blue Wolf;Global;en;ago;21/08;Catalogo indecisao;catalogo;nao;imagem;;3121;;16394;5587;310;5;394,69;71;5;34,1;1,89;1,6;24,1;0,55;0,43
+Blue Wolf;Global;en;ago;24/08;Semana15 #1 On&Off;semana15;nao;imagem;;3210;15;16516;6245;478;8;778,98;67;3;37,8;2,89;1,7;47,2;1,08;0,41
+Blue Wolf;Global;en;ago;26/08;Semana15 #2 Escolha caminho;semana15;nao;imagem;;1964;15;16519;6172;161;3;208,26;65;0;37,4;0,97;1,9;12,6;0,29;0,39
+Blue Wolf;Global;en;ago;28/08;Semana15 #3 Notif futuro;notificacao;nao;imagem;C;2128;15;16577;6133;598;9;648,22;85;2;37,0;3,61;1,5;39,1;0,9;0,51
+Blue Wolf;Global;en;ago;31/08;Catalogo fecha mes;catalogo;nao;imagem;;3012;;16620;6023;484;8;815,25;77;0;36,2;2,91;1,7;49,1;1,13;0,46
+Blue Wolf;Global;en;set;03/09;Esq 9.9 #1 Fwd;esquenta;sim;texto;D;;;21733;6370;180;4;482,21;84;6;29,3;0,83;2,2;22,2;0,51;0,39
+Blue Wolf;Global;en;set;05/09;Esq 9.9 #2 prometi avisar;esquenta;sim;imagem;;2661;;21862;6019;503;12;729,57;67;5;27,5;2,3;2,4;33,4;0,77;0,31
+Blue Wolf;Global;en;set;07/09;Esq 9.9 #3 acesso garantido;esquenta;sim;imagem;;3207;;22042;5732;487;3;287,37;68;2;26,0;2,21;0,6;13,0;0,3;0,31
+Blue Wolf;Global;en;set;08/09;Esq 9.9 #4 agendado amanha;vespera;sim;imagem;;3767;;22093;6364;534;5;427,19;66;5;28,8;2,42;0,9;19,3;0,44;0,3
+Blue Wolf;Global;en;set;09/09 07h;9.9 #1 cupom liberado;pico1;nao;texto;D;;19;16810;5929;194;13;1215,92;47;0;35,3;1,15;6,7;72,3;1,66;0,28
+Blue Wolf;Global;en;set;09/09 11h;9.9 #2 acesso concedido;pico2;nao;imagem;A;4136;19;16790;5859;453;7;512,06;52;4;34,9;2,7;1,5;30,5;0,7;0,31
+Blue Wolf;Global;en;set;09/09 18h;9.9 #3 status mudou;pico3;nao;imagem;A;2469;19;16743;6998;596;15;1028,01;84;1;41,8;3,56;2,5;61,4;1,41;0,5
+Blue Wolf;Global;en;set;11/09;Ressaca 9.9;ressaca;nao;imagem;C;1735;;16771;5811;537;14;1303,3;49;1;34,6;3,2;2,6;77,7;1,78;0,29
+Blue Wolf;Global;en;set;14/09;Antecip VIP Day confirmado;vespera;nao;imagem;C;1081;;16818;5641;259;5;440,74;60;0;33,5;1,54;1,9;26,2;0,6;0,36
+Blue Wolf;Global;en;set;15/09 07h;VIP Day #1 selecionado;pico1;nao;texto;D;;17;16780;5565;213;5;541,95;56;0;33,2;1,27;2,3;32,3;0,74;0,33
+Blue Wolf;Global;en;set;15/09 11h;VIP Day #2 aprovado?;pico2;nao;imagem;;3176;17;16766;5319;191;6;846,58;40;3;31,7;1,14;3,1;50,5;1,16;0,24
+Blue Wolf;Global;en;set;15/09 18h;VIP Day #3 premio reservado;pico3;nao;imagem;;3553;17;16699;5224;228;4;324,04;38;3;31,3;1,37;1,8;19,4;0,45;0,23
+Blue Wolf;Global;en;set;17/09;VIP Week #1;extensao;nao;imagem;A;2788;17;16762;4945;208;6;567,49;32;1;29,5;1,24;2,9;33,9;0,78;0,19
+Clube Rock;Brasil;pt;jun;17/06;Semana Copa 2;tematica;nao;imagem;;;;32809;8238;283;30;4383,99;168;4;25,1;0,86;10,6;133,6;1,18;0,51
+Clube Rock;Brasil;pt;jun;19/06;Album figurinha;gamificada;nao;imagem;;;;33190;7694;179;36;4804,54;55;4;23,2;0,54;20,1;144,8;1,28;0,17
+Clube Rock;Brasil;pt;jun;26/06;Social proof;prova;nao;imagem;;;;34513;8004;152;37;4688,62;63;5;23,2;0,44;24,3;135,9;1,2;0,18
+Clube Rock;Brasil;pt;jul;01/07;Antecip 7.7 convite;antecipacao;nao;imagem;;;;35357;8811;279;25;3182,49;62;7;24,9;0,79;9,0;90,0;0,8;0,18
+Clube Rock;Brasil;pt;jul;03/07;Antecip 7.7 agenda;antecipacao;nao;imagem;;;;35728;8642;171;30;4165,58;70;3;24,2;0,48;17,5;116,6;1,03;0,2
+Clube Rock;Brasil;pt;jul;06/07;Antecip 7.7 acesso pendente;vespera;nao;texto;;;;36306;9420;274;24;2481,48;134;7;25,9;0,75;8,8;68,3;0,61;0,37
+Clube Rock;Brasil;pt;jul;07/07 07h;7.7 #1 cupom aprovado (Henrique);pico 7h;nao;texto;;;;36496;12598;754;89;14510,69;118;8;34,5;2,07;11,8;397,6;3,52;0,32
+Clube Rock;Brasil;pt;jul;07/07 11h;7.7 #2 va ate o final;pico 11h;nao;imagem;;;;36437;8642;324;31;4812,08;118;6;23,7;0,89;9,6;132,1;1,17;0,32
+Clube Rock;Brasil;pt;jul;07/07 18h;7.7 #3 ultima chamada;pico 18h;nao;imagem;;;;36450;8468;318;23;3696,69;130;4;23,2;0,87;7,2;101,4;0,9;0,36
+Clube Rock;Brasil;pt;jul;08/07;Pos 7.7 obrigado (Henrique);ressaca;nao;texto;;;;36557;10407;0;31;4589,21;197;7;28,5;0,0;;125,5;1,11;0,54
+Clube Rock;Brasil;pt;jul;10/07;Antecip Dia do Rock (seg. ampliado);antecipacao;sim;imagem;;;;53979;8827;224;33;4489,78;131;4;16,4;0,41;14,7;83,2;0,74;0,24
+Clube Rock;Brasil;pt;jul;13/07 07h;Dia do Rock #1 3 por 169 (Henrique);pico 7h;nao;texto;;;;37609;9708;362;49;8272,4;195;8;25,8;0,96;13,5;220,0;1,95;0,52
+Clube Rock;Brasil;pt;jul;13/07 11h;Dia do Rock #2 R$56 a camiseta;pico 11h;nao;imagem;;;;37530;8779;528;50;7706,87;151;6;23,4;1,41;9,5;205,4;1,82;0,4
+Clube Rock;Brasil;pt;jul;13/07 18h;Dia do Rock #3 some a meia-noite;pico 18h;nao;imagem;;;;37590;8750;415;29;5322,69;168;6;23,3;1,1;7,0;141,6;1,26;0,45
+Clube Rock;Brasil;pt;jul;15/07;Favoritos do Dia do Rock;ressaca;nao;imagem;;;;37195;9252;464;30;3750,71;174;4;24,9;1,25;6,5;100,8;0,89;0,47
+Clube Rock;Brasil;pt;jul;18/07;Final Copa;tematica;nao;imagem;;;;37545;9527;549;22;2536,88;176;6;25,4;1,46;4,0;67,6;0,6;0,47
+Clube Rock;Brasil;pt;jul;20/07;Revele seu desconto;gamificada;nao;imagem;;;;37818;9400;561;39;5194,8;176;9;24,9;1,48;7,0;137,4;1,22;0,47
+Clube Rock;Brasil;pt;jul;22/07;Jornal;notificacao;nao;imagem;;;;38356;9898;501;48;7633,32;186;3;25,8;1,31;9,6;199,0;1,76;0,48
+Clube Rock;Brasil;pt;jul;24/07;Ligacao;notificacao;nao;imagem;;;;38354;9632;441;24;3473,36;174;8;25,1;1,15;5,4;90,6;0,8;0,45
+Clube Rock;Brasil;pt;jul;25/07;Reabertura (Henrique);ressaca;nao;texto;;;;41069;11022;260;33;4325,29;277;6;26,8;0,63;12,7;105,3;0,93;0,67
+Clube Rock;Brasil;pt;jul;27/07;Segunda da sorte;gamificada;nao;imagem;;;;41322;10076;413;35;3807,59;250;14;24,4;1,0;8,5;92,1;0,82;0,61
+Clube Rock;Brasil;pt;jul;29/07;UGC Dia dos Pais;prova;nao;imagem;;;;41659;9674;160;39;7520,85;245;8;23,2;0,38;24,4;180,5;1,6;0,59
+Clube Rock;Brasil;pt;jul;31/07;Sexta premiada;gamificada;nao;imagem;;;;42197;10588;641;51;6746,47;227;9;25,1;1,52;8,0;159,9;1,42;0,54
+Clube Rock;Brasil;pt;ago;03/08;Esquenta 8.8 #1;antecipacao;nao;imagem;;;;43017;10070;382;31;4556,18;230;9;23,4;0,89;8,1;105,9;0,94;0,53
+Clube Rock;Brasil;pt;ago;05/08;Esquenta 8.8 #2;antecipacao;nao;imagem;;;;42993;10353;375;32;5406,06;193;11;24,1;0,87;8,5;125,7;1,11;0,45
+Clube Rock;Brasil;pt;ago;07/08;Esquenta 8.8 vespera;vespera;nao;imagem;;;;43547;10299;440;25;4523,14;61;15;23,7;1,01;5,7;103,9;0,92;0,14
+Clube Rock;Brasil;pt;ago;08/08 07h;8.8 #1 Enc lista;pico 7h;nao;texto;;;;43799;11194;132;32;4946,78;206;6;25,6;0,3;24,2;112,9;1,0;0,47
+Clube Rock;Brasil;pt;ago;08/08 11h;8.8 #2 100 primeiros;pico 11h;nao;imagem;;;;43857;9933;377;35;6806,99;198;7;22,6;0,86;9,3;155,2;1,38;0,45
+Clube Rock;Brasil;pt;ago;08/08 18h;8.8 #3 status mudou;pico 18h;nao;imagem;;;;43713;15944;542;95;12070,19;229;10;36,5;1,24;17,5;276,1;2,45;0,52
+Clube Rock;Brasil;pt;ago;11/08;Ressaca 8.8;ressaca;nao;imagem;;;;44346;10172;399;24;2932,66;174;8;22,9;0,9;6,0;66,1;0,59;0,39
+Clube Rock;Brasil;pt;ago;14/08;Ouro Nacional (colecao);lancamento;nao;imagem;;;;44993;10584;507;35;4698,18;156;10;23,5;1,13;6,9;104,4;0,93;0,35
+Clube Rock;Brasil;pt;ago;17/08;Segunda turbo;gamificada;nao;imagem;;;;45862;10941;563;38;4789,46;133;12;23,9;1,23;6,7;104,4;0,93;0,29
+Clube Rock;Brasil;pt;ago;19/08;UGC Dia da Fotografia;prova;nao;imagem;;;;46151;11280;268;34;4614,58;150;10;24,4;0,58;12,7;100,0;0,89;0,33
+Clube Rock;Brasil;pt;ago;21/08;Catalogo indecisao;catalogo;nao;imagem;;;;46588;10442;224;27;3500,19;123;8;22,4;0,48;12,1;75,1;0,67;0,26
+Clube Rock;Brasil;pt;ago;22/08;Antecip Oversized (Henrique);lancamento;nao;texto;;;;46873;11656;0;16;4225,63;140;4;24,9;0,0;;90,2;0,8;0,3
+Clube Rock;Brasil;pt;ago;23/08;Lancamento Oversized R$99;lancamento;nao;imagem;;;;47050;10685;326;21;3243,01;136;8;22,7;0,69;6,4;68,9;0,61;0,29
+Clube Rock;Brasil;pt;ago;24/08;Semana 15% On&Off;semana15;nao;imagem;;;;47204;10988;455;40;5649,83;163;14;23,3;0,96;8,8;119,7;1,06;0,35
+Clube Rock;Brasil;pt;ago;26/08;Semana 15% Escolha caminho;semana15;nao;imagem;;;;47596;11154;211;31;3495,8;156;5;23,4;0,44;14,7;73,4;0,65;0,33
+Clube Rock;Brasil;pt;ago;28/08;Notificacao do futuro;notificacao;nao;imagem;;;;48094;11565;526;52;7738,4;132;7;24,0;1,09;9,9;160,9;1,43;0,27
+Clube Rock;Brasil;pt;ago;31/08;Catalogo fecha mes;catalogo;nao;imagem;;;;48588;11602;463;22;2902,36;135;10;23,9;0,95;4,8;59,7;0,53;0,28
+Clube Rock;Brasil;pt;set;01/09;SOAD tour;lancamento;nao;imagem;;;;48711;11211;158;15;3063,94;121;6;23,0;0,32;9,5;62,9;0,56;0,25
+Clube Rock;Brasil;pt;set;02/09;Rock in Rio kit 3 por 189;tematica;nao;imagem;;;;47789;10891;202;28;4578,73;115;4;22,8;0,42;13,9;95,8;0,85;0,24
+Clube Rock;Brasil;pt;set;03/09;Esquenta 9.9 #1 Enc (80k);antecipacao;sim;texto;;;;79447;12416;230;32;4432,09;208;8;15,6;0,29;13,9;55,8;0,49;0,26
+Clube Rock;Brasil;pt;set;05/09;Esquenta 9.9 #2 (80k);antecipacao;sim;imagem;;;;80215;12242;349;31;4965,74;168;9;15,3;0,44;8,9;61,9;0,55;0,21
+Clube Rock;Brasil;pt;set;07/09;7 de Setembro (80k);tematica;sim;imagem;;;;81238;11753;242;30;3598,15;149;4;14,5;0,3;12,4;44,3;0,39;0,18
+Clube Rock;Brasil;pt;set;08/09;Esquenta 9.9 vespera (80k);vespera;sim;imagem;;;;81757;11391;264;20;2658,42;141;13;13,9;0,32;7,6;32,5;0,29;0,17
+Clube Rock;Brasil;pt;set;09/09 07h;9.9 #1 cupom liberado;pico 7h;nao;texto;;;;49421;11541;401;67;10667,8;103;2;23,4;0,81;16,7;215,9;1,91;0,21
+Clube Rock;Brasil;pt;set;09/09 11h;9.9 #2 acesso liberado;pico 11h;nao;imagem;;;;49464;10759;310;47;8151,46;118;4;21,8;0,63;15,2;164,8;1,46;0,24
+Clube Rock;Brasil;pt;set;09/09 18h;9.9 #3 status mudou;pico 18h;nao;imagem;;;;49320;14901;564;94;12494,68;145;3;30,2;1,14;16,7;253,3;2,25;0,29
+Clube Rock;Brasil;pt;set;11/09;Ressaca 9.9;ressaca;nao;imagem;;;;49681;12313;436;34;3404,66;155;5;24,8;0,88;7,8;68,5;0,61;0,31
+Clube Rock;Brasil;pt;set;14/09;Antecip Dia do Cliente;vespera;nao;imagem;;;;50052;11404;262;15;2573,12;119;4;22,8;0,52;5,7;51,4;0,46;0,24
+Clube Rock;Brasil;pt;set;15/09 07h;Dia do Cliente #1 escolhido;pico 7h;nao;texto;;;;50167;12498;375;40;5389,07;104;4;24,9;0,75;10,7;107,4;0,95;0,21
+Clube Rock;Brasil;pt;set;15/09 11h;Dia do Cliente #2 aprovado?;pico 11h;nao;imagem;;;;49925;10768;230;19;2246,97;92;3;21,6;0,46;8,3;45,0;0,4;0,18
+Clube Rock;Brasil;pt;set;15/09 18h;Dia do Cliente #3 premio;pico 18h;nao;imagem;;;;49867;10917;258;34;5516,89;144;2;21,9;0,52;13,2;110,6;0,98;0,29
+Clube Rock;Brasil;pt;set;17/09;Semana do Cliente #1;extensao;nao;imagem;;;;50253;9895;171;16;2083,99;78;2;19,7;0,34;9,4;41,5;0,37;0,16

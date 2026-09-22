@@ -37,8 +37,55 @@ skill invente:
 Regra de ouro herdada do vault: frontmatter e contrato aplicado por codigo,
 corpo e julgamento lido por LLM. Nunca escreva regra dura so em prosa.
 
-Precedencia quando houver conflito:
-**brief da loja > vault > este CLAUDE.md > skill > vendor.**
+## Hierarquia de fontes
+
+Sete niveis. Quando duas fontes discordam, vence a de numero menor.
+
+| # | Fonte | Onde |
+|---|---|---|
+| **1** | **Regras legais e eticas, inegociaveis** | C02, C06 e a parte de simulacao do C03 |
+| **2** | **Dados de desempenho da propria carteira** | `fontes/BFCM-2026-Convertfy/09_Dados/`, `10_Documentos/`, `08_Skill/`, `05_Modelos_validados/ranking-de-modelos.md`, resumidos em `docs/dados/` |
+| **3** | **Vault canonico** | `vault-repo/` (o symlink `vault/` e a parte de e-mail) |
+| **4** | **Regras fixas da Convertfy** | este CLAUDE.md: layout neutro, 600px, sem travessao, copy curta |
+| **5** | **Evidencia publicada, so forca forte ou moderada** | `docs/pesquisa/evidencias-publicadas.md` |
+| **6** | **Catalogo de vicios** | `docs/pesquisa/pesquisa-vicios-ia-email.md` |
+| **7** | **Referencia externa** | `vendor/` |
+
+Alem desses, o **brief da loja** decide o que e especifico daquela loja
+(oferta, produto, prazo, cor da marca). Ele nao revoga o nivel 1.
+
+### Nivel 1: o que nenhum dado revoga
+
+Vale mesmo que um numero de desempenho diga o contrario:
+
+- **C02.** Nao inventar numero, estoque, avaliacao, contador ou
+  depoimento. Sem o dado real da loja, o bloco sai.
+- **C06.** Nao criar urgencia falsa. Contador so se for real.
+- **C03, parte de simulacao.** Nao simular pedido, resposta ou
+  encaminhamento que nao existe.
+
+Um assunto que vende mais sendo enganoso continua proibido. Desempenho
+nao e argumento contra o nivel 1.
+
+### Quando o nivel 2 contradiz os niveis 4 a 7
+
+**O dado ganha, e a regra e refinada, nao apagada.** A regra recebe a
+condicao que o dado mostrou, e a mudanca fica registrada em
+`docs/reconciliacao-regras-dados.md` com o numero e a fonte.
+
+Refinar significa estreitar ou abrir o escopo com uma condicao nomeada.
+Nunca significa remover a regra e deixar o campo livre.
+
+### Indice 1
+
+A unidade de comparacao dos dados de nivel 2 e o **indice**: receita por
+mil da campanha dividida pela receita por mil media daquela loja no
+trimestre. Indice 1 e a media da propria loja, indice 2 e o dobro. Serve
+para comparar lojas de tamanho e moeda diferentes.
+
+Precedencia resumida:
+**nivel 1 > brief da loja > dados da carteira > vault > este CLAUDE.md >
+evidencia publicada > catalogo > vendor.**
 
 ## Regras fixas da Convertfy
 
@@ -162,5 +209,7 @@ Estrutura do repo:
 | `evals/casos/` | Casos bons: entrada esperada e saida aceita |
 | `evals/ruins/` | Casos ruins: pecas com vicio, para o linter pegar |
 | `docs/` | Documentacao interna |
+| `fontes/` | Pacotes de origem versionados (.md, .csv, .json) |
+| `vault-repo/` | Clone do vault completo, somente leitura, fora do git |
 | `vendor/` | Referencia externa, somente leitura, fora do git |
 | `.claude-plugin/` | Manifesto do plugin |

@@ -1,0 +1,44 @@
+data;hora;evento;lojas;mediana;lojas_acima_1;pedidos;spam_por_mil;descadastro_pct;assunto
+28/08;10:00;3 - NOTIFICAÇÃO DO FUTURO;39;1,67;24;252;0,126;0,409;[Nome], falta você confirmar esse pedido...
+08/08;18:00;3 - 8.8;33;1,48;25;359;0,124;0,653;🚨 Seu status mudou agora
+19/06;10:00;ÁLBUM FIGURINHA;24;1,35;14;124;0,139;0,288;⚽ Faça o seu gol antes da Seleção
+07/07;18:00;3 - 7.7;30;1,22;17;147;0,089;0,433;🚨 [ÚLTIMA CHAMADA] Expira às 23h59
+31/07;10:00;SEXTA PREMIADA;27;1,17;16;193;0,104;0,486;Você foi premiado hoje 🎁
+24/07;10:00;LIGAÇÃO;28;1,17;15;117;0,146;0,443;[Nome], você recebeu uma ligação 📞
+25/07;10:00;REABERTURA;28;1,15;17;153;0,135;0,532;Eu decidi reabrir tudo por mais um dia
+15/07;10:00;FAVORITOS DO 7.7;29;1,12;16;125;0,113;0,467;[Nome], os favoritos do 7.7 estão te esperando 👀
+22/07;10:00;JORNAL;27;1,10;16;133;0,142;0,421;[Nome], chegou a notícia que você não queria...
+09/09;18:00;3 - 9.9;40;1,04;20;330;0,094;0,417;🚨 Seu status acaba de mudar
+26/06;10:00;SOCIAL PROOF;26;0,98;13;110;0,193;0,338;O que eles sabem que você ainda não?
+01/07;10:00;1 - ANTECIPAÇÃO 7.7;28;0,98;14;104;0,256;0,474;[Nome], chegou um convite pra você ✉️
+09/09;07:00;1 - 9.9;40;0,95;20;242;0,055;0,259;Seu cupom foi liberado ✅
+08/08;07:00;1 - 8.8;33;0,89;15;157;0,185;0,547;Enc: consegui colocar seu nome nessa lista
+07/07;07:00;1 - 7.7;30;0,86;14;186;0,142;0,371;Seu cupom foi aprovado ✅
+17/08;10:00;SEGUNDA TURBO;36;0,83;16;132;0,087;0,371;Você está entre os 100 primeiros?
+31/08;10:00;CATÁLOGO FECHA MÊS;40;0,79;18;158;0,121;0,333;Ignore este e-mail depois das 23h59
+07/07;11:00;2 - 7.7;30;0,75;13;106;0,142;0,376;Vá até o final deste e-mail (tem surpresa)
+09/09;11:00;2 - 9.9;40;0,67;15;160;0,081;0,274;🔓 Seu acesso foi liberado (só hoje)
+15/09;18:00;3 - VIP DAY;33;0,58;12;56;0,096;0,349;Prize reserved for [nome] 🎁
+21/08;10:00;CATÁLOGO INDECISÃO;37;0,58;15;148;0,146;0,389;Ou você escolhe hoje, ou continua adiando…
+26/08;10:00;2 - ESCOLHA O CAMINHO;40;0,57;11;154;0,123;0,394;[Nome], escolha o seu caminho...
+11/09;10:00;RESSACA 9.9;41;0,56;15;183;0,069;0,310;Lamentamos informar que...
+07/08;10:00;3 - ESQUENTA 8.8;14;0,55;4;74;0,175;0,345;Amanhã é o 8.8. Você tá pronto?
+27/07;10:00;SEGUNDA DA SORTE;27;0,54;5;107;0,130;0,469;Cuidado: esse e-mail contém sorte 🍀
+11/08;10:00;RESSACA 8.8;31;0,52;8;125;0,131;0,472;Perdeu o 8.8? Ainda dá tempo... 👀
+17/09;10:00;1 - VIP WEEK;32;0,52;11;41;0,083;0,354;VIP Day just became VIP WEEK 👀
+03/08;10:00;1 - ESQUENTA 8.8;30;0,48;9;130;0,146;0,557;Começou o Esquenta 8.8 🔥
+05/08;10:00;2 - ESQUENTA 8.8;31;0,47;10;166;0,179;0,484;Tem um bom motivo pra você abrir esse e-mail 👀
+08/08;11:00;2 - 8.8;33;0,46;8;109;0,131;0,440;Esse e-mail só vale pros 100 primeiros 🎁
+03/07;10:00;2 - ANTECIPAÇÃO 7.7;28;0,37;10;109;0,155;0,432;[Nome], você já viu o que está vindo? 👀
+19/08;10:00;UGC DIA DA FOTOGRAFIA;37;0,28;10;144;0,131;0,373;Faltou a sua aqui...
+29/07;10:00;UGC SOCIAL PROOF;27;0,28;6;91;0,116;0,425;O presente que todo pai queria ganhar
+03/09;10:00;1 - ESQUENTA 9.9;41;0,27;8;137;0,111;0,320;Enc: você não deveria saber disso
+08/09;10:00;4 - ESQUENTA 9.9;39;0,13;7;98;0,123;0,222;[Nome], você tem um compromisso pra amanhã 📅
+06/07;10:00;3 - ANTECIPAÇÃO 7.7;28;0,10;6;94;0,153;0,473;⚠️ Seu acesso pra amanhã está pendente
+05/09;10:00;2 - ESQUENTA 9.9;39;0,00;4;152;0,122;0,278;Prometi te avisar antes, [nome] 👀
+17/06;10:00;2 - SEMANA COPA;21;0,00;1;44;0,135;0,489;🟥 Cartão vermelho pra quem perder essas ofertas...
+14/09;10:00;ANTECIPAÇÃO 15/09;41;0,00;5;89;0,061;0,338;Confirmado: você está na lista pra amanhã ✅
+14/08;10:00;SEXTOU;35;0,00;9;113;0,111;0,430;Sua sexta merece isso...
+24/08;10:00;1 - ON & OFF;34;0,00;13;138;0,119;0,293;Ativei um desconto pra você ✅
+18/07;10:00;FINAL COPA;29;0,00;7;124;0,139;0,436;[Nome], separei algo só pra clientes especiais 🏆
+20/07;10:00;RELEVE SEU DESCONTO;29;0,00;13;162;0,192;0,441;(1) desconto escondido para [nome] neste e-mail 🤫

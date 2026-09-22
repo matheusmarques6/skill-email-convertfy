@@ -1,0 +1,13 @@
+REF_bwcol25.jpg
+REF_catalogo.jpg
+REF_check25.jpg
+REF_conversa88.jpg
+REF_convite77.jpg
+REF_credit.jpg
+REF_favoritos77.jpg
+REF_jornal22.jpg
+REF_lastcall77.jpg
+REF_ligacao.jpg
+REF_notif.jpg
+REF_vespera88.jpg
+REF_wc_loyalty.jpg

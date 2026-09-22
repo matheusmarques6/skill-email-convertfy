@@ -1,0 +1,445 @@
+{
+ "principio_decisao": {
+  "validado_min_pct": 80,
+  "inspiracao_max_pct": 10,
+  "complemento_max_pct": 10,
+  "definicoes": {
+   "validado": "modelo com mediana >= 1 em pelo menos uma amostra da carteira, ou parte da sequência de pico validada",
+   "inspiracao": "prática de fora da carteira (Wellcopy, Max, Trendtrack) sem dado nosso",
+   "complemento": "envio operacional ou teste sem referência (reativação, 00h)"
+  },
+  "regra": "O plano só pode ser aprovado com validado >= 80%. Inspiração acima de 10% ou complemento acima de 10% gera alerta."
+ },
+ "camadas": [
+  {
+   "key": "VIP",
+   "def": "Tag de quem clicou em confirmar presença no convite do evento (ex.: VIP-1111)"
+  },
+  {
+   "key": "E30",
+   "def": "Clicou nos últimos 30 dias ou comprou nos últimos 90"
+  },
+  {
+   "key": "E90",
+   "def": "Abriu ou clicou nos últimos 90 dias"
+  },
+  {
+   "key": "E180",
+   "def": "Abriu ou clicou nos últimos 180 dias"
+  },
+  {
+   "key": "LT",
+   "def": "Inscritos, sem descadastrados, sem bounce e sem quem nunca abriu em 365 dias"
+  },
+  {
+   "key": "NA_*",
+   "def": "Recebeu o envio indicado e não abriu"
+  },
+  {
+   "key": "CNC",
+   "def": "Abriu ou clicou num envio do dia e não comprou"
+  }
+ ],
+ "niveis_conta": [
+  {
+   "key": "A",
+   "criterio": "Domínio com mais de 12 meses, spam histórico abaixo de 0,05%, lista estável",
+   "lista_toda_por_trimestre": 2
+  },
+  {
+   "key": "B",
+   "criterio": "Domínio de 6 a 12 meses, ou spam entre 0,05% e 0,1%",
+   "lista_toda_por_trimestre": 1
+  },
+  {
+   "key": "C",
+   "criterio": "Domínio com menos de 6 meses, base importada recente ou spam acima de 0,1%",
+   "lista_toda_por_trimestre": 0
+  },
+  {
+   "key": "LP",
+   "criterio": "Lista abaixo de 3 mil contatos, qualquer nível",
+   "regra": "Só envios marcados lista_pequena=true"
+  }
+ ],
+ "freios": [
+  {
+   "sinal": "spam > 0,1% num envio",
+   "acao": "Próximo envio da conta desce um degrau de público"
+  },
+  {
+   "sinal": "spam > 0,3%",
+   "acao": "Conta para de ampliar até o fim do plano. Só E90"
+  },
+  {
+   "sinal": "descadastro > 0,5%",
+   "acao": "Revisar assunto e frequência antes do próximo pico"
+  },
+  {
+   "sinal": "bounce > 2%",
+   "acao": "Parar e limpar antes do próximo envio"
+  },
+  {
+   "sinal": "queda no Postmaster",
+   "acao": "Pausar LT e reativação"
+  },
+  {
+   "sinal": "aviso da Omnisend",
+   "acao": "Congelar volume e responder no mesmo dia"
+  },
+  {
+   "sinal": "volume",
+   "acao": "Nenhum envio passa de 2x o tamanho do E90 da conta"
+  }
+ ],
+ "sequencia_de_pico": {
+  "descricao": "Molde de toda data dupla (N.N) e de todo pico de temporada",
+  "passos": [
+   {
+    "offset": -6,
+    "hora": "10:00",
+    "modelo": "convite",
+    "publico": "E90"
+   },
+   {
+    "offset": -3,
+    "hora": "10:00",
+    "modelo": "agenda",
+    "publico": "VIP+E30"
+   },
+   {
+    "offset": -1,
+    "hora": "18:00",
+    "modelo": null,
+    "canal": "sms_whatsapp_push",
+    "texto": "amanhã às 7h"
+   },
+   {
+    "offset": 0,
+    "hora": "00:00",
+    "modelo": "acesso-liberado-00h",
+    "publico": "VIP",
+    "condicao": "se T1 aprovado"
+   },
+   {
+    "offset": 0,
+    "hora": "07:00",
+    "modelo": "cupom-liberado-7h",
+    "publico": "E90"
+   },
+   {
+    "offset": 0,
+    "hora": "11:00",
+    "modelo": "reenvio-11h",
+    "publico": "NA_07H"
+   },
+   {
+    "offset": 0,
+    "hora": "18:00",
+    "modelo": "status-mudou-18h",
+    "publico": {
+     "A": "E180",
+     "B": "E180",
+     "C": "E90"
+    }
+   },
+   {
+    "offset": 0,
+    "hora": "21:30",
+    "modelo": "ultima-chamada-2130",
+    "publico": "CNC"
+   },
+   {
+    "offset": 2,
+    "hora": "10:00",
+    "modelo": "ressaca",
+    "publico": {
+     "A": "E90",
+     "B": "E90",
+     "C": "E30"
+    },
+    "condicao": "só com estoque real"
+   }
+  ]
+ },
+ "meio_de_semana": {
+  "ritmo": "3 por semana para E90",
+  "ordem_de_escolha": "maior mediana na amostra ampla, sem repetir o mesmo modelo em menos de 14 dias",
+  "titulares": [
+   "notificacao-do-futuro",
+   "figurinha",
+   "sexta-premiada",
+   "ligacao",
+   "reabertura",
+   "favoritos",
+   "jornal"
+  ],
+  "reservas": [
+   "social-proof",
+   "segunda-turbo",
+   "revele",
+   "catalogo-fecha-mes"
+  ],
+  "regra_sexta": "sexta-premiada só em sexta-feira",
+  "regra_reabertura": "só depois de um fechamento real"
+ },
+ "copy": [
+  "Descontos não se somam",
+  "Número de prova só se for real da loja",
+  "Escassez só com limite real no Shopify",
+  "Lista VIP só com tag",
+  "Nunca citar a oferta da próxima janela",
+  "Sem travessão",
+  "No máximo 1 emoji no assunto",
+  "Sem Enc: ou Fwd:",
+  "Oferta na primeira tela",
+  "Prazo com data e hora"
+ ],
+ "nome_da_campanha": {
+  "padrao": "[DD/MM] - [HH:MM] - [SEGMENTO] - [N - EVENTO] - [IDIOMA]",
+  "exemplo": "[11/11] - [18:00] - [E180] - [3 - 11.11] - [BRASIL]",
+  "motivo": "O nome é a chave que liga cada campanha da Omnisend ao modelo e ao plano. É por ele que o índice é calculado"
+ },
+ "checklist_envio": [
+  "Resposta para o e-mail da loja",
+  "Remetente sem erro",
+  "Idioma certo",
+  "Horário igual ao nome e no fuso da loja",
+  "Segmento igual ao nome e ao nível",
+  "Oferta em 3 segundos",
+  "Prazo com data e hora",
+  "Cupom testado e com limite real",
+  "Sem soma de descontos",
+  "Números reais",
+  "Preço de referência legal (BR e UE)",
+  "Sem travessão",
+  "Tradução revisada",
+  "Teste pela ferramenta da Omnisend"
+ ],
+ "testes": [
+  {
+   "id": "T1-madrugada",
+   "pergunta": "00h vende a mais ou antecipa?",
+   "desenho": "VIP dividida ao acaso em A e B no 10.10",
+   "metrica": "receita e pedidos por mil contatos no dia",
+   "decisao": "A >= +10% sem spam > 0,1%: entra no 11.11 e na BF",
+   "prazo_leitura": "2026-10-20"
+  },
+  {
+   "id": "T2-2130",
+   "pergunta": "Quarto disparo só para CNC traz pedido novo?",
+   "metrica": "índice do 21h30 contra o 18h",
+   "decisao": "acima de 1 em 3 das 4 datas vira regra"
+  },
+  {
+   "id": "T3-fim-de-semana",
+   "pergunta": "2 por dia no sábado e domingo da BF",
+   "metrica": "receita por mil envios contra quarta e quinta, spam"
+  },
+  {
+   "id": "T4-cm-oferta-nova",
+   "pergunta": "Oferta nova na CM vende mais que extensão?",
+   "metrica": "CM 2026 contra CM 2025"
+  },
+  {
+   "id": "T5-lista-toda-A",
+   "pergunta": "O que a lista toda fora do E180 traz?",
+   "metrica": "pedidos e spam do resto da lista",
+   "decisao": "< 10% dos pedidos e > 30% do spam: sai"
+  },
+  {
+   "id": "T7-1212",
+   "pergunta": "12.12 leve no BR",
+   "metrica": "índice e descadastro"
+  },
+  {
+   "id": "T8-canais",
+   "pergunta": "SMS, WhatsApp e push somam venda?",
+   "desenho": "10% de controle sem mensagem",
+   "metrica": "receita por contato"
+  },
+  {
+   "id": "T9-1111-vs-bf",
+   "pergunta": "O 11.11 canibaliza a BF?",
+   "metrica": "receita de 01 a 29/11 por mil contatos contra 2025"
+  }
+ ],
+ "prazos_producao_q4": [
+  {
+   "ate": "2026-09-25",
+   "o_que": "Oferta do 10.10, remetente pessoa, nível A/B/C e LP de cada conta"
+  },
+  {
+   "ate": "2026-09-30",
+   "o_que": "Segmentos, tags e correções. E-mails de 01 a 12/10 agendados"
+  },
+  {
+   "ate": "2026-10-07",
+   "o_que": "E-mails de 13 a 31/10"
+  },
+  {
+   "ate": "2026-10-15",
+   "o_que": "Oferta do 11.11, pop-up VIP"
+  },
+  {
+   "ate": "2026-10-20",
+   "o_que": "Leitura do T1"
+  },
+  {
+   "ate": "2026-10-25",
+   "o_que": "E-mails de 03 a 13/11"
+  },
+  {
+   "ate": "2026-11-01",
+   "o_que": "Oferta da BF e CM, cortes das transportadoras"
+  },
+  {
+   "ate": "2026-11-05",
+   "o_que": "E-mails de 17/11 a 03/12, flows em modo Black"
+  },
+  {
+   "ate": "2026-11-15",
+   "o_que": "Oferta de dezembro, vale-presente ativo"
+  },
+  {
+   "ate": "2026-11-20",
+   "o_que": "E-mails de dezembro"
+  }
+ ],
+ "canais_q4": [
+  {
+   "data": "2026-10-09",
+   "hora": "18:00",
+   "canal": "sms_whatsapp_push",
+   "texto": "Amanhã às 7h começa o 10.10"
+  },
+  {
+   "data": "2026-10-10",
+   "hora": "07:05",
+   "canal": "sms_whatsapp",
+   "texto": "O 10.10 começou"
+  },
+  {
+   "data": "2026-10-10",
+   "hora": "18:00",
+   "canal": "push",
+   "texto": "Status mudou"
+  },
+  {
+   "data": "2026-10-10",
+   "hora": "20:30",
+   "canal": "sms_whatsapp",
+   "texto": "Últimas horas"
+  },
+  {
+   "data": "2026-11-10",
+   "hora": "18:00",
+   "canal": "sms_whatsapp_push",
+   "texto": "Amanhã às 7h começa o 11.11"
+  },
+  {
+   "data": "2026-11-11",
+   "hora": "07:05",
+   "canal": "sms_whatsapp",
+   "texto": "Seu acesso antecipado está liberado"
+  },
+  {
+   "data": "2026-11-11",
+   "hora": "18:00",
+   "canal": "push",
+   "texto": "Status mudou"
+  },
+  {
+   "data": "2026-11-11",
+   "hora": "20:30",
+   "canal": "sms_whatsapp",
+   "texto": "Últimas horas"
+  },
+  {
+   "data": "2026-11-24",
+   "hora": "18:00",
+   "canal": "sms_whatsapp_push",
+   "texto": "Amanhã às 7h a Black começa"
+  },
+  {
+   "data": "2026-11-25",
+   "hora": "07:05",
+   "canal": "sms_whatsapp_push",
+   "texto": "A Black começou"
+  },
+  {
+   "data": "2026-11-27",
+   "hora": "07:05",
+   "canal": "sms_whatsapp_push",
+   "texto": "Hoje é a Black Friday"
+  },
+  {
+   "data": "2026-11-27",
+   "hora": "18:00",
+   "canal": "push",
+   "texto": "Status mudou"
+  },
+  {
+   "data": "2026-11-29",
+   "hora": "20:30",
+   "canal": "sms_whatsapp_push",
+   "texto": "A Black termina hoje"
+  },
+  {
+   "data": "2026-11-30",
+   "hora": "07:05",
+   "canal": "sms_whatsapp_push",
+   "texto": "Cyber Monday: a novidade"
+  },
+  {
+   "data": "2026-12-03",
+   "hora": "20:30",
+   "canal": "sms_whatsapp_push",
+   "texto": "Últimas horas da Cyber"
+  },
+  {
+   "data": "2026-12-15",
+   "hora": "10:05",
+   "canal": "sms_whatsapp",
+   "texto": "Prazo do frete padrão"
+  },
+  {
+   "data": "2026-12-19",
+   "hora": "10:05",
+   "canal": "sms_whatsapp",
+   "texto": "Frete expresso ainda chega"
+  },
+  {
+   "data": "2026-12-21",
+   "hora": "10:05",
+   "canal": "sms_whatsapp_push",
+   "texto": "Último dia para chegar antes do Natal"
+  },
+  {
+   "data": "2026-12-22",
+   "hora": "10:05",
+   "canal": "push",
+   "texto": "Vale-presente em 1 minuto"
+  },
+  {
+   "data": "2026-12-24",
+   "hora": "09:00",
+   "canal": "push",
+   "texto": "Vale-presente até o meio-dia"
+  },
+  {
+   "data": "2026-12-26",
+   "hora": "07:05",
+   "canal": "sms_push",
+   "texto": "Boxing Day começou",
+   "trilha": "uk_eu"
+  }
+ ],
+ "canais_regras": [
+  "E-mail primeiro, push em seguida, SMS ou WhatsApp 5 min depois",
+  "EUA: SMS só entre 8h e 21h locais; última chamada por SMS às 20h30",
+  "Sem emoji no SMS",
+  "Só com consentimento do canal",
+  "BR: WhatsApp no papel do SMS"
+ ]
+}

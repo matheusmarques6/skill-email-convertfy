@@ -1,0 +1,880 @@
+{
+ "_sobre": "Biblioteca de modelos de e-mail da Convertfy. amostra_9 = 9 lojas analisadas a fundo (mai a set/2026). amostra_46 = omnisend_campaign_metrics do admin, 46 lojas com pedidos, 15/06 a 20/09/2026, calculada em 21/09/2026. Índice = receita por mil envios do e-mail / média da própria loja no período. Mediana entre lojas. status: validado (>= 1 nas duas amostras ou no pico), parcial (>= 1 em uma), revisar (amostras em conflito), reserva, fora, teste (sem dado da carteira).",
+ "modelos": [
+  {
+   "key": "status-mudou-18h",
+   "nome": "Status mudou (18h do pico)",
+   "papel": "hard_pico",
+   "estrutura": "A",
+   "status": "validado",
+   "assunto": {
+    "pt": "🚨 Seu status acaba de mudar",
+    "en": "🚨 Your status has just changed",
+    "fr": "🚨 Votre statut vient de changer"
+   },
+   "alias_evento": [
+    "3 - 5.5",
+    "5 - 5.5",
+    "3 - 6.6",
+    "3 - 7.7",
+    "3 - 8.8",
+    "3 - 9.9"
+   ],
+   "alias_hora": "18:00",
+   "amostra_9": {
+    "mediana": 1.9,
+    "acima": "8 de 9",
+    "pedidos": 305,
+    "nota": "1,90 no 9.9 e 1,64 no 8.8"
+   },
+   "amostra_46": {
+    "mediana": 1.48,
+    "acima": "25 de 33",
+    "pedidos": 359,
+    "spam_por_mil": 0.12,
+    "nota": "8.8: 1,48 (25/33). 7.7 final call: 1,22 (17/30). 9.9: 1,04 (20/40)"
+   },
+   "referencia": {
+    "imagens": [
+     "ago_0808c.jpg",
+     "set_0909c.jpg"
+    ],
+    "figma": "Blue Wolf 08/08 18h (agosto) e 09/09 18h (setembro)"
+   },
+   "copiar": "Hero em formato emprestado (conversa ou jornal), oferta, cupom e prazo na primeira tela, grade 2x2, cupom repetido, rodapé com 3 garantias",
+   "melhorar": "Usar a execução em conversa do 8.8, a de maior índice entre os 18h. Nunca somar descontos na copy"
+  },
+  {
+   "key": "notificacao-do-futuro",
+   "nome": "Notificação do futuro (pedido pendente)",
+   "papel": "hard_fora",
+   "estrutura": "C",
+   "status": "validado",
+   "assunto": {
+    "pt": "[Nome], falta você confirmar esse pedido...",
+    "en": "[Nome], you still need to confirm your order..."
+   },
+   "alias_evento": [
+    "3 - NOTIFICAÇÃO DO FUTURO",
+    "NOTIFICAÇÃO DO FUTURO"
+   ],
+   "amostra_9": {
+    "mediana": 1.43,
+    "acima": "6 de 9",
+    "pedidos": 105
+   },
+   "amostra_46": {
+    "mediana": 1.67,
+    "acima": "24 de 39",
+    "pedidos": 252,
+    "spam_por_mil": 0.126,
+    "nota": "O melhor e-mail fora de pico da carteira"
+   },
+   "referencia": {
+    "imagens": [
+     "ago_0828.jpg"
+    ],
+    "figma": "Blue Wolf 28/08 (agosto)"
+   },
+   "copiar": "Caixa de aviso em fundo branco, \"notificação que veio do futuro\", resumo do pedido com o cupom e botão confirmar",
+   "melhorar": "Oferta diferente da janela seguinte"
+  },
+  {
+   "key": "figurinha",
+   "nome": "Gamificada de figurinha (desbloquear e revelar)",
+   "papel": "hard_fora",
+   "estrutura": "A",
+   "status": "validado",
+   "assunto": {
+    "pt": "🏆 Você desbloqueou a figurinha dourada",
+    "en": "🏆 You've unlocked the golden sticker"
+   },
+   "alias_evento": [
+    "ÁLBUM FIGURINHA"
+   ],
+   "amostra_9": {
+    "mediana": 1.8,
+    "acima": "7 de 9",
+    "pedidos": 66
+   },
+   "amostra_46": {
+    "mediana": 1.35,
+    "acima": "14 de 24",
+    "pedidos": 124
+   },
+   "referencia": {
+    "imagens": [],
+    "figma": "Blue Wolf 19/06"
+   },
+   "copiar": "Mecânica de desbloquear e revelar o cupom",
+   "melhorar": "Funcionou dentro de um tema do momento (Copa). Fora dele, ancorar em coleção ou cartela"
+  },
+  {
+   "key": "sexta-premiada",
+   "nome": "Sexta premiada",
+   "papel": "hard_fora",
+   "estrutura": "A",
+   "status": "validado",
+   "assunto": {
+    "pt": "Você foi premiado hoje 🎁",
+    "en": "You've received a reward today 🎁"
+   },
+   "alias_evento": [
+    "SEXTA PREMIADA"
+   ],
+   "amostra_9": {
+    "mediana": 1.22,
+    "acima": "7 de 8",
+    "pedidos": 91
+   },
+   "amostra_46": {
+    "mediana": 1.17,
+    "acima": "16 de 27",
+    "pedidos": 193
+   },
+   "referencia": {
+    "imagens": [
+     "jul_0731.jpg"
+    ],
+    "figma": "Blue Wolf 31/07 (julho)"
+   },
+   "copiar": "Prêmio do dia com prazo até sábado",
+   "melhorar": "Cupom com limite real se a copy falar em quantidade"
+  },
+  {
+   "key": "ligacao",
+   "nome": "Ligação",
+   "papel": "hard_fora",
+   "estrutura": "A",
+   "status": "validado",
+   "assunto": {
+    "pt": "[Nome], você recebeu uma ligação 📞",
+    "en": "[Nome], you've received a call 📞"
+   },
+   "alias_evento": [
+    "LIGAÇÃO"
+   ],
+   "amostra_9": {
+    "mediana": 0.91,
+    "acima": "4 de 9"
+   },
+   "amostra_46": {
+    "mediana": 1.17,
+    "acima": "15 de 28",
+    "pedidos": 117
+   },
+   "referencia": {
+    "imagens": [
+     "jul_0724.jpg"
+    ],
+    "figma": "Blue Wolf 24/07 (julho)"
+   },
+   "copiar": "Hero de chamada perdida com a oferta",
+   "melhorar": "Subiu de 0,91 para 1,17 na amostra ampla. Promovido a titular"
+  },
+  {
+   "key": "reabertura",
+   "nome": "Reabertura",
+   "papel": "hard_fora",
+   "estrutura": "D",
+   "status": "validado",
+   "assunto": {
+    "pt": "Eu decidi reabrir tudo por mais um dia",
+    "en": "I've decided to reopen everything for one more day"
+   },
+   "alias_evento": [
+    "REABERTURA"
+   ],
+   "amostra_9": {
+    "mediana": 1.11,
+    "acima": "5 de 9"
+   },
+   "amostra_46": {
+    "mediana": 1.15,
+    "acima": "17 de 28",
+    "pedidos": 153
+   },
+   "referencia": {
+    "imagens": [],
+    "figma": "25/07, texto"
+   },
+   "copiar": "Texto pessoal reabrindo a oferta anterior",
+   "melhorar": "Só depois de um fechamento real e só para E90. Nunca reabrir o 11.11 antes da BF"
+  },
+  {
+   "key": "favoritos",
+   "nome": "Favoritos (os mais vendidos do evento)",
+   "papel": "soft",
+   "estrutura": "A",
+   "status": "validado",
+   "assunto": {
+    "pt": "[Nome], os favoritos estão te esperando 👀",
+    "en": "[Nome], the favorites are waiting for you 👀"
+   },
+   "alias_evento": [
+    "FAVORITOS DO 7.7"
+   ],
+   "amostra_9": {
+    "acima": "entre os 6 melhores do soft sell"
+   },
+   "amostra_46": {
+    "mediana": 1.12,
+    "acima": "16 de 29",
+    "pedidos": 125
+   },
+   "referencia": {
+    "imagens": [
+     "jul_0715.jpg"
+    ],
+    "figma": "Blue Wolf 15/07 (julho)"
+   },
+   "copiar": "Grade dos mais vendidos do último evento, com preço",
+   "melhorar": "Só produtos com estoque"
+  },
+  {
+   "key": "jornal",
+   "nome": "Jornal",
+   "papel": "hard_fora",
+   "estrutura": "A",
+   "status": "validado",
+   "assunto": {
+    "pt": "[Nome], chegou a notícia que você não queria...",
+    "en": "[Nome], the news you did not want to hear has arrived..."
+   },
+   "alias_evento": [
+    "JORNAL"
+   ],
+   "amostra_9": {
+    "mediana": 1.62,
+    "acima": "6 de 9",
+    "pedidos": 95
+   },
+   "amostra_46": {
+    "mediana": 1.1,
+    "acima": "16 de 27",
+    "pedidos": 133
+   },
+   "referencia": {
+    "imagens": [
+     "jul_0722.jpg"
+    ],
+    "figma": "Blue Wolf 22/07 (julho)"
+   },
+   "copiar": "Capa de jornal com a manchete da oferta, prazo na primeira tela",
+   "melhorar": "Número da manchete real da loja"
+  },
+  {
+   "key": "convite",
+   "nome": "Convite (D-6)",
+   "papel": "antecipacao",
+   "estrutura": "B",
+   "status": "parcial",
+   "assunto": {
+    "pt": "[Nome], seu convite chegou 🎟️",
+    "en": "[Nome], your invitation has arrived 🎟️"
+   },
+   "alias_evento": [
+    "1 - ANTECIPAÇÃO 6.6",
+    "1 - ANTECIPAÇÃO 7.7"
+   ],
+   "amostra_9": {
+    "mediana": 1.55,
+    "acima": "6 de 9",
+    "pedidos": 72
+   },
+   "amostra_46": {
+    "mediana": 0.98,
+    "acima": "14 de 28",
+    "pedidos": 104,
+    "spam_por_mil": 0.256
+   },
+   "referencia": {
+    "imagens": [
+     "jul_0701.jpg"
+    ],
+    "figma": "Blue Wolf 01/07 (julho)"
+   },
+   "copiar": "Selo de convite, horários, botão confirmar, barra de status",
+   "melhorar": "Botão grava tag VIP. Spam alto na amostra ampla (0,26 por mil, o dobro do 18h): só E90"
+  },
+  {
+   "key": "agenda",
+   "nome": "Acesso confirmado e agenda (D-3)",
+   "papel": "antecipacao",
+   "estrutura": "B",
+   "status": "revisar",
+   "assunto": {
+    "pt": "[Nome], você já viu o que está vindo? 👀",
+    "en": "[Nome], have you seen what is coming? 👀"
+   },
+   "alias_evento": [
+    "2 - ANTECIPAÇÃO 7.7",
+    "2 - ANTECIPAÇÃO 6.6"
+   ],
+   "amostra_9": {
+    "mediana": 1.21,
+    "acima": "6 de 9",
+    "pedidos": 77
+   },
+   "amostra_46": {
+    "mediana": 0.37,
+    "acima": "10 de 28",
+    "pedidos": 109
+   },
+   "referencia": {
+    "imagens": [
+     "jul_0703.jpg"
+    ],
+    "figma": "Blue Wolf 03/07 (julho)"
+   },
+   "copiar": "Agenda por horário e FAQ de 4 perguntas",
+   "melhorar": "Vai só para quem confirmou presença (VIP) e para E30, no formato do 03/06 do 6.6 (acesso confirmado: 1,21 nas 9 lojas, 5 de 7). Para a lista inteira ficou 0,37 na amostra ampla"
+  },
+  {
+   "key": "cupom-liberado-7h",
+   "nome": "Cupom liberado (7h do pico)",
+   "papel": "hard_pico",
+   "estrutura": "D",
+   "status": "parcial",
+   "assunto": {
+    "pt": "Seu cupom foi liberado ✅",
+    "en": "Your coupon has been released ✅"
+   },
+   "alias_evento": [
+    "1 - 7.7",
+    "1 - 8.8",
+    "1 - 9.9"
+   ],
+   "alias_hora": "07:00",
+   "amostra_9": {
+    "mediana": 1.66,
+    "acima": "6 de 9",
+    "pedidos": 110
+   },
+   "amostra_46": {
+    "mediana": 0.95,
+    "acima": "20 de 40",
+    "pedidos": 242,
+    "nota": "7.7: 0,86. 8.8: 0,89 (com Enc: no assunto)"
+   },
+   "referencia": {
+    "imagens": [],
+    "figma": "Clube Rock 7.7 07h (remetente Henrique). Blue Wolf 09/09 07h"
+   },
+   "copiar": "Texto curto, cupom em negrito, um link",
+   "melhorar": "Usar a versão do 9.9 (cupom liberado: 1,66 nas 9 lojas). A do 7.7 (cupom aprovado) ficou 0,70 sem pessoa no remetente. Sem Enc: ou Fwd: no assunto"
+  },
+  {
+   "key": "reenvio-11h",
+   "nome": "Reenvio das 11h (resgate pendente)",
+   "papel": "hard_pico",
+   "estrutura": "A",
+   "status": "parcial",
+   "assunto": {
+    "pt": "⚠️ (1) resgate pendente para [nome]",
+    "en": "⚠️ (1) pending reward for [nome]"
+   },
+   "alias_evento": [
+    "2 - 7.7",
+    "2 - 8.8",
+    "2 - 9.9"
+   ],
+   "alias_hora": "11:00",
+   "amostra_9": {
+    "mediana": 1.24,
+    "acima": "5 de 9",
+    "pedidos": 80
+   },
+   "amostra_46": {
+    "mediana": 0.67,
+    "acima": "15 de 40",
+    "pedidos": 160,
+    "nota": "Foi para a lista toda. No calendário vai só para quem não abriu o 07h"
+   },
+   "referencia": {
+    "imagens": [
+     "set_0909b.jpg"
+    ],
+    "figma": "Blue Wolf 09/09 11h (setembro)"
+   },
+   "copiar": "Corpo do 07h",
+   "melhorar": "Só não abridores do 07h"
+  },
+  {
+   "key": "acesso-liberado-00h",
+   "nome": "Acesso liberado (00h)",
+   "papel": "hard_pico",
+   "estrutura": "A",
+   "status": "teste",
+   "assunto": {
+    "pt": "🔓 Seu acesso foi liberado (só hoje)",
+    "en": "🔓 Your access has been granted (today only)"
+   },
+   "alias_evento": [],
+   "amostra_9": {},
+   "amostra_46": {},
+   "referencia": {
+    "imagens": [
+     "set_0909b.jpg"
+    ],
+    "figma": "Blue Wolf 09/09 11h"
+   },
+   "copiar": "Hero de acesso liberado",
+   "melhorar": "Teste do 10.10 com grupo de controle"
+  },
+  {
+   "key": "ultima-chamada-2130",
+   "nome": "Última chamada (21h30)",
+   "papel": "hard_pico",
+   "estrutura": "A",
+   "status": "teste",
+   "assunto": {
+    "pt": "🚨 [ÚLTIMA CHAMADA] Expira às 23h59",
+    "en": "🚨 [FINAL CALL] Expires at 11:59 PM"
+   },
+   "alias_evento": [],
+   "amostra_9": {
+    "mediana": 1.46,
+    "acima": "5 de 9",
+    "nota": "last call do 7.7 às 18h"
+   },
+   "amostra_46": {
+    "mediana": 1.22,
+    "acima": "17 de 30",
+    "nota": "last call do 7.7 às 18h"
+   },
+   "referencia": {
+    "imagens": [
+     "jul_0707c.jpg"
+    ],
+    "figma": "Blue Wolf 07/07 18h"
+   },
+   "copiar": "Prazo e cupom",
+   "melhorar": "Uma tela. Só CNC. O horário é o teste"
+  },
+  {
+   "key": "social-proof",
+   "nome": "Prova social",
+   "papel": "soft",
+   "estrutura": "A",
+   "status": "parcial",
+   "assunto": {
+    "pt": "O que eles sabem que você ainda não?",
+    "en": "What do they know that you don't yet?"
+   },
+   "alias_evento": [
+    "SOCIAL PROOF"
+   ],
+   "amostra_9": {
+    "mediana": 1.2,
+    "acima": "5 de 9",
+    "pedidos": 60
+   },
+   "amostra_46": {
+    "mediana": 0.98,
+    "acima": "13 de 26",
+    "pedidos": 110,
+    "spam_por_mil": 0.193
+   },
+   "referencia": {
+    "imagens": [],
+    "figma": "Blue Wolf 26/06"
+   },
+   "copiar": "Produtos com avaliação",
+   "melhorar": "Só avaliações reais"
+  },
+  {
+   "key": "ressaca",
+   "nome": "Ressaca (D+2)",
+   "papel": "soft",
+   "estrutura": "C",
+   "status": "parcial",
+   "assunto": {
+    "pt": "Lamentamos informar que...",
+    "en": "We regret to inform you that..."
+   },
+   "alias_evento": [
+    "RESSACA 8.8",
+    "RESSACA 9.9"
+   ],
+   "amostra_9": {
+    "mediana": 0.78,
+    "acima": "4 de 9",
+    "pedidos": 83,
+    "nota": "5,21 e 5,93 onde foi para engajados"
+   },
+   "amostra_46": {
+    "mediana": 0.56,
+    "acima": "15 de 41",
+    "pedidos": 183
+   },
+   "referencia": {
+    "imagens": [
+     "set_0911.jpg"
+    ],
+    "figma": "Blue Wolf 11/09"
+   },
+   "copiar": "Aviso de sistema, estoque baixo",
+   "melhorar": "Só engajados e só com estoque real"
+  },
+  {
+   "key": "catalogo-fecha-mes",
+   "nome": "Catálogo fecha mês",
+   "papel": "hard_fora",
+   "estrutura": "A",
+   "status": "parcial",
+   "assunto": {
+    "pt": "Ignore este e-mail depois das 23h59",
+    "en": "Ignore this email after 11:59 PM"
+   },
+   "alias_evento": [
+    "CATÁLOGO FECHA MÊS"
+   ],
+   "amostra_9": {
+    "mediana": 1.13,
+    "acima": "6 de 9",
+    "pedidos": 64
+   },
+   "amostra_46": {
+    "mediana": 0.79,
+    "acima": "18 de 40",
+    "pedidos": 158
+   },
+   "referencia": {
+    "imagens": [
+     "ago_0831.jpg"
+    ],
+    "figma": "Blue Wolf 31/08"
+   },
+   "copiar": "Preços do mês com prazo",
+   "melhorar": "Abaixo de 1 na amostra ampla. Só como complemento"
+  },
+  {
+   "key": "revele",
+   "nome": "Revele seu desconto",
+   "papel": "hard_fora",
+   "estrutura": "A",
+   "status": "reserva",
+   "assunto": {
+    "pt": "(1) desconto escondido para [nome] neste e-mail 🤫",
+    "en": "(1) hidden discount for [nome] inside this email 🤫"
+   },
+   "alias_evento": [
+    "RELEVE SEU DESCONTO",
+    "REVELE SEU DESCONTO"
+   ],
+   "amostra_9": {
+    "mediana": 1.22,
+    "acima": "6 de 9",
+    "pedidos": 85
+   },
+   "amostra_46": {
+    "mediana": 0.0,
+    "acima": "13 de 29",
+    "pedidos": 162,
+    "nota": "Disperso: vende muito em algumas lojas e nada em mais da metade"
+   },
+   "referencia": {
+    "imagens": [
+     "jul_0720.jpg"
+    ],
+    "figma": "Blue Wolf 20/07"
+   },
+   "copiar": "Botão revelar e cupom",
+   "melhorar": "Rebaixado para reserva com a amostra ampla"
+  },
+  {
+   "key": "segunda-turbo",
+   "nome": "Segunda turbo",
+   "papel": "hard_fora",
+   "estrutura": "A",
+   "status": "parcial",
+   "assunto": {
+    "pt": "Você está entre os 100 primeiros?",
+    "en": "Are you among the first 100?"
+   },
+   "alias_evento": [
+    "SEGUNDA TURBO"
+   ],
+   "amostra_9": {
+    "mediana": 1.06,
+    "acima": "5 de 9"
+   },
+   "amostra_46": {
+    "mediana": 0.83,
+    "acima": "16 de 36",
+    "pedidos": 132
+   },
+   "referencia": {
+    "imagens": [
+     "ago_0817.jpg"
+    ],
+    "figma": "Blue Wolf 17/08"
+   },
+   "copiar": "",
+   "melhorar": "1,06 nas 9 lojas, 0,83 na amostra ampla. Só com limite real de 100 cupons no Shopify"
+  },
+  {
+   "key": "tema-do-momento",
+   "nome": "Tema do momento do mercado",
+   "papel": "soft",
+   "estrutura": "A",
+   "status": "reserva",
+   "assunto": {
+    "pt": "🟥 Cartão vermelho pra quem perder essas ofertas...",
+    "en": "🟥 A red card for anyone who misses out on these deals..."
+   },
+   "alias_evento": [
+    "2 - SEMANA COPA",
+    "1 - SEMANA COPA"
+   ],
+   "amostra_9": {
+    "mediana": 1.27,
+    "acima": "7 de 9"
+   },
+   "amostra_46": {
+    "mediana": 0.0,
+    "acima": "1 de 21"
+   },
+   "referencia": {
+    "imagens": [],
+    "figma": "Blue Wolf 17/06"
+   },
+   "copiar": "",
+   "melhorar": "Não se sustentou na amostra ampla. O tema entra como ângulo de copy dentro de um modelo validado"
+  },
+  {
+   "key": "esquenta",
+   "nome": "Esquenta de 3 ou 4 e-mails",
+   "papel": "antecipacao",
+   "estrutura": "A",
+   "status": "fora",
+   "assunto": {},
+   "alias_evento": [
+    "1 - ESQUENTA 8.8",
+    "2 - ESQUENTA 8.8",
+    "3 - ESQUENTA 8.8",
+    "1 - ESQUENTA 9.9",
+    "2 - ESQUENTA 9.9",
+    "3 - ESQUENTA 9.9",
+    "4 - ESQUENTA 9.9"
+   ],
+   "amostra_9": {
+    "mediana": 0.5,
+    "nota": "48 de 57 envios abaixo de 1"
+   },
+   "amostra_46": {
+    "mediana": 0.27,
+    "nota": "0,00 a 0,55"
+   },
+   "referencia": {},
+   "copiar": "",
+   "melhorar": "Fora do calendário"
+  },
+  {
+   "key": "vespera",
+   "nome": "Véspera (D-1)",
+   "papel": "antecipacao",
+   "estrutura": "C",
+   "status": "fora",
+   "assunto": {},
+   "alias_evento": [
+    "3 - ANTECIPAÇÃO 7.7",
+    "3 - ANTECIPAÇÃO 6.6",
+    "ANTECIPAÇÃO 15/09"
+   ],
+   "amostra_9": {
+    "mediana": 0.55
+   },
+   "amostra_46": {
+    "mediana": 0.1,
+    "acima": "6 de 28"
+   },
+   "referencia": {},
+   "copiar": "",
+   "melhorar": "Véspera vira SMS, WhatsApp ou push"
+  },
+  {
+   "key": "extensao-lista-toda",
+   "nome": "Extensão do evento para a lista toda (VIP Week)",
+   "papel": "hard_fora",
+   "estrutura": "A",
+   "status": "fora",
+   "assunto": {},
+   "alias_evento": [
+    "1 - VIP WEEK",
+    "2 - VIP WEEK"
+   ],
+   "amostra_9": {
+    "mediana": 0.5
+   },
+   "amostra_46": {
+    "mediana": 0.52,
+    "acima": "11 de 32"
+   },
+   "referencia": {},
+   "copiar": "",
+   "melhorar": "Fora para lista toda"
+  },
+  {
+   "key": "conceito-sem-oferta",
+   "nome": "Conceito sem oferta (sextou, escolha o caminho, catálogo indecisão, segunda da sorte, UGC)",
+   "papel": "soft",
+   "estrutura": "A",
+   "status": "fora",
+   "assunto": {},
+   "alias_evento": [
+    "SEXTOU",
+    "2 - ESCOLHA O CAMINHO",
+    "CATÁLOGO INDECISÃO",
+    "SEGUNDA DA SORTE",
+    "UGC DIA DA FOTOGRAFIA",
+    "UGC SOCIAL PROOF"
+   ],
+   "amostra_9": {
+    "mediana": 0.55
+   },
+   "amostra_46": {
+    "mediana": 0.28,
+    "nota": "0,00 a 0,58"
+   },
+   "referencia": {},
+   "copiar": "",
+   "melhorar": "Fora"
+  },
+  {
+   "key": "guia-presentes",
+   "nome": "Guia de presentes por pessoa e faixa de preço",
+   "papel": "soft",
+   "estrutura": "A",
+   "status": "teste",
+   "assunto": {
+    "pt": "Presentes até R$ [valor], separados por pessoa",
+    "en": "Gifts under $[value], by person"
+   },
+   "alias_evento": [],
+   "amostra_9": {},
+   "amostra_46": {},
+   "referencia": {
+    "figma": "Shop by price de 25/11/2025. Nightcity e Dr. Squatch (Estudo Base 9.1)"
+   },
+   "copiar": "Blocos por faixa de preço",
+   "melhorar": "Inspiração (Wellcopy)"
+  },
+  {
+   "key": "prazo-entrega",
+   "nome": "Prazo de entrega",
+   "papel": "hard_fora",
+   "estrutura": "C",
+   "status": "teste",
+   "assunto": {
+    "pt": "Seu presente precisa sair até [data]",
+    "en": "Your gift needs to ship by [date]"
+   },
+   "alias_evento": [],
+   "amostra_9": {},
+   "amostra_46": {},
+   "referencia": {
+    "figma": "Template de calendário do Figma do Max"
+   },
+   "copiar": "Data em destaque",
+   "melhorar": "Data real da transportadora"
+  },
+  {
+   "key": "vale-presente",
+   "nome": "Vale-presente digital",
+   "papel": "hard_fora",
+   "estrutura": "A",
+   "status": "teste",
+   "assunto": {
+    "pt": "O presente que chega em 1 minuto",
+    "en": "The gift that arrives in 1 minute"
+   },
+   "alias_evento": [],
+   "amostra_9": {},
+   "amostra_46": {},
+   "referencia": {
+    "figma": "Ficha 8 da Wellcopy"
+   },
+   "copiar": "",
+   "melhorar": "Vale-presente ativo no Shopify"
+  },
+  {
+   "key": "texto-pessoa",
+   "nome": "Texto puro com pessoa no remetente (dias do meio)",
+   "papel": "soft",
+   "estrutura": "D",
+   "status": "teste",
+   "assunto": {
+    "pt": "Os 3 presentes que mais saíram este ano",
+    "en": "Our 3 best-selling gifts this year"
+   },
+   "alias_evento": [],
+   "amostra_9": {
+    "nota": "Blue Wolf: texto rendeu US$ 41,5 por mil envios contra US$ 43,6 do gráfico"
+   },
+   "amostra_46": {},
+   "referencia": {
+    "figma": "Esqueletos de texto puro, Estudo Base 9.3"
+   },
+   "copiar": "",
+   "melhorar": "Até 120 palavras"
+  },
+  {
+   "key": "reativacao",
+   "nome": "Reativação de inativos",
+   "papel": "soft",
+   "estrutura": "D",
+   "status": "teste",
+   "assunto": {
+    "pt": "[Nome], posso continuar te avisando?",
+    "en": "[Nome], can I keep letting you know?"
+   },
+   "alias_evento": [],
+   "amostra_9": {
+    "nota": "Brinque Mais: lista de 38 mil para 20 mil, abertura de 14% para 25%"
+   },
+   "amostra_46": {},
+   "referencia": {
+    "figma": "Texto do CEO de 02/11/2025"
+   },
+   "copiar": "",
+   "melhorar": "Sem desconto. Botão quero continuar grava tag"
+  },
+  {
+   "key": "on-off",
+   "nome": "Ativei um desconto (On & Off)",
+   "papel": "hard_fora",
+   "estrutura": "A",
+   "status": "parcial",
+   "assunto": {
+    "pt": "Ativei um desconto pra você ✅",
+    "en": "I've activated a discount for you ✅"
+   },
+   "alias_evento": [
+    "1 - ON & OFF",
+    "SEMANA 15%, ON & OFF"
+   ],
+   "amostra_9": {
+    "mediana": 0.99,
+    "acima": "5 de 9",
+    "pedidos": 40,
+    "nota": "Semana 15% On & Off, 24/08"
+   },
+   "amostra_46": {
+    "mediana": 0.0,
+    "acima": "13 de 34",
+    "pedidos": 138,
+    "nota": "Disperso: forte em parte das lojas"
+   },
+   "referencia": {
+    "imagens": [
+     "ago_0824.jpg"
+    ],
+    "figma": "Blue Wolf 24/08 (agosto)"
+   },
+   "copiar": "Desconto já ativado, botão de ligar",
+   "melhorar": "Só uma vez no trimestre, com oferta leve"
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+REF_bf2_25.jpg
+REF_bw24_25.jpg
+REF_bwcol25.jpg
+REF_conversa88.jpg
+REF_early25.jpg
+REF_jornal22.jpg
+REF_kit25.jpg
+REF_lastcall77.jpg
+REF_ligacao.jpg
+REF_notif.jpg
+REF_revele.jpg
+REF_sexta.jpg
+REF_xidax.jpg

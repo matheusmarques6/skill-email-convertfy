@@ -4,6 +4,18 @@ vendor/
 # Vault Obsidian (fonte de verdade, somente leitura, fora do git)
 vault
 vault/
+vault-repo/
+
+# Fontes: .md/.csv/.json entram no git; binario e asset ficam de fora
+fontes/**/assets/
+fontes/**/*.pdf
+fontes/**/*.xlsx
+fontes/**/*.xls
+fontes/**/*.docx
+fontes/**/*.png
+fontes/**/*.jpg
+fontes/**/*.jpeg
+fontes/**/*.webp
 
 # Sistema / editores
 .DS_Store
