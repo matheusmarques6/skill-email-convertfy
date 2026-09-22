@@ -99,10 +99,19 @@ Todo bloco pertence a exatamente uma destas. Mesmos nomes do vault, em
 | `offer` | Oferta: cupom, desconto, prazo, condicao |
 | `footer` | Rodape: legal, descadastro, endereco, social |
 
-Cobertura atual do vault (44 variantes): `body` 18, `hero` 18,
-`products` 16, `reviews` 10, `offer` 9, `footer` 4, e **`header` e `cta`
-com zero variantes**. Zero candidata nao e erro: declare a lacuna conforme
-`vault/componentes/lacunas/`, nao invente variante para preencher.
+Cobertura atual do vault: **75 notas de variante** em disco (`body` 18,
+`hero` 18, `products` 16, `reviews` 10, `offer` 9, `footer` 4), e
+**`header` e `cta` com zero variantes**. Zero candidata nao e erro:
+declare a lacuna conforme `vault/componentes/lacunas/`, nao invente
+variante para preencher.
+
+Atencao ao descompasso: das 75 notas, so **44 estao em `_catalogo.md` e
+tem HTML em `_html/`**. As outras 31 vieram da catalogacao de 19/09, usam
+contrato novo (`aliviador`, `profundidade`, sem `ativa`, sem `momento`) e
+ainda nao foram geradas no catalogo. O `_INDEX.md` e o `_PADRAO-DO-VAULT`
+do vault ainda descrevem o contrato antigo. Skill que dependa do catalogo
+alcanca 44; skill que leia a pasta alcanca 75. Declare qual das duas voce
+usa. Ver `docs/pesquisa/vault-vicios.md`.
 
 ## Licenca: vendor/ e somente leitura
 
