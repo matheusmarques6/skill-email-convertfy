@@ -106,7 +106,7 @@ com zero variantes**. Zero candidata nao e erro: declare a lacuna conforme
 
 ## Licenca: vendor/ e somente leitura
 
-`vendor/` guarda 12 repos de referencia clonados com `--depth 1`. Esta no
+`vendor/` guarda 17 repos de referencia clonados com `--depth 1`. Esta no
 `.gitignore` e **nunca e versionado**.
 
 Regras:
@@ -121,10 +121,11 @@ Licencas mapeadas:
 
 - `pbakaus/impeccable` e **Apache 2.0** e **exige NOTICE**. Qualquer
   derivacao obriga entrada em `NOTICE.md`.
-- Dez repos sao **MIT**: taste-skill, skills (emilkowalski),
+- Quinze repos sao **MIT**: taste-skill, skills (emilkowalski),
   email-marketing-bible, chappie, email-campaign-skill,
   skill-email-html-mjml, email-html-qa-skill, prescott-amelia-agents,
-  claude-marketing, klaviyo-audit-agent-skill.
+  claude-marketing, klaviyo-audit-agent-skill, humanizer (blader),
+  Deslop-ptBR, humanizer-pt-br, humanizer-br, slop-detect.
 - `Join-Ground-AI/Ground-Retention-Skills` **nao declara licenca**. Sem
   licenca nao ha permissao: use apenas como leitura para entender o
   problema, nunca como base de derivacao.

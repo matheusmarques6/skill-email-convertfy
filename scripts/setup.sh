@@ -49,6 +49,11 @@ Join-Ground-AI/Ground-Retention-Skills
 jayreis/prescott-amelia-agents
 thatrebeccarae/claude-marketing
 olivalcf/klaviyo-audit-agent-skill
+blader/humanizer
+Henzen3d/Deslop-ptBR
+mackswendhell/humanizer-pt-br
+msigor/humanizer-br
+ravidsrk/slop-detect
 "
 
 mkdir -p vendor

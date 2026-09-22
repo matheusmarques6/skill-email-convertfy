@@ -31,6 +31,11 @@ http://www.apache.org/licenses/LICENSE-2.0
 | Repo | Fonte | Reaproveitado |
 |---|---|---|
 | Leonxlnx/taste-skill | https://github.com/Leonxlnx/taste-skill | (nada ate agora) |
+| blader/humanizer | https://github.com/blader/humanizer | (nada ate agora) |
+| Henzen3d/Deslop-ptBR | https://github.com/Henzen3d/Deslop-ptBR | (nada ate agora) |
+| mackswendhell/humanizer-pt-br | https://github.com/mackswendhell/humanizer-pt-br | (nada ate agora) |
+| msigor/humanizer-br | https://github.com/msigor/humanizer-br | (nada ate agora) |
+| ravidsrk/slop-detect | https://github.com/ravidsrk/slop-detect | (nada ate agora) |
 | emilkowalski/skills | https://github.com/emilkowalski/skills | (nada ate agora) |
 | CosmoBlk/email-marketing-bible | https://github.com/CosmoBlk/email-marketing-bible | (nada ate agora) |
 | 808enzo/chappie | https://github.com/808enzo/chappie | (nada ate agora) |
