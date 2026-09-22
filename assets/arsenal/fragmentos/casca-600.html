@@ -1,0 +1,45 @@
+<!-- fragmento: casca-600
+     A casca da peca: 600px, tabela, role=presentation, media query que
+     libera a largura no celular para nao gerar rolagem horizontal (R09).
+     Slots: LANG, TITULO, BLOCOS -->
+<!doctype html>
+<html lang="LANG" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark">
+<meta name="x-apple-disable-message-reformatting">
+<title>TITULO</title>
+<!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
+<style>
+  body{margin:0;padding:0;width:100%;background:#FFFFFF;}
+  table{border-collapse:collapse;}
+  img{border:0;outline:none;display:block;max-width:100%;height:auto;}
+  /* contem a largura de qualquer secao vinda do vault, que traz width fixo
+     proprio. Sem isto a peca rola na horizontal no celular (R09). */
+  .wrap table{max-width:100%;}
+  .wrap td{word-break:break-word;}
+  @media (max-width:620px){
+    .wrap{width:100%!important;max-width:100%!important;}
+    .pad{padding-left:16px!important;padding-right:16px!important;}
+    /* A secao vinda do vault traz largura fixa em style inline
+       (style="width:532px"), que vence CSS sem !important. Dentro da media
+       query o !important e a tecnica padrao de e-mail responsivo, e e a
+       unica forma de conter a largura sem reescrever o HTML do vault. */
+    .wrap table{width:100%!important;max-width:100%!important;}
+    .wrap td{width:auto!important;}
+    .wrap img{width:auto!important;max-width:100%!important;height:auto!important;}
+    .wrap a[style*="width:"]{width:auto!important;max-width:100%!important;}
+  }
+</style>
+</head>
+<body style="margin:0;padding:0;background:#FFFFFF;">
+PREHEADER
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#FFFFFF;">
+<tr><td align="center">
+<table role="presentation" class="wrap" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;background:#FFFFFF;">
+BLOCOS
+</table>
+</td></tr></table>
+</body></html>

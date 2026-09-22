@@ -126,6 +126,10 @@ def copy_do_brief(b: dict, idioma: str) -> dict:
     blocos = [x for x in blocos if x.strip() and x.strip() != cta]
 
     nums = sorted(set(re.findall(r"\d+", oferta + " " + str(cb))))
+    # cupom e prazo saem da oferta, que e texto livre no brief
+    mc = re.search(r"\bcupom\s+([A-Z0-9]{3,16})\b", oferta) or \
+         re.search(r"\bc[oó]digo\s+([A-Z0-9]{3,16})\b", oferta)
+    mp = re.search(r"(at[eé]\s[^.;]{4,60})", oferta, re.IGNORECASE)
     return {
         "idioma": idioma,
         "assunto": assunto,
@@ -141,75 +145,43 @@ def copy_do_brief(b: dict, idioma: str) -> dict:
         "_hora": b.get("hora", ""),
         "_nome": b.get("nome", ""),
         "_estrutura": estrutura,
+        "_cupom": mc.group(1) if mc else None,
+        "_prazo": (mp.group(1).strip().capitalize() + ".") if mp else "",
     }
 
 
 # ---------------------------------------------------------------------------
 # copy -> HTML
 # ---------------------------------------------------------------------------
-def monta_html(c: dict, ficha: dict) -> str:
-    """Esqueleto valido: 600px, tabela, inline, bulletproof, dark seguro.
+def monta_html(c: dict, ficha: dict, variantes: dict | None = None) -> dict:
+    """Delega para o montador, que le o arsenal e o vault."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        "montador", RAIZ / "scripts" / "montador.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod.monta(c, ficha, variantes)
 
-    Nao e a peca final de design: e o piso tecnico sobre o qual o ciclo de
-    render trabalha.
+
+def variante_products(brief: dict) -> str | None:
+    """Escolhe a variante de products do vault pelo que o brief pede.
+
+    Heuristica declarada: casa a palavra do `hero_tipo` ou da ordem dos
+    blocos com o slug da variante. Sem casar, devolve None e a peca sai sem
+    vitrine, com a lacuna registrada. Nunca inventa variante.
     """
-    e = html_mod.escape
-    cor = ficha.get("cor_primaria", "#000000")
-    txt = "#1A1A1A"
-    fundo = "#FFFFFF"
-    marca = ficha.get("nome", "LOJA").upper()
-    blocos = "".join(
-        f'<tr><td style="padding:0 24px 16px;font:16px/1.55 Helvetica,Arial,'
-        f'sans-serif;color:{txt};">{e(b)}</td></tr>'
-        for b in c["blocos"])
-    cta = e(c["ctas"][0])
-    # a carteira manda oferta, cupom, prazo e botao nos primeiros 500 px
-    oferta = c.get("_oferta", "")
-    oferta_html = (
-        f'<tr><td class="pad" style="padding:0 24px 16px;font:bold 17px/1.45 '
-        f'Helvetica,Arial,sans-serif;color:{cor};">{e(oferta)}</td></tr>'
-        if oferta else "")
-    return f"""<!doctype html>
-<html lang="{c['idioma']}" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="color-scheme" content="light dark">
-<meta name="supported-color-schemes" content="light dark">
-<title>{e(c['assunto'])}</title>
-<!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
-<style>
-  @media (max-width:620px) {{
-    .wrap {{ width:100% !important; }}
-    .pad {{ padding-left:16px !important; padding-right:16px !important; }}
-  }}
-</style>
-</head>
-<body style="margin:0;padding:0;background:{fundo};">
-<div style="display:none;max-height:0;overflow:hidden;opacity:0;">{e(c['preheader'])}</div>
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:{fundo};">
-<tr><td align="center">
-<table role="presentation" class="wrap" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;background:{fundo};">
-  <tr><td class="pad" style="padding:22px 24px 18px;font:bold 13px Helvetica,Arial,sans-serif;letter-spacing:.09em;color:{cor};">{e(marca)}</td></tr>
-  <tr><td class="pad" style="padding:0 24px 14px;font:bold 27px/1.22 Helvetica,Arial,sans-serif;color:{txt};">{e(c['assunto'])}</td></tr>
-  {oferta_html}
-  <tr><td align="center" style="padding:4px 24px 22px;">
-    <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#" style="height:48px;v-text-anchor:middle;width:280px;" arcsize="4%" stroke="f" fillcolor="{cor}"><w:anchorlock/><center style="color:#FFFFFF;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:bold;">{cta}</center></v:roundrect><![endif]-->
-    <!--[if !mso]><!--><a href="#" style="display:inline-block;background:{cor};color:#FFFFFF;font:bold 15px Helvetica,Arial,sans-serif;text-decoration:none;padding:16px 36px;min-width:200px;text-align:center;">{cta}</a><!--<![endif]-->
-  </td></tr>
-{blocos}
-  <tr><td align="center" style="padding:10px 24px 26px;">
-    <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#" style="height:48px;v-text-anchor:middle;width:280px;" arcsize="4%" stroke="f" fillcolor="{cor}"><w:anchorlock/><center style="color:#FFFFFF;font-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:bold;">{cta}</center></v:roundrect><![endif]-->
-    <!--[if !mso]><!--><a href="#" style="display:inline-block;background:{cor};color:#FFFFFF;font:bold 15px Helvetica,Arial,sans-serif;text-decoration:none;padding:16px 36px;min-width:200px;text-align:center;">{cta}</a><!--<![endif]-->
-  </td></tr>
-  <tr><td class="pad" style="padding:18px 24px 26px;border-top:1px solid #E3E3E3;font:12px/1.6 Helvetica,Arial,sans-serif;color:#595959;">
-    Voce recebe este e-mail porque se inscreveu na lista da {e(marca.title())}.
-    <a href="#" style="color:#595959;">Descadastrar</a>.<br>
-    {e(ficha.get('endereco', '[FALTA: endereco fisico do remetente]'))}
-  </td></tr>
-</table>
-</td></tr></table>
-</body></html>"""
+    disponiveis = sorted(p.stem for p in (RAIZ / "vault" / "componentes"
+                                          / "_html").glob("products-*.html"))
+    if not disponiveis:
+        return None
+    est = brief.get("estrutura") or {}
+    texto = " ".join(str(v) for v in est.values()).lower()
+    if "grade 2x2" in texto or "mais vendidos" in texto or "vitrine" in texto:
+        for cand in disponiveis:
+            if "grade" in cand or "quatro" in cand or "2x2" in cand:
+                return cand
+        return disponiveis[0]
+    return None
 
 
 # ---------------------------------------------------------------------------
@@ -277,7 +249,8 @@ def produz(brief: dict, loja: str, ficha: dict, idioma: str) -> dict:
     (dest / "copy.json").write_text(
         json.dumps({k: v for k, v in c.items() if not k.startswith("_")},
                    ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    (dest / "email.html").write_text(monta_html(c, ficha), encoding="utf-8")
+    montado = monta_html(c, ficha, {"products": variante_products(brief)})
+    (dest / "email.html").write_text(montado["html"], encoding="utf-8")
 
     # ciclo de render
     rel = {}
@@ -298,14 +271,14 @@ def produz(brief: dict, loja: str, ficha: dict, idioma: str) -> dict:
     bloqueia = lc.get("bloqueia") or le.get("bloqueia")
 
     (dest / "relatorio.md").write_text(
-        relatorio(brief, c, lc, le, rel, nota, motivos), encoding="utf-8")
+        relatorio(brief, c, lc, le, rel, nota, motivos, montado), encoding="utf-8")
 
     return {"slug": slug, "dir": dest, "nota": nota, "motivos": motivos,
             "bloqueia": bool(bloqueia), "rel": rel, "lc": lc, "le": le,
-            "brief": brief, "copy": c}
+            "brief": brief, "copy": c, "montado": montado}
 
 
-def relatorio(b, c, lc, le, rel, nota, motivos) -> str:
+def relatorio(b, c, lc, le, rel, nota, motivos, montado=None) -> str:
     def tab(d):
         vs = d.get("violacoes", [])
         if not vs:
@@ -332,6 +305,12 @@ def relatorio(b, c, lc, le, rel, nota, motivos) -> str:
 ## Motivos
 
 {chr(10).join('- ' + m for m in motivos) or '- nenhum'}
+
+## Blocos usados
+
+{chr(10).join('- `' + x + '`' for x in (montado or {}).get('blocos_usados', [])) or '- n/d'}
+
+{('**Lacunas:** ' + '; '.join((montado or {}).get('lacunas', []))) if (montado or {}).get('lacunas') else ''}
 
 ## Render
 

@@ -169,3 +169,53 @@ passo 9 fica incompleta: `qualidade-eficacia` passou de 3 para 5
 candidatas e `adesao-social` de 1 para 2.
 
 Atualizar as notas de seção das seções que receberam variante em 19/09.
+
+---
+
+## VC07. Os 44 HTML do vault não são responsivos
+
+**Severidade:** alta. Afeta **toda** peça que a suíte montar.
+
+**Medido, não deduzido.** Rodando `scripts/render.py` em
+`vault/componentes/_html/products-8a-quatro-recomendacoes.html`
+**sem tocar em nada**:
+
+```
+largura no mobile: 600 px em viewport de 375
+rola horizontal:   True
+```
+
+E na varredura dos 44:
+
+| | |
+|---|---|
+| Com `@media query` | **1** |
+| Sem `@media query` | **43** |
+| Com `width="600"` fixo | 43 |
+
+Consequência: qualquer peça que use uma seção do vault **rola na
+horizontal no celular**, que é o R09 e é severidade B. É onde a maioria
+da base lê.
+
+### O que a suíte fez enquanto isso
+
+`assets/arsenal/fragmentos/casca-600.html` tem uma media query com
+`!important` que contém a largura de tudo que estiver dentro dela. Isso
+reduziu a largura medida de 1275 px para 974 px, **mas não resolve**: a
+seção do vault é de duas colunas com largura fixa em `style` inline e não
+empilha.
+
+Empilhar coluna em e-mail exige a técnica de ghost table, que é
+reestruturar o HTML. O vault é somente leitura daqui, então a correção
+é no Obsidian.
+
+### O que precisa ser feito no vault
+
+1. Uma `@media (max-width:620px)` em cada um dos 43, com
+   `width:100%!important` nas tabelas e `display:block` nas células das
+   grades de duas colunas.
+2. Ou, se a decisão for manter fixo, registrar isso como decisão
+   consciente e aceitar que R09 é ruído permanente nessas peças.
+
+A primeira opção é a certa: o dado da carteira diz que a maioria lê no
+celular, e uma peça que rola na horizontal perde o CTA.

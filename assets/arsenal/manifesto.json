@@ -1,0 +1,349 @@
+{
+  "gerado_em": "2026-09-22",
+  "regra": "Bloco com variante no vault NAO entra como arquivo aqui: entra como linha apontando para o vault, com md5. Ver README secao 1.",
+  "blocos": [
+    {
+      "secao": "cta",
+      "slug": "cta-1-botao-isolado",
+      "caminho": "blocos/cta/cta-1-botao-isolado.html",
+      "md5": "7cc1e0b9b324134bcd902c76eeb639b5",
+      "slots": [
+        "COR_PRIMARIA",
+        "TEXTO_DO_CTA",
+        "URL_DO_CTA_AQUI"
+      ],
+      "situacao": "proposta",
+      "lacuna": "vault/componentes/lacunas/cta-sem-variante.md"
+    },
+    {
+      "secao": "cta",
+      "slug": "cta-2-botao-com-cupom",
+      "caminho": "blocos/cta/cta-2-botao-com-cupom.html",
+      "md5": "aa971aa4fe85c98fb9a1a9f5d9a5c09b",
+      "slots": [
+        "CODIGO_DO_CUPOM",
+        "COR_PRIMARIA",
+        "PRAZO_DA_OFERTA",
+        "TEXTO_DO_CTA",
+        "URL_DO_CTA_AQUI"
+      ],
+      "situacao": "proposta",
+      "lacuna": "vault/componentes/lacunas/cta-sem-variante.md"
+    },
+    {
+      "secao": "header",
+      "slug": "header-1-wordmark-centralizado",
+      "caminho": "blocos/header/header-1-wordmark-centralizado.html",
+      "md5": "cb1d284d858fb081391f1063a28cbca8",
+      "slots": [
+        "COR_PRIMARIA",
+        "NOME_DA_MARCA",
+        "URL_DO_SITE_AQUI"
+      ],
+      "situacao": "proposta",
+      "lacuna": "vault/componentes/lacunas/header-sem-variante.md"
+    },
+    {
+      "secao": "header",
+      "slug": "header-2-wordmark-com-barra-de-aviso",
+      "caminho": "blocos/header/header-2-wordmark-com-barra-de-aviso.html",
+      "md5": "4cdc7c4dd81ba2c9f8d531c725e01f68",
+      "slots": [
+        "COR_PRIMARIA",
+        "NOME_DA_MARCA",
+        "TEXTO_DA_BARRA",
+        "URL_DO_SITE_AQUI"
+      ],
+      "situacao": "proposta",
+      "lacuna": "vault/componentes/lacunas/header-sem-variante.md"
+    }
+  ],
+  "fragmentos": [
+    {
+      "slug": "casca-600",
+      "caminho": "fragmentos/casca-600.html",
+      "md5": "fec958728f73a31025985fb650f06df4"
+    },
+    {
+      "slug": "head-dark-mode",
+      "caminho": "fragmentos/head-dark-mode.html",
+      "md5": "8d207c8a1b5eb8d9915b95a5748e2837"
+    },
+    {
+      "slug": "preheader",
+      "caminho": "fragmentos/preheader.html",
+      "md5": "e6d44c8005b12903860ed1f74ee259de"
+    },
+    {
+      "slug": "rodape-legal",
+      "caminho": "fragmentos/rodape-legal.html",
+      "md5": "06c0b6bbe2c7b075c6fae99fca301085"
+    }
+  ],
+  "do_vault": [
+    {
+      "secao": "body",
+      "slug": "body-10-listicle-educativo",
+      "caminho_vault": "vault/componentes/_html/body-10-listicle-educativo.html",
+      "md5": "2b716c2062f7d58dd132b528d4e13955"
+    },
+    {
+      "secao": "body",
+      "slug": "body-2-colagem-de-data-comemorativa",
+      "caminho_vault": "vault/componentes/_html/body-2-colagem-de-data-comemorativa.html",
+      "md5": "1b55de6e2268a82632ca52c67d367658"
+    },
+    {
+      "secao": "body",
+      "slug": "body-3-pitch-de-gift-card",
+      "caminho_vault": "vault/componentes/_html/body-3-pitch-de-gift-card.html",
+      "md5": "8fd982051983697f9e4f912f5087f9a5"
+    },
+    {
+      "secao": "body",
+      "slug": "body-4-comparativo-em-duas-colunas",
+      "caminho_vault": "vault/componentes/_html/body-4-comparativo-em-duas-colunas.html",
+      "md5": "03ff5fb0c0c8382feab7af41f1247627"
+    },
+    {
+      "secao": "body",
+      "slug": "body-5-comparacao-nos-vs-eles",
+      "caminho_vault": "vault/componentes/_html/body-5-comparacao-nos-vs-eles.html",
+      "md5": "bd81d8872e306c12da9ac9d6306bb7f2"
+    },
+    {
+      "secao": "body",
+      "slug": "body-6-skin-minimalism-101",
+      "caminho_vault": "vault/componentes/_html/body-6-skin-minimalism-101.html",
+      "md5": "920baa3cadfa6da98c85ecad9e01fe1e"
+    },
+    {
+      "secao": "body",
+      "slug": "body-7-faq",
+      "caminho_vault": "vault/componentes/_html/body-7-faq.html",
+      "md5": "69ba39d54da021b6c966dc9692f86768"
+    },
+    {
+      "secao": "body",
+      "slug": "body-8-cards-vidro",
+      "caminho_vault": "vault/componentes/_html/body-8-cards-vidro.html",
+      "md5": "760d65320efbdb824eec81d8e081a41d"
+    },
+    {
+      "secao": "body",
+      "slug": "body-9-key-features-pilulas",
+      "caminho_vault": "vault/componentes/_html/body-9-key-features-pilulas.html",
+      "md5": "b61070ce4e512de10b2314f034e3e61c"
+    },
+    {
+      "secao": "footer",
+      "slug": "footer-1-menu-outline",
+      "caminho_vault": "vault/componentes/_html/footer-1-menu-outline.html",
+      "md5": "011d6d85220146002ebc404e22e4e3be"
+    },
+    {
+      "secao": "footer",
+      "slug": "footer-2-menu-solido",
+      "caminho_vault": "vault/componentes/_html/footer-2-menu-solido.html",
+      "md5": "6cdc7c1d6759e0de6c4cda5efad4265c"
+    },
+    {
+      "secao": "footer",
+      "slug": "footer-3-dark-editorial",
+      "caminho_vault": "vault/componentes/_html/footer-3-dark-editorial.html",
+      "md5": "6f3881fc5ab37f924d7cb7078b65512f"
+    },
+    {
+      "secao": "footer",
+      "slug": "footer-4-dark-mega-menu",
+      "caminho_vault": "vault/componentes/_html/footer-4-dark-mega-menu.html",
+      "md5": "991e1f4acdd8d38ed105291248a86379"
+    },
+    {
+      "secao": "hero",
+      "slug": "hero-10-lineup-de-colecao",
+      "caminho_vault": "vault/componentes/_html/hero-10-lineup-de-colecao.html",
+      "md5": "3cfb77884992a961476cd8108d099ab4"
+    },
+    {
+      "secao": "hero",
+      "slug": "hero-2-pergunta-comparativa",
+      "caminho_vault": "vault/componentes/_html/hero-2-pergunta-comparativa.html",
+      "md5": "aa7d0c3d3d2fc0f35410f2b8af5a19f4"
+    },
+    {
+      "secao": "hero",
+      "slug": "hero-3-cupom-de-captacao",
+      "caminho_vault": "vault/componentes/_html/hero-3-cupom-de-captacao.html",
+      "md5": "ea05d13b68e4ed90209fb6329deaa743"
+    },
+    {
+      "secao": "hero",
+      "slug": "hero-4-editorial-de-pertencimento",
+      "caminho_vault": "vault/componentes/_html/hero-4-editorial-de-pertencimento.html",
+      "md5": "ab9426f77a333380c6e2c6122460f451"
+    },
+    {
+      "secao": "hero",
+      "slug": "hero-5-cupom-em-tres-lugares",
+      "caminho_vault": "vault/componentes/_html/hero-5-cupom-em-tres-lugares.html",
+      "md5": "f9ba0a940442808a687d18401847d90e"
+    },
+    {
+      "secao": "hero",
+      "slug": "hero-6-percentual-gigante",
+      "caminho_vault": "vault/componentes/_html/hero-6-percentual-gigante.html",
+      "md5": "1dd196964c10bdfec795481dcd42ed33"
+    },
+    {
+      "secao": "hero",
+      "slug": "hero-7-campanha-sem-cupom",
+      "caminho_vault": "vault/componentes/_html/hero-7-campanha-sem-cupom.html",
+      "md5": "7a854918b7d1c75b06fa5f2139c0f4dc"
+    },
+    {
+      "secao": "hero",
+      "slug": "hero-8-lineup-com-lembrete-de-oferta",
+      "caminho_vault": "vault/componentes/_html/hero-8-lineup-com-lembrete-de-oferta.html",
+      "md5": "caa5f5bc0e988429bb69502086bcc34d"
+    },
+    {
+      "secao": "hero",
+      "slug": "hero-9-atendimento-proativo",
+      "caminho_vault": "vault/componentes/_html/hero-9-atendimento-proativo.html",
+      "md5": "aac61b10018982a391073efcd8748f53"
+    },
+    {
+      "secao": "offer",
+      "slug": "offer-1-condicao-sem-imagem",
+      "caminho_vault": "vault/componentes/_html/offer-1-condicao-sem-imagem.html",
+      "md5": "1cbbed3dd1421bf665a847a1a070dbcb"
+    },
+    {
+      "secao": "offer",
+      "slug": "offer-2-duas-ofertas-sazonais",
+      "caminho_vault": "vault/componentes/_html/offer-2-duas-ofertas-sazonais.html",
+      "md5": "b810c8973b6cb5300c7f1d972057c50b"
+    },
+    {
+      "secao": "offer",
+      "slug": "offer-3-lembrete-de-cupom",
+      "caminho_vault": "vault/componentes/_html/offer-3-lembrete-de-cupom.html",
+      "md5": "caf060f92b9b93c66335c7689b624d12"
+    },
+    {
+      "secao": "offer",
+      "slug": "offer-4-manifesto-antes-do-cupom",
+      "caminho_vault": "vault/componentes/_html/offer-4-manifesto-antes-do-cupom.html",
+      "md5": "9b64e2f74b44e342794d205db5d104d7"
+    },
+    {
+      "secao": "offer",
+      "slug": "offer-5-tres-diferenciais-e-cupom",
+      "caminho_vault": "vault/componentes/_html/offer-5-tres-diferenciais-e-cupom.html",
+      "md5": "112029f1e810dc35a8d1baf83b65cba8"
+    },
+    {
+      "secao": "offer",
+      "slug": "offer-6-carrinho-preto-e-branco",
+      "caminho_vault": "vault/componentes/_html/offer-6-carrinho-preto-e-branco.html",
+      "md5": "a8332cc6b48035464adba622ed20459a"
+    },
+    {
+      "secao": "products",
+      "slug": "products-2-tres-ingredientes",
+      "caminho_vault": "vault/componentes/_html/products-2-tres-ingredientes.html",
+      "md5": "c95c9aa6987b3cb6030b9069351a6d11"
+    },
+    {
+      "secao": "products",
+      "slug": "products-3-arco-de-novidades",
+      "caminho_vault": "vault/componentes/_html/products-3-arco-de-novidades.html",
+      "md5": "8420a50eb0c4bd5846a40501d228433f"
+    },
+    {
+      "secao": "products",
+      "slug": "products-4-produto-unico-com-prazo",
+      "caminho_vault": "vault/componentes/_html/products-4-produto-unico-com-prazo.html",
+      "md5": "d1589545ab8792acfd9067b157635572"
+    },
+    {
+      "secao": "products",
+      "slug": "products-5-tres-com-selo-de-percentual",
+      "caminho_vault": "vault/componentes/_html/products-5-tres-com-selo-de-percentual.html",
+      "md5": "9b54b573291bcc58722cc962fa23a080"
+    },
+    {
+      "secao": "products",
+      "slug": "products-6-vitrine-de-sale",
+      "caminho_vault": "vault/componentes/_html/products-6-vitrine-de-sale.html",
+      "md5": "d3340a4d43703699f77cc20e20cce83b"
+    },
+    {
+      "secao": "products",
+      "slug": "products-7-dois-com-galeria-de-angulos",
+      "caminho_vault": "vault/componentes/_html/products-7-dois-com-galeria-de-angulos.html",
+      "md5": "86ac30d65946be156ebc17d93602fd2e"
+    },
+    {
+      "secao": "products",
+      "slug": "products-8a-quatro-recomendacoes",
+      "caminho_vault": "vault/componentes/_html/products-8a-quatro-recomendacoes.html",
+      "md5": "b525c43cbbb0dd9ea4ac217651093939"
+    },
+    {
+      "secao": "products",
+      "slug": "products-8b-grade-3x3",
+      "caminho_vault": "vault/componentes/_html/products-8b-grade-3x3.html",
+      "md5": "d1f42a191e57b8c2f62f34d1cbdf3e62"
+    },
+    {
+      "secao": "products",
+      "slug": "products-9-grade-de-tamanho",
+      "caminho_vault": "vault/componentes/_html/products-9-grade-de-tamanho.html",
+      "md5": "c69f9aca9e200e8277179c4b5e98c9b6"
+    },
+    {
+      "secao": "reviews",
+      "slug": "reviews-1-depoimento-com-credencial",
+      "caminho_vault": "vault/componentes/_html/reviews-1-depoimento-com-credencial.html",
+      "md5": "aed53e92ad74e98385ab314f2e55d791"
+    },
+    {
+      "secao": "reviews",
+      "slug": "reviews-3a-depoimento-longo-monoespacado",
+      "caminho_vault": "vault/componentes/_html/reviews-3a-depoimento-longo-monoespacado.html",
+      "md5": "a7b4e51f0f5b95a29b5cd6b3378be55d"
+    },
+    {
+      "secao": "reviews",
+      "slug": "reviews-3b-depoimento-longo-monoespacado",
+      "caminho_vault": "vault/componentes/_html/reviews-3b-depoimento-longo-monoespacado.html",
+      "md5": "8c4b8ef0340ddfde15321068615077ee"
+    },
+    {
+      "secao": "reviews",
+      "slug": "reviews-5-prova-por-volume",
+      "caminho_vault": "vault/componentes/_html/reviews-5-prova-por-volume.html",
+      "md5": "1e7fb7eea09f22bb70ce5868464fae4d"
+    },
+    {
+      "secao": "reviews",
+      "slug": "reviews-6-review-por-variante",
+      "caminho_vault": "vault/componentes/_html/reviews-6-review-por-variante.html",
+      "md5": "005fd719fbb13c9af377efa74fc211a8"
+    },
+    {
+      "secao": "reviews",
+      "slug": "reviews-7-zigue-zague-com-cupom",
+      "caminho_vault": "vault/componentes/_html/reviews-7-zigue-zague-com-cupom.html",
+      "md5": "52a8d0099ad298332a2caf338dadba69"
+    },
+    {
+      "secao": "reviews",
+      "slug": "reviews-8-ugc-de-comunidade",
+      "caminho_vault": "vault/componentes/_html/reviews-8-ugc-de-comunidade.html",
+      "md5": "c0ce5fadb36e4b7abce185c03b396a5a"
+    }
+  ]
+}
