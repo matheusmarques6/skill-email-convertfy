@@ -127,6 +127,13 @@ entradas de infoproduto no léxico.
 | `medicube-escassez-com-prova-de-demanda` | C01, C02, C21, C35, C43, V29_SEM_CONTEXTO |
 | `medicube-ultima-batida` | C02, C21, V29_SEM_CONTEXTO |
 
-O resultado não mudou em relação à primeira medição: as mesmas 2 notas
-seguem limpas e as mesmas 6 contaminadas. As regras V novas não
-alcançaram copy citada em nota var2.
+**O resultado mudou.** A primeira medição deu 2 limpas e 6 contaminadas;
+esta deu **1 limpa e 7 contaminadas**. Uma nota que passava agora é
+pega, e a causa são as regras adicionadas depois da primeira medição:
+V29, V36 e V52 no `lint_copy.py`, mais as 13 entradas de tom de
+infoproduto no léxico.
+
+Isto é o comportamento esperado de um catálogo que cresce: nota que
+passava antes não é nota limpa, é nota que o lint ainda não alcançava.
+O valor de `lint_status` precisa ser regerado a cada mudança de regra,
+nunca copiado da medição anterior.
