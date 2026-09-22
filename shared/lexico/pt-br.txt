@@ -1,0 +1,174 @@
+# Lexico anti-vicios de IA, pt-BR. Lido por scripts/lint_copy.py.
+#
+# FORMATO (estavel, nao mude sem atualizar o lint):
+#   ID | padrao | sugestao | modo
+#
+#   ID        regra do catalogo em docs/pesquisa/pesquisa-vicios-ia-email.md
+#             (C12, C16, C17, C20, C21, C22, C23, C24, C25, C26)
+#   padrao    tres formas aceitas:
+#               texto literal   casa sem acento e sem caixa, com borda de palavra
+#               radical*        casa o radical mais ate 3 letras (plural, genero)
+#               re:expressao    expressao regular, IGNORECASE, sobre o texto original
+#   sugestao  o que escrever no lugar. Aparece na saida do lint.
+#   modo      opcional. "unitario" (padrao): 1 ocorrencia ja acusa.
+#             "densidade": so acusa com 3 ou mais ocorrencias do mesmo ID no e-mail.
+#
+# Linha vazia e linha iniciada por # sao ignoradas. Espaco em volta dos campos
+# e ignorado. Os campos sao lidos das pontas para o meio (ID na esquerda, modo e
+# sugestao na direita), entao o padrao pode conter | de alternancia de regex.
+#
+# Esta lista e viva: entrada nova precisa de um caso em scripts/tests/.
+# Ao adicionar, confira antes a lista de falso positivo em shared/calibracao.md.
+
+# ---------------------------------------------------------------------------
+# C12  Fecho de falsa profundidade (frase de efeito solta no fim)
+# ---------------------------------------------------------------------------
+C12 | porque voce merece | corte a linha ou troque por CTA mais condicao | unitario
+C12 | voce merece o melhor | corte a linha ou troque por CTA mais condicao | unitario
+C12 | afinal, voce merece | corte a linha ou troque por CTA mais condicao | unitario
+C12 | o resto e historia | corte a linha | unitario
+C12 | as possibilidades sao infinitas | corte a linha | unitario
+C12 | o futuro comeca agora | corte a linha | unitario
+
+# ---------------------------------------------------------------------------
+# C16  Abertura generica (pigarro antes do assunto)
+# ---------------------------------------------------------------------------
+C16 | no mundo de hoje | comece pela oferta ou pelo problema | unitario
+C16 | nos dias de hoje | comece pela oferta ou pelo problema | unitario
+C16 | re:n?um mundo cada vez mais | comece pela oferta ou pelo problema | unitario
+C16 | quando se trata de | corte e afirme direto | unitario
+C16 | estamos muito felizes em | diga o que o cliente ganha | unitario
+C16 | e com grande satisfacao | diga o que o cliente ganha | unitario
+C16 | antes de mais nada | corte | unitario
+C16 | vale ressaltar | corte | unitario
+C16 | primeiramente | corte | unitario
+C16 | sabemos que voce | fale do produto, nao do que voce supoe | unitario
+
+# ---------------------------------------------------------------------------
+# C17  Recapitulacao no final
+# ---------------------------------------------------------------------------
+C17 | em resumo | corte | unitario
+C17 | resumindo | corte | unitario
+C17 | em suma | corte | unitario
+C17 | no fim das contas | corte | unitario
+C17 | concluindo | corte | unitario
+C17 | nao perca | diga o prazo real | unitario
+
+# ---------------------------------------------------------------------------
+# C20  Superlativo vazio de varejo
+# ---------------------------------------------------------------------------
+C20 | extraordinari* | diga o percentual e a condicao | unitario
+C20 | jamais vist* | diga o percentual e a condicao | unitario
+C20 | nunca vist* | diga o percentual e a condicao | unitario
+C20 | imperdiv* | diga o prazo real | unitario
+C20 | incriv* | troque por um fato do produto | unitario
+C20 | inedit* | diga o que exatamente e novo | unitario
+C20 | sem igual | troque por um fato do produto | unitario
+C20 | precos historicos | diga o percentual | unitario
+C20 | espetacular | troque por um fato do produto | unitario
+C20 | sensacional | troque por um fato do produto | unitario
+C20 | experiencia unica | diga o que o cliente recebe | unitario
+C20 | peca unica | diga a tiragem real ou corte | unitario
+C20 | momento unico | corte | unitario
+C20 | prepare-se para o impossivel | diga a oferta | unitario
+C20 | simplesmente perfeito | troque por um fato do produto | unitario
+C20 | o melhor de todos | corte ou cite a fonte da comparacao | unitario
+
+# ---------------------------------------------------------------------------
+# C21  Vocabulario de IA
+# ---------------------------------------------------------------------------
+C21 | jornada | troque por o que o cliente faz agora | unitario
+C21 | re:\bmergulh(e|ar|ando|o)\b | troque por ver, conhecer, usar | unitario
+C21 | re:\bdesbloqu(eie|ear|eia)\b | troque por receber, ganhar, abrir | unitario
+C21 | re:\belev(e|ar|ando)\b | troque por melhorar ou corte | unitario
+C21 | re:\btransform(e|ar|a|ando|ador[ae]?s?)\b | diga o resultado concreto | unitario
+C21 | potencializ* | troque por aumentar, melhorar | unitario
+C21 | alavanc* | troque por usar, aproveitar | unitario
+C21 | ecossistema | troque por linha, colecao, catalogo | unitario
+C21 | universo | troque por linha, colecao, catalogo | unitario
+C21 | atemporal | diga o material ou a garantia | unitario
+C21 | essencia | corte | unitario
+C21 | tapecaria | corte | unitario
+C21 | reinventa* | diga o que mudou | unitario
+C21 | revolucion* | diga o que mudou | unitario
+C21 | holistic* | troque por completo | unitario
+C21 | robust* | troque pela medida real (peso, gramatura) | unitario
+C21 | sem atritos | troque por simples, direto | unitario
+C21 | divisor de aguas | corte | unitario
+C21 | game-changer | corte | unitario
+C21 | curadori* | troque por selecao ou corte | unitario
+C21 | sinergia | corte | unitario
+C21 | disruptiv* | corte | unitario
+C21 | crucial | corte ou troque pelo fato | densidade
+C21 | fundamental | corte ou troque pelo fato | densidade
+C21 | essencial | corte ou troque pelo fato | densidade
+C21 | estrategic* | corte ou troque pelo fato | densidade
+C21 | relevante | corte ou troque pelo fato | densidade
+C21 | meticulos* | corte ou troque pelo fato | densidade
+C21 | intrincad* | corte ou troque pelo fato | densidade
+C21 | empoderar | corte ou troque pelo fato | densidade
+C21 | paradigma | corte ou troque pelo fato | densidade
+
+# ---------------------------------------------------------------------------
+# C22  Exclusividade generica
+# ---------------------------------------------------------------------------
+C22 | voce foi escolhid* | diga o criterio real do segmento ou corte | unitario
+C22 | seleto grupo | diga o criterio real do segmento ou corte | unitario
+C22 | grupo seleto | diga o criterio real do segmento ou corte | unitario
+C22 | clube seleto | use o nome real do clube | unitario
+C22 | acesso vip | use o nome real do clube | unitario
+C22 | acesso exclusivo | diga o que e exclusivo e para quem | unitario
+C22 | convite especial para voce | diga a oferta | unitario
+C22 | so para voce | diga o criterio real do segmento | unitario
+C22 | apenas para voce | diga o criterio real do segmento | unitario
+
+# ---------------------------------------------------------------------------
+# C23  Gerundismo e gerundio conclusivo
+# ---------------------------------------------------------------------------
+C23 | re:vamos estar \w+ndo | use o verbo simples (vamos enviar) | unitario
+C23 | re:vai estar \w+ndo | use o verbo simples | unitario
+C23 | re:estaremos \w+ndo | use o verbo simples | unitario
+C23 | re:,\s*(garantindo|proporcionando|oferecendo|trazendo|permitindo|assegurando|elevando|transformando)\b | quebre em duas frases | unitario
+
+# ---------------------------------------------------------------------------
+# C24  Evasao do verbo ser
+# ---------------------------------------------------------------------------
+C24 | se apresenta como | use o verbo ser | unitario
+C24 | se posiciona como | use o verbo ser | unitario
+C24 | atua como | use o verbo ser | unitario
+C24 | funciona como a solucao | use o verbo ser | unitario
+C24 | se destaca como | use o verbo ser ou corte | unitario
+
+# ---------------------------------------------------------------------------
+# C25  Muleta de intensidade (so acusa em densidade)
+# ---------------------------------------------------------------------------
+C25 | muito | corte o adverbio | densidade
+C25 | super | corte o adverbio | densidade
+C25 | realmente | corte o adverbio | densidade
+C25 | totalmente | corte o adverbio | densidade
+C25 | simplesmente | corte o adverbio | densidade
+C25 | literalmente | corte o adverbio | densidade
+C25 | extremamente | corte o adverbio | densidade
+C25 | incrivelmente | corte o adverbio | densidade
+C25 | verdadeiramente | corte o adverbio | densidade
+C25 | absolutamente | corte o adverbio | densidade
+
+# ---------------------------------------------------------------------------
+# C26  Cliche de marca ou de categoria
+# ---------------------------------------------------------------------------
+C26 | sua historia | diga o material, a medida ou a garantia | unitario
+C26 | brilhe | diga o material ou o acabamento | unitario
+C26 | estilo que fala por voce | diga o corte, o tecido ou o caimento | unitario
+C26 | autocuidado | diga o que o produto faz | unitario
+C26 | seu ritual | diga o modo de uso | unitario
+C26 | ritual de beleza | diga o modo de uso | unitario
+C26 | feito para voce | diga para quem serve de fato | unitario
+C26 | pensado para voce | diga para quem serve de fato | unitario
+C26 | o melhor para voce | diga o fato do produto | unitario
+C26 | uma nova era | diga o que mudou na loja | unitario
+C26 | nova era | diga o que mudou na loja | unitario
+C26 | evoluimos para voce | diga o que mudou na loja | unitario
+C26 | a sua cara | corte | unitario
+C26 | sinta a diferenca | diga a diferenca | unitario
+C26 | vista-se de | diga a peca | unitario
+C26 | mais que uma loja | diga o que a loja vende | unitario

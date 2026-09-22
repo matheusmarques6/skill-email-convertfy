@@ -1,0 +1,152 @@
+# Lexico anti-vicios de IA, ingles. Lido por scripts/lint_copy.py.
+#
+# FORMATO (estavel, nao mude sem atualizar o lint):
+#   ID | padrao | sugestao | modo
+#
+#   ID        regra do catalogo em docs/pesquisa/pesquisa-vicios-ia-email.md
+#             (C12, C16, C17, C20, C21, C22, C23, C24, C25, C26)
+#   padrao    tres formas aceitas:
+#               texto literal   casa sem acento e sem caixa, com borda de palavra
+#               radical*        casa o radical mais ate 3 letras (plural, flexao)
+#               re:expressao    expressao regular, IGNORECASE, sobre o texto original
+#   sugestao  o que escrever no lugar. Aparece na saida do lint.
+#   modo      opcional. "unitario" (padrao): 1 ocorrencia ja acusa.
+#             "densidade": so acusa com 3 ou mais ocorrencias do mesmo ID no e-mail.
+#
+# Linha vazia e linha iniciada por # sao ignoradas. Espaco em volta dos campos
+# e ignorado. Os campos sao lidos das pontas para o meio (ID na esquerda, modo e
+# sugestao na direita), entao o padrao pode conter | de alternancia de regex.
+#
+# Esta lista e viva: entrada nova precisa de um caso em scripts/tests/.
+# Ao adicionar, confira antes a lista de falso positivo em shared/calibracao.md.
+
+# ---------------------------------------------------------------------------
+# C12  Fecho de falsa profundidade
+# ---------------------------------------------------------------------------
+C12 | because you deserve it | cut the line or use CTA plus condition | unitario
+C12 | you deserve it | cut the line or use CTA plus condition | unitario
+C12 | the possibilities are limitless | cut the line | unitario
+C12 | the possibilities are endless | cut the line | unitario
+C12 | the rest is history | cut the line | unitario
+C12 | the future starts now | cut the line | unitario
+
+# ---------------------------------------------------------------------------
+# C16  Generic opener
+# ---------------------------------------------------------------------------
+C16 | re:in today'?s (fast-paced )?world | open with the offer or the problem | unitario
+C16 | in the world of | open with the offer or the problem | unitario
+C16 | when it comes to | cut and state it | unitario
+C16 | re:we'?re (so )?excited to | say what the customer gets | unitario
+C16 | first and foremost | cut | unitario
+C16 | it is worth noting | cut | unitario
+C16 | it's worth noting | cut | unitario
+C16 | we know that you | talk about the product, not your assumption | unitario
+
+# ---------------------------------------------------------------------------
+# C17  Formulaic closer
+# ---------------------------------------------------------------------------
+C17 | in conclusion | cut | unitario
+C17 | to sum up | cut | unitario
+C17 | all in all | cut | unitario
+C17 | last but not least | cut | unitario
+C17 | re:don'?t miss out | state the real deadline | unitario
+
+# ---------------------------------------------------------------------------
+# C20  Empty retail superlative
+# ---------------------------------------------------------------------------
+C20 | unbeatable | state the percentage and the condition | unitario
+C20 | incredible | replace with a product fact | unitario
+C20 | unmatched | replace with a product fact | unitario
+C20 | ultimate | replace with a product fact | unitario
+C20 | once in a lifetime | state the real deadline | unitario
+C20 | never before seen | state what is actually new | unitario
+C20 | jaw-dropping | state the percentage | unitario
+C20 | insane savings | state the percentage | unitario
+C20 | unheard of | state the percentage | unitario
+C20 | one of a kind | state the real production run or cut | unitario
+
+# ---------------------------------------------------------------------------
+# C21  AI vocabulary
+# ---------------------------------------------------------------------------
+C21 | re:\belevat(e|es|ing)\b | say what improves | unitario
+C21 | re:\bunlock(s|ing)?\b | use get, open, receive | unitario
+C21 | journey | say what the customer does now | unitario
+C21 | seamless | use simple, direct | unitario
+C21 | effortless | say how long it takes | unitario
+C21 | curated | use selected or cut | unitario
+C21 | crafted | say the material or the process | unitario
+C21 | timeless | say the material or the warranty | unitario
+C21 | re:delv(e|es|ing)\b | use look at, check | unitario
+C21 | unleash | cut | unitario
+C21 | re:\btransform(s|ed|ing|ation|ative)?\b | state the concrete result | unitario
+C21 | tapestry | cut | unitario
+C21 | realm | use area, category | unitario
+C21 | robust | use the real measure (weight, gsm) | unitario
+C21 | holistic | use complete | unitario
+C21 | game-changer | cut | unitario
+C21 | game changer | cut | unitario
+C21 | leverage | use, take advantage of | unitario
+C21 | supercharge | say what improves | unitario
+C21 | empower | say what the customer can do | unitario
+C21 | revolutionize | say what changed | unitario
+C21 | boasts | use has | unitario
+C21 | showcasing | use shows | unitario
+C21 | underscores | use shows | unitario
+C21 | pivotal | cut | unitario
+C21 | intricate | cut | unitario
+C21 | crucial | cut or state the fact | densidade
+C21 | essential | cut or state the fact | densidade
+C21 | comprehensive | cut or state the fact | densidade
+C21 | strategic | cut or state the fact | densidade
+C21 | meticulous | cut or state the fact | densidade
+C21 | vibrant | cut or state the fact | densidade
+C21 | notably | cut or state the fact | densidade
+
+# ---------------------------------------------------------------------------
+# C22  Generic exclusivity
+# ---------------------------------------------------------------------------
+C22 | re:you'?ve been selected | state the real segment rule or cut | unitario
+C22 | exclusive access | say what is exclusive and to whom | unitario
+C22 | vip access | use the real club name | unitario
+C22 | select few | state the real segment rule or cut | unitario
+C22 | chosen few | state the real segment rule or cut | unitario
+C22 | just for you | state the real segment rule | unitario
+
+# ---------------------------------------------------------------------------
+# C23  Conclusive gerund
+# ---------------------------------------------------------------------------
+C23 | re:,\s*(ensuring|providing|allowing|enabling|offering|delivering)\b | split into two sentences | unitario
+
+# ---------------------------------------------------------------------------
+# C24  Copula avoidance
+# ---------------------------------------------------------------------------
+C24 | serves as | use is | unitario
+C24 | stands as | use is | unitario
+C24 | acts as a | use is | unitario
+C24 | functions as the | use is | unitario
+
+# ---------------------------------------------------------------------------
+# C25  Intensity crutch (density only)
+# ---------------------------------------------------------------------------
+C25 | truly | cut the adverb | densidade
+C25 | really | cut the adverb | densidade
+C25 | simply | cut the adverb | densidade
+C25 | literally | cut the adverb | densidade
+C25 | incredibly | cut the adverb | densidade
+C25 | extremely | cut the adverb | densidade
+C25 | absolutely | cut the adverb | densidade
+C25 | very | cut the adverb | densidade
+
+# ---------------------------------------------------------------------------
+# C26  Brand or category cliche
+# ---------------------------------------------------------------------------
+C26 | your story | say the material, the size or the warranty | unitario
+C26 | self-care | say what the product does | unitario
+C26 | re:\britual\b | say how it is used | unitario
+C26 | a new era | say what changed in the store | unitario
+C26 | made for you | say who it actually fits | unitario
+C26 | built for you | say who it actually fits | unitario
+C26 | shine bright | say the material or the finish | unitario
+C26 | level up your | say the concrete result | unitario
+C26 | more than a store | say what the store sells | unitario
+C26 | more than just a | say what it is | unitario

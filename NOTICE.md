@@ -20,7 +20,9 @@ vazia significa "clonado como referencia, nada derivado ate agora".
 - Fonte: https://github.com/pbakaus/impeccable
 - Licenca: Apache License 2.0
 - Copyright: ver `LICENSE` e `NOTICE.md` no repo de origem
-- Reaproveitado: (nada ate agora)
+- Reaproveitado: a arquitetura **Verify / Refuse** e a postura de critica
+  isolada, reescritas em `shared/anti-vicios-copy.md` e
+  `shared/postura-revisao.md`. Nenhum texto copiado.
 
 Este produto inclui trabalho derivado de Impeccable, licenciado sob a
 Apache License, Version 2.0. Copia da licenca em
@@ -31,13 +33,13 @@ http://www.apache.org/licenses/LICENSE-2.0
 | Repo | Fonte | Reaproveitado |
 |---|---|---|
 | Leonxlnx/taste-skill | https://github.com/Leonxlnx/taste-skill | (nada ate agora) |
-| blader/humanizer | https://github.com/blader/humanizer | (nada ate agora) |
-| Henzen3d/Deslop-ptBR | https://github.com/Henzen3d/Deslop-ptBR | (nada ate agora) |
+| blader/humanizer | https://github.com/blader/humanizer | Taxonomia de 25 padroes de escrita de IA, reescrita nos IDs C10 a C26 de `shared/anti-vicios-copy.md` |
+| Henzen3d/Deslop-ptBR | https://github.com/Henzen3d/Deslop-ptBR | A ideia de tiers por severidade, reescrita na escala B/A/M e em `shared/lexico/pt-br.txt` |
 | mackswendhell/humanizer-pt-br | https://github.com/mackswendhell/humanizer-pt-br | (nada ate agora) |
 | msigor/humanizer-br | https://github.com/msigor/humanizer-br | (nada ate agora) |
-| ravidsrk/slop-detect | https://github.com/ravidsrk/slop-detect | (nada ate agora) |
-| emilkowalski/skills | https://github.com/emilkowalski/skills | (nada ate agora) |
-| CosmoBlk/email-marketing-bible | https://github.com/CosmoBlk/email-marketing-bible | (nada ate agora) |
+| ravidsrk/slop-detect | https://github.com/ravidsrk/slop-detect | Metodo de limiar por densidade (adaptado para contagem absoluta por e-mail) e o catalogo de padroes de design, em `scripts/lint_copy.py` e `shared/anti-vicios-design.md` |
+| emilkowalski/skills | https://github.com/emilkowalski/skills | O principio de que aprovacao se conquista (review-animations), em `shared/postura-revisao.md` |
+| CosmoBlk/email-marketing-bible | https://github.com/CosmoBlk/email-marketing-bible | Laco de critica com nota e teto de 4 rodadas, em `shared/postura-revisao.md` |
 | 808enzo/chappie | https://github.com/808enzo/chappie | (nada ate agora) |
 | davidharttx/email-campaign-skill | https://github.com/davidharttx/email-campaign-skill | (nada ate agora) |
 | framix-team/skill-email-html-mjml | https://github.com/framix-team/skill-email-html-mjml | (nada ate agora) |
