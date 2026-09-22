@@ -1,0 +1,26 @@
+{
+  "idioma": "en",
+  "assunto": "Your coupon has been released",
+  "preheader": "1111: 22% extra on the 24 best sellers. Today only.",
+  "blocos": [
+    "As promised, your coupon is live.",
+    "Use code 1111 for 22% extra on the 24 best sellers, on top of up to 50% off.",
+    "Valid until 11:59 PM today.",
+    "Some sizes are already low in stock.",
+    "Nathan, Blue Wolf"
+  ],
+  "ctas": [
+    "USE MY COUPON"
+  ],
+  "alts": [],
+  "brief_numbers": [
+    "1111",
+    "22",
+    "24",
+    "50",
+    "11",
+    "59"
+  ],
+  "marca_usa_emoji": true,
+  "encerra_ciclo": false
+}
