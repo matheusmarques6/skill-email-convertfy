@@ -179,5 +179,33 @@ class Contrato(unittest.TestCase):
             self.assertIn(v["severidade"], ("B", "A", "M"))
 
 
+
+class ContainerLegado(unittest.TestCase):
+    """600 e o padrao; 598 e legado aceito com aviso M, nao com erro."""
+
+    BASE = ('<html><body><table role="presentation" width="{w}"><tr>'
+            '<td style="color:#000;background:#fff">Oferta 20% OFF codigo X'
+            '<span style="display:none">pre</span></td></tr></table></body></html>')
+
+    def _regras(self, largura):
+        r = lint_email.lint(self.BASE.format(w=largura))
+        return {v["regra"]: v["severidade"] for v in r["violacoes"]}
+
+    def test_600_nao_gera_achado_de_container(self):
+        r = self._regras(600)
+        self.assertNotIn("E_CONTAINER", r)
+        self.assertNotIn("E_CONTAINER_LEGADO", r)
+
+    def test_598_avisa_em_m_e_nao_bloqueia(self):
+        r = self._regras(598)
+        self.assertEqual(r.get("E_CONTAINER_LEGADO"), "M")
+        self.assertNotIn("E_CONTAINER", r)
+
+    def test_largura_fora_do_padrao_e_a(self):
+        r = self._regras(640)
+        self.assertEqual(r.get("E_CONTAINER"), "A")
+        self.assertNotIn("E_CONTAINER_LEGADO", r)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

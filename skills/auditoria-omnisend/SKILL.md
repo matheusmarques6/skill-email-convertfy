@@ -228,8 +228,13 @@ para 20 porque três das suas checagens são conformidade com evidência
 forte; captação cai de 10 para 5 porque, na operação da Convertfy, o
 formulário costuma ser responsabilidade de outro time.
 
-Rubrica completa, critério por critério, com o mapeamento para a operação
-do MCP: `references/mapa-mcp.md`.
+A premissa por tras desta distribuicao esta declarada em
+`references/rubrica.md`, que traz tambem a rubrica completa, criterio por
+criterio. A rubrica **nao e neutra**: pontua o que a Convertfy consegue
+mudar, na operacao que a Convertfy tem. Quem usar em outro contexto
+repontua.
+
+Mapeamento para a operacao do MCP: `references/mapa-mcp.md`.
 
 ## Formato do achado
 

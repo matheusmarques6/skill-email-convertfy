@@ -33,11 +33,15 @@ from html.parser import HTMLParser
 SEVERIDADE = {
     "D01": "A", "D02": "B", "D03": "A", "D04": "A", "D05": "A",
     "D17": "A", "D17_SEM_LARGURA": "M", "D18": "B",
-    "E_TAMANHO": "B", "E_CONTAINER": "A", "E_PREHEADER": "A",
+    "E_TAMANHO": "B", "E_CONTAINER": "A", "E_CONTAINER_LEGADO": "M",
+    "E_PREHEADER": "A",
     "E_CTA_IMAGEM": "A", "E_PLACEHOLDER": "B",
 }
 LIMITE_CLIPPING = 102 * 1024
-CONTAINERS_OK = {598, 600}
+CONTAINER_PADRAO = 600
+# 598 e legado aceito: avisa em M e NAO manda regerar peca que ja existe.
+CONTAINER_LEGADO = 598
+CONTAINERS_OK = {CONTAINER_LEGADO, CONTAINER_PADRAO}
 
 CORES_NOMEADAS = {
     "white": (255, 255, 255), "black": (0, 0, 0), "red": (255, 0, 0),
@@ -340,15 +344,25 @@ def regra_container(leitor: LeitorEmail):
                 "declare o container de 600px com width=600",
             )
         ]
-    if any(w in CONTAINERS_OK for w in leitor.larguras_container):
+    if CONTAINER_PADRAO in leitor.larguras_container:
         return []
+    if CONTAINER_LEGADO in leitor.larguras_container:
+        return [
+            achado(
+                "E_CONTAINER_LEGADO",
+                "html",
+                f"container de {CONTAINER_LEGADO}px",
+                "legado aceito: 600 e o padrao para peca nova, mas nao regere "
+                "peca que ja existe so por causa disto",
+            )
+        ]
     achados = sorted(set(leitor.larguras_container))
     return [
         achado(
             "E_CONTAINER",
             "html",
             ", ".join(str(w) for w in achados),
-            "container da Convertfy e 600px",
+            f"container da Convertfy e {CONTAINER_PADRAO}px",
         )
     ]
 

@@ -93,6 +93,42 @@ por quatro motivos somados, não por estética:
   102 KB está em `docs/pesquisa/a-verificar.md` para reconfirmação; a regra de
   manter a peça pequena não depende do dígito.
 
+## D21 a D31: entram como `revisar`
+
+Onze itens que vieram da destilação dos repos de referência, não das duas
+pesquisas. **Entram no catálogo oficial com status `revisar`**, por decisão de
+rumo, mesmo onde a fonte propunha algo mais forte.
+
+`revisar` significa: o revisor olha e julga no contexto da peça. Não é achado
+automático do lint e não reprova sozinho. Vira `vício` ou `bloqueia` quando
+houver caso real que sustente, e aí muda aqui e no lint no mesmo commit.
+
+| ID | Padrão | Status | Regra | Fonte propunha | Origem |
+|---|---|---|---|---|---|
+| D21 | Imagem grande sem link | `revisar` | O Gmail embrulha imagem não linkada acima de certo tamanho no próprio lightbox e rouba o clique. Linke a hero e as imagens grandes | revisar | `email-html-qa-skill` |
+| D22 | Auto-link de telefone, data e endereço no rodapé | `revisar` | Recolore o texto e quebra o rodapé. Exige os três overrides separados (Apple, Gmail, Samsung) | **bloqueia** | `email-html-qa-skill` |
+| D23 | Alt descritivo em imagem decorativa | `revisar` | Refina D17. Decorativa recebe `alt=""`. O pior caso é alt ausente | revisar | `email-html-qa-skill`, `skill-email-html-mjml` |
+| D24 | Bloco dinâmico sem estado para vazio | `revisar` | Bloco de produto, avaliação ou desconto que pode sair vazio precisa de estado. Padrão: a seção não aparece | vício | `chappie` |
+| D25 | Cards lado a lado com altura desigual | `revisar` | Fundo no `<td>` externo, nunca no interno. Altura fixa nas imagens da mesma linha | vício | `prescott-amelia-agents` |
+| D26 | Corpo abaixo de 14px, ou rodapé abaixo de 11px, para caber | `revisar` | O problema é excesso de copy, não tamanho de fonte. Corte a copy | vício | `prescott-amelia-agents` |
+| D27 | Sombra em texto (`text-shadow`) | `revisar` | Reduz legibilidade e vários clientes removem ou quebram | **bloqueia** | `prescott-amelia-agents` |
+| D28 | Três ou mais famílias tipográficas | `revisar` | No máximo duas: a **tipografia principal** e a **fonte secundária** | vício | `prescott-amelia-agents` |
+| D29 | Duas cores de CTA principal na mesma peça | `revisar` | Uma cor de CTA. Duas criam ambiguidade sobre qual ação importa | vício | `prescott-amelia-agents` |
+| D30 | Dois CTAs concorrentes no hero | `revisar` | O hero tem um botão. Duas mensagens são dois e-mails | vício | `prescott-amelia-agents` |
+| D31 | SVG decorativo | `revisar` | Salvo quando o design da marca já usa. SVG funcional é exceção | vício | `prescott-amelia-agents` |
+
+Dois merecem atenção quando forem reavaliados:
+
+- **D22** e o único com mecânica verificável e consequência visível no cliente
+  final (rodapé recolorido no iOS). É o candidato mais forte a subir para
+  `bloqueia`.
+- **D27** (`text-shadow`) tem o mesmo perfil de D18, que já bloqueia: é recurso
+  que não renderiza. Se subir, o lugar natural é dentro de D18, não como ID
+  próprio.
+
+Nenhum dos onze tem evidência nas duas pesquisas. Vêm de repo de referência,
+que é experiência de mercado, não estudo. Por isso `revisar` e não `vício`.
+
 ## O que não é motivo para nenhuma dessas regras
 
 Não escreva, em skill nenhuma, que provedor filtra "texto com cara de IA". Não
