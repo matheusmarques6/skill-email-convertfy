@@ -231,6 +231,28 @@ A copy só sai quando:
 - [ ] Nenhum placeholder `[FALTA: ...]` sobrou sem virar pergunta ao
       cliente
 
+
+## Nao verificado no Omnisend
+
+Quatro comportamentos do Omnisend **nao foram verificados em conta real**.
+Ate que sejam, valem os fallbacks abaixo, e o codigo nunca afirma que a
+checagem passou.
+
+| Item | Pergunta aberta | Fallback obrigatorio |
+|---|---|---|
+| **T1** | Existe valor padrao para merge tag de contato vazia? | A frase precisa ler bem **com o campo vazio**. Prefira o nome no fim da frase, ou nao use nome. Nunca entregue `Oi , tudo bem?` |
+| **T3** | Propriedade de evento serve como merge tag em bloco de texto? | **Nao cite o produto no texto.** Headline generica ("Voce deixou algo para tras"), e o bloco de produto faz o trabalho |
+| **T4** | Qual a tag do link de recuperacao de carrinho na origem `shopify`? | **O link e sempre testado com clique antes do envio**, e o carrinho precisa abrir com o item dentro. Na duvida, pagina da colecao, que converte menos e nunca abre carrinho vazio |
+| **T5** | Qual a tag do link de retomada de checkout na origem `shopify`? | Igual ao T4: clique de teste obrigatorio, e o checkout precisa reabrir com itens e e-mail preenchidos |
+
+Nunca invente nome de variavel para fechar um destes. Nome de tag que
+nao resolve entrega e-mail com colchete cru para o cliente final.
+
+Para fechar: `docs/omnisend/roteiro-de-teste.md` (cinco envios para um
+e-mail seed). Registro em `docs/omnisend/verificado.md`. O que o teste
+nao responder vira chamado, com o texto pronto em
+`docs/omnisend/perguntas-suporte.md`.
+
 ## Referências
 
 | Arquivo | Quando abrir |

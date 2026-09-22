@@ -228,7 +228,16 @@ filtros por condição.
 ## 5. TODOs abertos
 
 Lista viva. Cada item precisa ser fechado no painel do Omnisend ou com o
-suporte deles antes de a skill sair de rascunho.
+suporte deles.
+
+**Estado de T1, T3, T4 e T5: `nao verificado`.** Nenhum foi testado em
+conta real. Enquanto estiverem assim, valem os fallbacks da secao
+"Nao verificado no Omnisend" do `SKILL.md`, e nenhum nome de variavel
+pode ser inventado para fecha-los.
+
+Para fechar: `docs/omnisend/roteiro-de-teste.md`. Registro em
+`docs/omnisend/verificado.md`. Chamado pronto em
+`docs/omnisend/perguntas-suporte.md`.
 
 | # | Pergunta | Variável Klaviyo original | Impacto se ficar aberto |
 |---|---|---|---|
