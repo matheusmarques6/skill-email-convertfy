@@ -306,6 +306,32 @@ todas as imagens da mesma linha, com `object-fit: cover`. Nunca
 - [ ] Nenhuma cor fora do brief
 - [ ] Nenhum placeholder repetido, nenhuma seção em branco
 
+
+## Contrato de variante
+
+O **contrato novo e o canonico**. Esta skill so gera no contrato novo.
+
+Das 75 notas de variante do vault, 32 ja estao no contrato novo e **43
+estao no legado**. Quando o protocolo de selecao escolher uma legada,
+converta antes de usar:
+
+```bash
+python3 scripts/adaptar_variante_legado.py <slug> --json
+```
+
+O adaptador carrega os campos compartilhados, deriva `profundidade` e
+aposenta `momento`, `ativa` e os outros campos que sairam do contrato.
+
+**`aliviador` nao deriva de nada.** Vem de `shared/aliviador-legado.json`,
+que e o registro das decisoes humanas. Slug sem entrada la volta como
+`[FALTA: decisao humana]` e o adaptador sai com exit code 1.
+
+Variante legada com pendencia **nao pode ser usada para gerar**: peca a
+decisao de `aliviador` ou escolha outra variante. Nunca preencha por
+inferencia, nem copie o `aliviador` de uma variante parecida.
+
+Ver `docs/vault/migracao-contrato.md`.
+
 ## Referências
 
 | Arquivo | Quando abrir |

@@ -104,5 +104,12 @@ Pular da intencao direto para a copy e P08, e produz peca com estrutura
 inventada. Zero candidata em uma secao nao e erro: declare a lacuna, nao
 invente variante.
 
-**Descompasso do catalogo:** `_catalogo.md` cobre 44 variantes, a pasta
-tem 75. Declare qual das duas fontes a skill usa. Ver `CLAUDE.md`.
+**Contrato de variante.** O contrato novo e o canonico e as skills so
+geram nele. Das 75 notas, 43 estao no contrato legado: converta com
+`scripts/adaptar_variante_legado.py` antes de usar. `aliviador` nao
+deriva e vem de `shared/aliviador-legado.json`; sem a decisao registrada,
+a variante nao pode ser usada. Ver `docs/vault/migracao-contrato.md`.
+
+**Descompasso do catalogo:** `_catalogo.md` lista 44 slugs, a pasta tem
+75 notas. O 44o nao e variante: e `body-8-cards-vidro`, slug antigo de
+uma nota renomeada. Enderece por `variant_id`, nunca por numero.
