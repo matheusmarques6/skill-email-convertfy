@@ -18,15 +18,50 @@ vazia significa "clonado como referencia, nada derivado ate agora".
 ### pbakaus/impeccable
 
 - Fonte: https://github.com/pbakaus/impeccable
-- Licenca: Apache License 2.0
-- Copyright: ver `LICENSE` e `NOTICE.md` no repo de origem
-- Reaproveitado: a arquitetura **Verify / Refuse** e a postura de critica
-  isolada, reescritas em `shared/anti-vicios-copy.md` e
-  `shared/postura-revisao.md`. Nenhum texto copiado.
+- Licenca: Apache License 2.0. Texto integral em
+  `LICENSES/impeccable-Apache-2.0.txt`
+- NOTICE de origem preservado em `LICENSES/impeccable-NOTICE.md`, como a
+  clausula 4(d) exige
+- Copyright: Paul Bakaus e contribuidores do Impeccable
 
-Este produto inclui trabalho derivado de Impeccable, licenciado sob a
+Este produto inclui trabalho derivado do Impeccable, licenciado sob a
 Apache License, Version 2.0. Copia da licenca em
-http://www.apache.org/licenses/LICENSE-2.0
+http://www.apache.org/licenses/LICENSE-2.0 e em `LICENSES/`.
+
+**O que foi absorvido** (reescrito em portugues, com nossas regras e
+nossos IDs; nenhum texto ou codigo copiado):
+
+| Ideia de origem | Onde vive aqui |
+|---|---|
+| Arquitetura **Verify / Refuse** como forma de escrever regra | `shared/anti-vicios-copy.md`, organizada nos IDs C01 a C47 |
+| Postura de critica isolada, revisor que nao participou da escrita | `shared/postura-revisao.md` e `skills/email-revisor/SKILL.md` |
+| Piso de qualidade que vale antes de qualquer edicao | `shared/protocolo-de-execucao.md` |
+| Formato de SKILL.md como roteador, com tabela comando para reference | `skills/convertfy-email/SKILL.md` |
+| Ideia de capturar contexto duravel do projeto em ficha | `marcas/_template.md` |
+
+**Alteracoes feitas** (declaradas conforme a clausula 4(b) da Apache 2.0):
+
+1. **Dominio trocado.** O Impeccable trata de interface web. Esta suite
+   trata de e-mail de e-commerce, que tem restricoes opostas em varios
+   pontos: tabela em vez de flexbox, estilo inline em vez de folha,
+   container fixo de 600px, e o Outlook como alvo obrigatorio.
+2. **Postura estetica invertida.** O Impeccable pede design ousado,
+   memoravel e fora da distribuicao. A Convertfy pede o contrario:
+   layout neutro, fundo branco, sem paleta autoral, indistinguivel de uma
+   peca de producao. Onde o Impeccable diz "va com tudo", aqui se diz
+   "nao chame atencao para si".
+3. **Verificacao virou gate deterministico.** No Impeccable a verificacao
+   e por inspecao em passes limitados. Aqui ela e `scripts/lint_copy.py` e
+   `scripts/lint_email.py`, com exit code: violacao B nao entrega. O
+   motivo esta em P05, travessao ja escapou de prompt que o proibia.
+4. **Idioma e vocabulario.** Todo o material foi escrito em portugues do
+   Brasil, com os IDs do nosso catalogo, sem reaproveitar o texto de
+   origem.
+5. **Comandos diferentes.** Nenhum dos 24 comandos do Impeccable foi
+   mantido. O roteador tem comandos proprios, ligados a e-mail.
+
+Nenhum arquivo do Impeccable e redistribuido por este repo. `vendor/`
+nao e versionado.
 
 ## MIT License
 

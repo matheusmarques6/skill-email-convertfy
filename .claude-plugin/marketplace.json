@@ -1,0 +1,37 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "skill-email-convertfy",
+  "metadata": {
+    "description": "Suite de e-mail marketing para e-commerce da Convertfy: 8 skills contra vicio de IA em copy e design de e-mail, com gate de lint deterministico."
+  },
+  "owner": {
+    "name": "Convertfy",
+    "url": "https://github.com/matheusmarques6"
+  },
+  "plugins": [
+    {
+      "name": "convertfy-email",
+      "description": "Roteador e suite completa: copy, design, flows, QA, revisor, variantes e auditoria Omnisend. Layout neutro (fundo branco, sem paleta autoral), HTML 600px compativel com Outlook e seguro para dark mode, copy curta sem travessao, e dois linters que bloqueiam entrega com violacao B.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Convertfy",
+        "url": "https://github.com/matheusmarques6"
+      },
+      "source": ".",
+      "category": "marketing",
+      "homepage": "https://github.com/matheusmarques6/skill-email-convertfy",
+      "tags": [
+        "email",
+        "email-marketing",
+        "ecommerce",
+        "shopify",
+        "omnisend",
+        "klaviyo",
+        "anti-slop",
+        "copywriting",
+        "html-email",
+        "skills"
+      ]
+    }
+  ]
+}

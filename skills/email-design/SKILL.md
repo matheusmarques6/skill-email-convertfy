@@ -3,7 +3,7 @@ name: email-design
 description: Use ao montar, revisar ou fazer QA do HTML de um e-mail: estrutura de tabela, container de 600px, estilo inline, botão bulletproof com VML, compatibilidade com Outlook, comportamento em dark mode, alt de imagem, tamanho do arquivo e clipping do Gmail. Também ao decidir se um padrão visual é vício de IA ou convenção legítima de e-mail. Não escreve copy (isso é email-copy) nem escolhe a estrutura da peça (isso vem do vault).
 ---
 
-# email-design (RASCUNHO)
+# email-design
 
 Produz e revisa o HTML de um e-mail de e-commerce que renderiza igual no
 Outlook, no Gmail e no Apple Mail, sobrevive ao dark mode forçado, e não
@@ -14,6 +14,27 @@ lista está em `shared/anti-vicios-design.md`. A verificação
 determinística é `scripts/lint_email.py`.
 
 Divergências desta skill em relação ao CLAUDE.md: nenhuma.
+
+
+## Protocolo obrigatorio
+
+Esta skill segue `shared/protocolo-de-execucao.md` inteiro. Em resumo:
+
+1. **Ficha e brief (P01, P02).** Le `marcas/<cliente>.md` quando existir.
+   Sem ficha e sem brief com **oferta, produto e prazo**, nao gera: pede o
+   que falta. Campo ausente vira `[FALTA: <campo>]`, nunca invencao.
+2. **Anti-vicios.** Aplica `shared/anti-vicios-copy.md`,
+   `anti-vicios-design.md`, `anti-vicios-processo.md` e, junto,
+   `shared/calibracao.md`, para nao reprovar convencao legitima de e-mail.
+3. **Gate de lint.** Roda `scripts/lint_copy.py` e `scripts/lint_email.py`
+   antes de entregar. **Violacao B: nao entrega.** O gate e o exit code.
+4. **Leitura do brief.** Antes de gerar, uma linha dizendo o que entendeu.
+   Se estiver ambiguo, **uma pergunta so**, juntando tudo que falta.
+5. **So o artefato (C07).** Sem comentario sobre a propria copy, sem
+   explicar a escolha, sem variacao que ninguem pediu.
+6. **Ordem de trabalho (P08).** intencao (var1) -> estrutura (var2) ->
+   variantes do arsenal -> copy por schema. Nunca escreve antes de
+   decidir a estrutura.
 
 ## Contrato técnico, herdado do CLAUDE.md
 

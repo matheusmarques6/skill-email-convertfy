@@ -10,7 +10,7 @@ marcado `TODO` com a referência para
 `equivalencia-klaviyo-omnisend.md` §5.
 
 O orçamento de palavras de cada e-mail está em
-`skills/email-copy/draft/references/orcamento-de-palavras.md`.
+`skills/email-copy/references/orcamento-de-palavras.md`.
 
 ---
 

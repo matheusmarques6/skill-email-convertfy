@@ -3,7 +3,7 @@ name: email-flows
 description: Use ao desenhar, revisar ou montar um flow de e-mail no Omnisend para uma loja Shopify: welcome, carrinho abandonado, checkout abandonado, navegação abandonada, pós-compra, nutrição, winback, sunset, reposição e pedido de avaliação. Cobre gatilho, atraso, filtro de entrada, condição de saída, limitador de sobreposição e qual bloco de conteúdo cada tipo de automação exige. Não escreve a copy (isso é email-copy) nem o HTML (isso é email-design).
 ---
 
-# email-flows (RASCUNHO)
+# email-flows
 
 Desenha os 10 flows de ciclo de vida de uma loja de e-commerce no
 **Omnisend**, que é o ESP principal da Convertfy. O Klaviyo é o
@@ -11,6 +11,27 @@ secundário: a tabela de equivalência entre os dois está em
 `references/equivalencia-klaviyo-omnisend.md` e é mantida, não apagada.
 
 Divergências desta skill em relação ao CLAUDE.md: nenhuma.
+
+
+## Protocolo obrigatorio
+
+Esta skill segue `shared/protocolo-de-execucao.md` inteiro. Em resumo:
+
+1. **Ficha e brief (P01, P02).** Le `marcas/<cliente>.md` quando existir.
+   Sem ficha e sem brief com **oferta, produto e prazo**, nao gera: pede o
+   que falta. Campo ausente vira `[FALTA: <campo>]`, nunca invencao.
+2. **Anti-vicios.** Aplica `shared/anti-vicios-copy.md`,
+   `anti-vicios-design.md`, `anti-vicios-processo.md` e, junto,
+   `shared/calibracao.md`, para nao reprovar convencao legitima de e-mail.
+3. **Gate de lint.** Roda `scripts/lint_copy.py` e `scripts/lint_email.py`
+   antes de entregar. **Violacao B: nao entrega.** O gate e o exit code.
+4. **Leitura do brief.** Antes de gerar, uma linha dizendo o que entendeu.
+   Se estiver ambiguo, **uma pergunta so**, juntando tudo que falta.
+5. **So o artefato (C07).** Sem comentario sobre a propria copy, sem
+   explicar a escolha, sem variacao que ninguem pediu.
+6. **Ordem de trabalho (P08).** intencao (var1) -> estrutura (var2) ->
+   variantes do arsenal -> copy por schema. Nunca escreve antes de
+   decidir a estrutura.
 
 ## Antes de tudo: a regra do TODO
 
@@ -207,7 +228,7 @@ O caminho correto:
   o caso normal é `discount`; confirme antes em loja que não seja Shopify.
 
 A copy escreve a **condição** (valor, prazo, mínimo). O código nasce do
-bloco. Ver `skills/email-copy/draft/references/oferta-e-condicao.md`.
+bloco. Ver `skills/email-copy/references/oferta-e-condicao.md`.
 
 ## Personalização
 
@@ -275,6 +296,6 @@ quem opera a conta.
 |---|---|
 | `references/os-10-flows.md` | Ao montar qualquer flow: gatilho, blocos, atrasos, saídas, conteúdo exigido |
 | `references/equivalencia-klaviyo-omnisend.md` | Ao migrar de Klaviyo, ao traduzir uma variável, ou ao consultar os TODOs abertos |
-| `skills/email-copy/draft/SKILL.md` | Para os campos de texto |
-| `skills/email-design/draft/SKILL.md` | Para o HTML |
+| `skills/email-copy/SKILL.md` | Para os campos de texto |
+| `skills/email-design/SKILL.md` | Para o HTML |
 | `shared/anti-vicios-copy.md` | Sempre, antes de escrever copy |

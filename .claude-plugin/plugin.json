@@ -1,5 +1,12 @@
 {
-  "name": "skill-email-convertfy",
-  "description": "Suite de skills de e-mail marketing para e-commerce da Convertfy. Layout neutro, copy sem vicio de IA, HTML compativel com Outlook e dark mode.",
-  "version": "0.1.0"
+  "name": "convertfy-email",
+  "description": "Suite de e-mail marketing para e-commerce da Convertfy. 8 skills com layout neutro, copy sem vicio de IA (catalogo C01-C47, D01-D20, P01-P09) e dois linters deterministicos que bloqueiam a entrega. Omnisend como ESP principal, Klaviyo como secundario.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Convertfy",
+    "url": "https://github.com/matheusmarques6"
+  },
+  "repository": "https://github.com/matheusmarques6/skill-email-convertfy",
+  "license": "MIT",
+  "skills": "./skills/"
 }

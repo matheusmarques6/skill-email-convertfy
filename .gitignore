@@ -21,3 +21,6 @@ __pycache__/
 !.env.example
 tmp/
 out/
+
+# Pacotes gerados por scripts/build_zip.py
+dist/

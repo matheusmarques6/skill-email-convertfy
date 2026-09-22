@@ -3,12 +3,33 @@ name: auditoria-omnisend
 description: Use ao auditar, diagnosticar, revisar ou fazer benchmark de uma conta Omnisend de loja Shopify: cobertura e configuração de automações, desempenho de campanha, crescimento e descadastro da base, segmentos, e conformidade de remetente em massa (SPF, DKIM, DMARC, taxa de reclamação de spam, one-click unsubscribe). Produz relatório com achado, evidência, recomendação e spec de implementação. Somente leitura.
 ---
 
-# auditoria-omnisend (RASCUNHO)
+# auditoria-omnisend
 
 Audita uma conta Omnisend pelo MCP, com evidência, e entrega um plano
 priorizado. Vale para as 250+ lojas Shopify da carteira.
 
 Divergências desta skill em relação ao CLAUDE.md: nenhuma.
+
+
+## Protocolo obrigatorio
+
+Esta skill segue `shared/protocolo-de-execucao.md` inteiro. Em resumo:
+
+1. **Ficha e brief (P01, P02).** Le `marcas/<cliente>.md` quando existir.
+   Sem ficha e sem brief com **oferta, produto e prazo**, nao gera: pede o
+   que falta. Campo ausente vira `[FALTA: <campo>]`, nunca invencao.
+2. **Anti-vicios.** Aplica `shared/anti-vicios-copy.md`,
+   `anti-vicios-design.md`, `anti-vicios-processo.md` e, junto,
+   `shared/calibracao.md`, para nao reprovar convencao legitima de e-mail.
+3. **Gate de lint.** Roda `scripts/lint_copy.py` e `scripts/lint_email.py`
+   antes de entregar. **Violacao B: nao entrega.** O gate e o exit code.
+4. **Leitura do brief.** Antes de gerar, uma linha dizendo o que entendeu.
+   Se estiver ambiguo, **uma pergunta so**, juntando tudo que falta.
+5. **So o artefato (C07).** Sem comentario sobre a propria copy, sem
+   explicar a escolha, sem variacao que ninguem pediu.
+6. **Ordem de trabalho (P08).** intencao (var1) -> estrutura (var2) ->
+   variantes do arsenal -> copy por schema. Nunca escreve antes de
+   decidir a estrutura.
 
 ## Regras de segurança, inegociáveis
 
@@ -276,5 +297,5 @@ cliente não aprova.
 |---|---|
 | `references/mapa-mcp.md` | Ao coletar: checagem por checagem, com a operação que traz o dado e o que não é obtenível |
 | `references/conformidade-remetente.md` | Para as três checagens de conformidade e para o procedimento do `.eml` |
-| `skills/email-flows/draft/references/os-10-flows.md` | Para julgar cobertura e configuração de automação |
-| `skills/email-design/draft/SKILL.md` | Para auditar conteúdo de template |
+| `skills/email-flows/references/os-10-flows.md` | Para julgar cobertura e configuração de automação |
+| `skills/email-design/SKILL.md` | Para auditar conteúdo de template |

@@ -15,20 +15,71 @@ peca tem que parecer feita por uma loja, nao gerada por um assistente.
   `vault/_INDEX.md` e siga `vault/componentes/_protocolo-de-selecao.md`.
 - **`NOTICE.md`** creditos das referencias externas.
 
+## As 8 skills
+
+Entre pelo roteador. Ele decide a rota e aplica o gate.
+
+| Skill | Faz |
+|---|---|
+| `convertfy-email` | **Roteador.** Ponto de entrada, modos e despacho |
+| `email-copy` | Assunto, preheader, headline, corpo, CTA, alt |
+| `email-design` | HTML: 600px, inline, bulletproof, Outlook, dark mode |
+| `email-flows` | Os 10 flows no Omnisend, com equivalencia Klaviyo |
+| `email-qa` | Gate final antes do envio: vai ou nao vai |
+| `email-revisor` | Revisor separado, contexto limpo, nota /10 |
+| `email-variantes` | 3 versoes por eixo (oferta, prova, problema) |
+| `auditoria-omnisend` | Audita a conta inteira, com evidencia |
+
+Cadeia completa de uma peca do zero:
+
+```
+flow (se for automacao)  ->  copy  ->  design  ->  qa
+```
+
+## Instalar como plugin
+
+```
+/plugin marketplace add matheusmarques6/skill-email-convertfy
+```
+
+Para subir uma skill avulsa no claude.ai, gere o zip:
+
+```bash
+python3 scripts/build_zip.py            # todas, em dist/
+python3 scripts/build_zip.py email-qa   # so uma
+```
+
+Cada zip e autocontido: leva junto os arquivos de `shared/` e `scripts/`
+que a skill cita, com os caminhos reescritos.
+
+## O gate
+
+Nada sai com violacao de severidade B.
+
+```bash
+python3 scripts/lint_copy.py  --json peca.json
+python3 scripts/lint_email.py --json peca.html
+```
+
+Exit code 1 significa que existe B. O gate e o exit code, nao a leitura
+humana da saida.
+
 ## Estrutura
 
 | Pasta | Conteudo |
 |---|---|
-| `skills/` | As skills, uma pasta cada (`skills/<nome>/SKILL.md`, ate 500 linhas) |
-| `shared/` | Regras e trechos usados por mais de uma skill |
-| `marcas/` | Brief por loja: cor, tipografia, tom, restricao |
-| `assets/arsenal/` | Blocos HTML prontos e validados |
-| `scripts/` | Validadores, linters de copy, build |
-| `evals/casos/` | Casos bons: entrada esperada e saida aceita |
-| `evals/ruins/` | Casos ruins: pecas com vicio, para o linter pegar |
-| `docs/` | Documentacao interna |
-| `vendor/` | 12 repos de referencia, somente leitura, fora do git |
-| `.claude-plugin/` | Manifesto do plugin |
+| `skills/` | As 8 skills (`SKILL.md` ate 500 linhas, detalhe em `references/`) |
+| `shared/` | Regras usadas por mais de uma skill: anti-vicios, calibracao, protocolo, lexicos |
+| `marcas/` | Ficha por loja: cor, tipografia, tom, restricao |
+| `assets/arsenal/` | Blocos HTML e manifesto |
+| `scripts/` | Os dois linters, os testes, o setup e o empacotador |
+| `evals/casos/` | Casos bons |
+| `evals/ruins/` | Casos ruins, para o linter pegar |
+| `docs/pesquisa/` | As pesquisas base e o que ainda precisa ser verificado |
+| `docs/destilacao/` | O que foi aproveitado de cada repo de referencia |
+| `LICENSES/` | Licencas de origem dos repos dos quais derivamos algo |
+| `vendor/` | 17 repos de referencia, somente leitura, fora do git |
+| `.claude-plugin/` | Manifesto do plugin e do marketplace |
 
 ## Setup local
 

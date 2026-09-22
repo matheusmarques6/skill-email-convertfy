@@ -3,7 +3,7 @@ name: email-copy
 description: Use ao escrever ou reescrever assunto, preheader, headline, corpo, CTA ou texto de alt de um e-mail de e-commerce; ao decidir o tamanho da copy por tipo de e-mail; ao redigir a condição de uma oferta com cupom, prazo ou valor mínimo; ou quando uma copy pronta precisa passar pelo gate anti-vício antes de ir para o cliente. Não cobre estrutura da peça (isso é o vault), HTML (isso é email-design) nem a lógica do flow (isso é email-flows).
 ---
 
-# email-copy (RASCUNHO)
+# email-copy
 
 Escreve os campos de texto de um e-mail de e-commerce de forma que um
 humano da Convertfy aprove sem perceber que foi gerado.
@@ -15,6 +15,27 @@ verificação determinística é `scripts/lint_copy.py`, e a entrega é
 bloqueada por qualquer achado de severidade B.
 
 Divergências desta skill em relação ao CLAUDE.md: nenhuma.
+
+
+## Protocolo obrigatorio
+
+Esta skill segue `shared/protocolo-de-execucao.md` inteiro. Em resumo:
+
+1. **Ficha e brief (P01, P02).** Le `marcas/<cliente>.md` quando existir.
+   Sem ficha e sem brief com **oferta, produto e prazo**, nao gera: pede o
+   que falta. Campo ausente vira `[FALTA: <campo>]`, nunca invencao.
+2. **Anti-vicios.** Aplica `shared/anti-vicios-copy.md`,
+   `anti-vicios-design.md`, `anti-vicios-processo.md` e, junto,
+   `shared/calibracao.md`, para nao reprovar convencao legitima de e-mail.
+3. **Gate de lint.** Roda `scripts/lint_copy.py` e `scripts/lint_email.py`
+   antes de entregar. **Violacao B: nao entrega.** O gate e o exit code.
+4. **Leitura do brief.** Antes de gerar, uma linha dizendo o que entendeu.
+   Se estiver ambiguo, **uma pergunta so**, juntando tudo que falta.
+5. **So o artefato (C07).** Sem comentario sobre a propria copy, sem
+   explicar a escolha, sem variacao que ninguem pediu.
+6. **Ordem de trabalho (P08).** intencao (var1) -> estrutura (var2) ->
+   variantes do arsenal -> copy por schema. Nunca escreve antes de
+   decidir a estrutura.
 
 ## Ordem de trabalho
 
@@ -140,7 +161,7 @@ Regras de forma:
   código único por destinatário e o placeholder é `XXXX-XXXX-XXXX`. Escrever
   "use o código BEMVINDO15" cria uma promessa que a loja não emitiu.
   A copy escreve a condição; o código nasce no bloco. Ver
-  `skills/email-flows/draft/`.
+  `skills/email-flows/`.
 
 Detalhe, formas aceitas em pt-BR e em inglês, e o que fazer quando o brief
 só deu metade da condição: `references/oferta-e-condicao.md`.
@@ -174,7 +195,7 @@ Toda merge tag exige fallback, e a frase precisa funcionar sem o nome.
 
 - Omnisend usa `[[contact.first_name]]`. O comportamento de valor ausente
   precisa ser confirmado no painel antes de virar regra desta skill: ver
-  o TODO em `skills/email-flows/draft/references/equivalencia-klaviyo-omnisend.md`.
+  o TODO em `skills/email-flows/references/equivalencia-klaviyo-omnisend.md`.
 - Regra que vale já: **escreva a frase de modo que ela leia bem com o
   campo vazio.** "Oi [[contact.first_name]], seu cupom" continua lendo se
   o nome sumir; "Preparamos isso especialmente para [[contact.first_name]]"
