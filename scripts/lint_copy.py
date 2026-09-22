@@ -56,6 +56,9 @@ SEVERIDADE = {
     "C26": "A",
     "C30": "M", "C31": "M", "C32": "M", "C33": "M", "C34": "M", "C35": "M",
     "C40": "M", "C40_GRAVE": "A", "C41": "A", "C42": "A", "C43": "M",
+    # Regras vindas do vault (docs/pesquisa/vault-vicios.md). So as
+    # detectaveis por regex: as de posicao e sequencia sao do revisor.
+    "V29": "B", "V29_SEM_CONTEXTO": "M", "V36": "B", "V52": "B",
     "C44": "M", "C45": "A", "C46": "A", "C47": "A",
 }
 
@@ -179,6 +182,10 @@ class Peca:
             str(n) for n in (dados.get("brief_numbers") or [])
         ]
         self.marca_usa_emoji = bool(dados.get("marca_usa_emoji"))
+        # Contexto opcional usado por V29: o toque encerra o ciclo da
+        # oferta? Ausente significa desconhecido, e V29 avisa em vez de
+        # bloquear.
+        self.encerra_ciclo = dados.get("encerra_ciclo")
 
     def campos(self):
         """(nome do campo, texto) para todo texto visivel da peca."""
@@ -981,6 +988,80 @@ def regra_c47(peca):
 
 
 # ---------------------------------------------------------------------------
+# Regras do vault, detectaveis por regex
+# ---------------------------------------------------------------------------
+# V29  Hora fechada em toque que nao encerra o ciclo da oferta
+RX_V29 = re.compile(
+    r"\b(?:[01]?\d|2[0-3])[:h][0-5]\d\b"
+    r"|\b(?:1[0-2]|[1-9])\s*:\s*[0-5]\d\s*(?:a\.?m\.?|p\.?m\.?)",
+    re.IGNORECASE,
+)
+
+# V36  Placeholder literal entregue na peca
+RX_V36 = [
+    re.compile(r"\[\s*(?:FALTA|TBC|TODO|BRAND|MARCA|PRICE|PRECO)\b[^\]]*\]", re.I),
+    re.compile(r"\bThe\s*\[\s*Brand\s*\]\s*Team\b", re.I),
+    re.compile(r"\bLorem ipsum\b", re.I),
+    re.compile(r"\bXXXX[- ]?XXXX\b", re.I),
+]
+
+# V52  Fingir que o prazo nao venceu
+RX_V52 = re.compile(
+    r"\b(?:seu|o)\s+(?:c[oó]digo|cupom)\s+ainda\s+(?:funciona|vale|est[aá]\s+valendo)"
+    r"|\byour\s+(?:code|coupon)\s+still\s+works\b"
+    r"|\bainda\s+d[aá]\s+tempo\s+de\s+usar\s+(?:o|seu)\s+(?:c[oó]digo|cupom)",
+    re.IGNORECASE,
+)
+
+
+def regra_v29(peca):
+    """Hora fechada so bloqueia quando o toque NAO encerra o ciclo.
+
+    O lint nao sabe a posicao do toque. Com `encerra_ciclo` declarado no
+    payload, decide; sem ele, avisa em M em vez de bloquear no escuro.
+    """
+    out = []
+    encerra = peca.encerra_ciclo
+    for campo, texto in peca.campos_de_prosa():
+        m = RX_V29.search(texto)
+        if not m:
+            continue
+        if encerra is True:
+            continue
+        regra = "V29" if encerra is False else "V29_SEM_CONTEXTO"
+        sug = ("hora fechada so no toque que encerra a oferta"
+               if encerra is False else
+               "hora fechada: confirme que este toque encerra o ciclo da "
+               "oferta, ou declare `encerra_ciclo` no payload")
+        out.append(achado(regra, campo, m.group(0), sug))
+        break
+    return out
+
+
+def regra_v36(peca):
+    out = []
+    for campo, texto in peca.campos_de_prosa():
+        for rx in RX_V36:
+            m = rx.search(texto)
+            if m:
+                out.append(achado("V36", campo, m.group(0),
+                                  "placeholder nao pode sair na peca"))
+                break
+    return out
+
+
+def regra_v52(peca):
+    out = []
+    for campo, texto in peca.campos_de_prosa():
+        m = RX_V52.search(texto)
+        if m:
+            out.append(achado("V52", campo, m.group(0),
+                              "nao reabra prazo vencido: anuncie oferta nova "
+                              "ou nao mande o e-mail"))
+    return out
+
+
+# ---------------------------------------------------------------------------
 # Execucao
 # ---------------------------------------------------------------------------
 REGRAS = [
@@ -989,8 +1070,10 @@ REGRAS = [
     regra_c30, regra_c31, regra_c32, regra_c33, regra_c34, regra_c35,
     regra_c40, regra_c41, regra_c42, regra_c43, regra_c44, regra_c45,
     regra_c46, regra_c47,
+    regra_v29, regra_v36, regra_v52,
 ]
 ORDEM_SEV = {"B": 0, "A": 1, "M": 2}
+
 
 
 def lint(dados: dict, lexico_dir: str = LEXICO_DIR_PADRAO) -> dict:

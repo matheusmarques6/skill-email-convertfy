@@ -150,3 +150,10 @@ C26 | shine bright | say the material or the finish | unitario
 C26 | level up your | say the concrete result | unitario
 C26 | more than a store | say what the store sells | unitario
 C26 | more than just a | say what it is | unitario
+
+# C26 infoproduct tone transplanted into e-commerce (P09)
+C26 | my accountant said | e-commerce does not use infoproduct tone | unitario
+C26 | i'll be honest with you | cut the preamble, state the offer | unitario
+C26 | this is a game changer | say what the product does | unitario
+C26 | what nobody tells you | cut | unitario
+C26 | i could charge | do not anchor price on an invented value | unitario

@@ -1,0 +1,281 @@
+[
+  {
+    "id": "s23-1",
+    "arquivo": "copy/s23-1.json",
+    "tipo": "copy",
+    "regra_esperada": "C10",
+    "deteccao": "lint",
+    "origem": "pesquisa §2.3",
+    "nota": "corpus humano contaminado"
+  },
+  {
+    "id": "s23-2",
+    "arquivo": "copy/s23-2.json",
+    "tipo": "copy",
+    "regra_esperada": "C01",
+    "deteccao": "lint",
+    "origem": "pesquisa §2.3",
+    "nota": "corpus humano contaminado"
+  },
+  {
+    "id": "s23-3",
+    "arquivo": "copy/s23-3.json",
+    "tipo": "copy",
+    "regra_esperada": "C11",
+    "deteccao": "lint",
+    "origem": "pesquisa §2.3",
+    "nota": "corpus humano contaminado"
+  },
+  {
+    "id": "s23-4",
+    "arquivo": "copy/s23-4.json",
+    "tipo": "copy",
+    "regra_esperada": "C21",
+    "deteccao": "lint",
+    "origem": "pesquisa §2.3",
+    "nota": "corpus humano contaminado"
+  },
+  {
+    "id": "s23-5",
+    "arquivo": "copy/s23-5.json",
+    "tipo": "copy",
+    "regra_esperada": "C11",
+    "deteccao": "lint",
+    "origem": "pesquisa §2.3",
+    "nota": "corpus humano contaminado"
+  },
+  {
+    "id": "s1-travessao",
+    "arquivo": "copy/s1-travessao.json",
+    "tipo": "copy",
+    "regra_esperada": "C01",
+    "deteccao": "lint",
+    "origem": "pesquisa §1",
+    "nota": "travessao apesar da proibicao no prompt"
+  },
+  {
+    "id": "s1-numero",
+    "arquivo": "copy/s1-numero.json",
+    "tipo": "copy",
+    "regra_esperada": "C02",
+    "deteccao": "lint",
+    "origem": "pesquisa §1",
+    "nota": "numero inventado"
+  },
+  {
+    "id": "s1-assunto",
+    "arquivo": "copy/s1-assunto.json",
+    "tipo": "copy",
+    "regra_esperada": "C03",
+    "deteccao": "lint",
+    "origem": "pesquisa §1",
+    "nota": "assunto que simula transacao"
+  },
+  {
+    "id": "s1-cupom-idioma",
+    "arquivo": "copy/s1-cupom-idioma.json",
+    "tipo": "copy",
+    "regra_esperada": "C04",
+    "deteccao": "lint",
+    "origem": "pesquisa §1",
+    "nota": "cupom no idioma errado"
+  },
+  {
+    "id": "s1-cena",
+    "arquivo": "copy/s1-cena.json",
+    "tipo": "copy",
+    "regra_esperada": "C05",
+    "deteccao": "lint",
+    "origem": "pesquisa §1",
+    "nota": "cena fabricada"
+  },
+  {
+    "id": "s1-superlativo",
+    "arquivo": "copy/s1-superlativo.json",
+    "tipo": "copy",
+    "regra_esperada": "C20",
+    "deteccao": "lint",
+    "origem": "pesquisa §1",
+    "nota": "superlativo vazio de varejo"
+  },
+  {
+    "id": "s1-clichê",
+    "arquivo": "copy/s1-clichê.json",
+    "tipo": "copy",
+    "regra_esperada": "C26",
+    "deteccao": "lint",
+    "origem": "pesquisa §1",
+    "nota": "clichê de rebranding"
+  },
+  {
+    "id": "s1-metacopy",
+    "arquivo": "copy/s1-metacopy.json",
+    "tipo": "copy",
+    "regra_esperada": "C07",
+    "deteccao": "lint",
+    "origem": "pesquisa §1",
+    "nota": "comentario sobre a propria copy"
+  },
+  {
+    "id": "s1-hormozi",
+    "arquivo": "copy/s1-hormozi.json",
+    "tipo": "copy",
+    "regra_esperada": "C26",
+    "deteccao": "lint",
+    "origem": "pesquisa §1",
+    "nota": "tom de infoproduto em e-commerce"
+  },
+  {
+    "id": "vault-v02",
+    "arquivo": "html/vault-v02.html",
+    "tipo": "html",
+    "regra_esperada": "V02",
+    "deteccao": "lint",
+    "origem": "vault-vicios.md",
+    "nota": "oferta so dentro da imagem, sem texto vivo nem alt com o codigo"
+  },
+  {
+    "id": "vault-v29",
+    "arquivo": "copy/vault-v29.json",
+    "tipo": "copy",
+    "regra_esperada": "V29",
+    "deteccao": "lint",
+    "origem": "vault-vicios.md",
+    "nota": "toque 2 de 4, encerra_ciclo=false no payload"
+  },
+  {
+    "id": "vault-v36",
+    "arquivo": "copy/vault-v36.json",
+    "tipo": "copy",
+    "regra_esperada": "V36",
+    "deteccao": "lint",
+    "origem": "vault-vicios.md",
+    "nota": ""
+  },
+  {
+    "id": "vault-v52",
+    "arquivo": "copy/vault-v52.json",
+    "tipo": "copy",
+    "regra_esperada": "V52",
+    "deteccao": "lint",
+    "origem": "vault-vicios.md",
+    "nota": ""
+  },
+  {
+    "id": "vault-v13",
+    "arquivo": "copy/vault-v13.json",
+    "tipo": "copy",
+    "regra_esperada": "V13",
+    "deteccao": "revisor",
+    "origem": "vault-vicios.md",
+    "nota": ""
+  },
+  {
+    "id": "vault-v33",
+    "arquivo": "copy/vault-v33.json",
+    "tipo": "copy",
+    "regra_esperada": "V33",
+    "deteccao": "revisor",
+    "origem": "vault-vicios.md",
+    "nota": ""
+  },
+  {
+    "id": "vault-v34",
+    "arquivo": "copy/vault-v34.json",
+    "tipo": "copy",
+    "regra_esperada": "V34",
+    "deteccao": "revisor",
+    "origem": "vault-vicios.md",
+    "nota": ""
+  },
+  {
+    "id": "vault-v19",
+    "arquivo": "copy/vault-v19.json",
+    "tipo": "copy",
+    "regra_esperada": "V19",
+    "deteccao": "revisor",
+    "origem": "vault-vicios.md",
+    "nota": ""
+  },
+  {
+    "id": "vault-v01",
+    "arquivo": "copy/vault-v01.json",
+    "tipo": "copy",
+    "regra_esperada": "V01",
+    "deteccao": "revisor",
+    "origem": "vault-vicios.md",
+    "nota": ""
+  },
+  {
+    "id": "vault-v16",
+    "arquivo": "copy/vault-v16.json",
+    "tipo": "copy",
+    "regra_esperada": "V16",
+    "deteccao": "revisor",
+    "origem": "vault-vicios.md",
+    "nota": ""
+  },
+  {
+    "id": "vault-v18",
+    "arquivo": "copy/vault-v18.json",
+    "tipo": "copy",
+    "regra_esperada": "V18",
+    "deteccao": "revisor",
+    "origem": "vault-vicios.md",
+    "nota": ""
+  },
+  {
+    "id": "vault-v31",
+    "arquivo": "copy/vault-v31.json",
+    "tipo": "copy",
+    "regra_esperada": "V31",
+    "deteccao": "revisor",
+    "origem": "vault-vicios.md",
+    "nota": ""
+  },
+  {
+    "id": "vault-v32",
+    "arquivo": "copy/vault-v32.json",
+    "tipo": "copy",
+    "regra_esperada": "V32",
+    "deteccao": "revisor",
+    "origem": "vault-vicios.md",
+    "nota": ""
+  },
+  {
+    "id": "vault-v38",
+    "arquivo": "copy/vault-v38.json",
+    "tipo": "copy",
+    "regra_esperada": "V38",
+    "deteccao": "revisor",
+    "origem": "vault-vicios.md",
+    "nota": ""
+  },
+  {
+    "id": "vault-v41",
+    "arquivo": "copy/vault-v41.json",
+    "tipo": "copy",
+    "regra_esperada": "V41",
+    "deteccao": "revisor",
+    "origem": "vault-vicios.md",
+    "nota": ""
+  },
+  {
+    "id": "vault-v44",
+    "arquivo": "copy/vault-v44.json",
+    "tipo": "copy",
+    "regra_esperada": "V44",
+    "deteccao": "revisor",
+    "origem": "vault-vicios.md",
+    "nota": ""
+  },
+  {
+    "id": "vault-v48",
+    "arquivo": "copy/vault-v48.json",
+    "tipo": "copy",
+    "regra_esperada": "V48",
+    "deteccao": "revisor",
+    "origem": "vault-vicios.md",
+    "nota": ""
+  }
+]

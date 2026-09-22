@@ -36,6 +36,8 @@ SEVERIDADE = {
     "E_TAMANHO": "B", "E_CONTAINER": "A", "E_CONTAINER_LEGADO": "M",
     "E_PREHEADER": "A",
     "E_CTA_IMAGEM": "A", "E_PLACEHOLDER": "B",
+    # Regra do vault (docs/pesquisa/vault-vicios.md), detectavel aqui.
+    "V02": "B",
 }
 LIMITE_CLIPPING = 102 * 1024
 CONTAINER_PADRAO = 600
@@ -488,6 +490,46 @@ def regra_d02(html: str):
     return []
 
 
+
+# ---------------------------------------------------------------------------
+# V02  Incentivo existindo so dentro da imagem
+# ---------------------------------------------------------------------------
+# Com imagens bloqueadas, ou no resumidor de IA, o codigo e o prazo somem.
+# Nao basta ter alt: o alt precisa carregar o incentivo.
+RX_INCENTIVO = re.compile(
+    r"\d{1,3}\s*%"                      # 20%
+    r"|R\$\s*\d"                        # R$30
+    r"|\b[A-Z][A-Z0-9]{4,}\b"            # BEMVINDO10
+    r"|\bfrete\s+gr[aá]tis\b"
+    r"|\bfree\s+shipping\b",
+    re.IGNORECASE,
+)
+
+
+def regra_v02(leitor: LeitorEmail):
+    tem_imagem_grande = any(
+        (img.get("_largura") or 0) >= 200 for img in leitor.imagens
+    )
+    if not tem_imagem_grande:
+        return []
+
+    # Texto vivo e o que o cliente le com imagens bloqueadas: fora do
+    # preheader oculto, que nao aparece no corpo.
+    vivo = " ".join(t for t, _cor, _fundo, oculto in leitor.textos if not oculto)
+    if RX_INCENTIVO.search(vivo):
+        return []
+
+    no_alt = any(RX_INCENTIVO.search(img.get("alt") or "") for img in leitor.imagens)
+    sugestao = (
+        "o incentivo precisa existir fora da imagem: uma linha de texto vivo "
+        "com valor, codigo e prazo"
+        if no_alt else
+        "o incentivo so existe dentro da imagem: nem o texto vivo nem o alt "
+        "carregam valor, codigo ou prazo"
+    )
+    return [achado("V02", "html", "(nenhum incentivo em texto vivo)", sugestao)]
+
+
 # ---------------------------------------------------------------------------
 # Execucao
 # ---------------------------------------------------------------------------
@@ -511,6 +553,7 @@ def lint(html: str, cores_marca=None) -> dict:
     violacoes += regra_cta_imagem(leitor)
     violacoes += regra_placeholder(leitor)
     violacoes += regra_cores_marca(leitor, cores_marca)
+    violacoes += regra_v02(leitor)
 
     violacoes.sort(key=lambda v: (ORDEM_SEV[v["severidade"]], v["regra"]))
     bloqueia = any(v["severidade"] == "B" for v in violacoes)

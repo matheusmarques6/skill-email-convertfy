@@ -172,3 +172,13 @@ C26 | a sua cara | corte | unitario
 C26 | sinta a diferenca | diga a diferenca | unitario
 C26 | vista-se de | diga a peca | unitario
 C26 | mais que uma loja | diga o que a loja vende | unitario
+
+# C26 tom de infoproduto transplantado para e-commerce (P09)
+C26 | meu contador disse | e-commerce nao usa tom de infoproduto | unitario
+C26 | vou ser sincero com voce | corte o rodeio, diga a oferta | unitario
+C26 | isso vai mudar o jogo | diga o que o produto faz | unitario
+C26 | presta atencao nisso | corte | unitario
+C26 | eu nunca fiz isso antes | corte | unitario
+C26 | o que ninguem te conta | corte | unitario
+C26 | eu poderia cobrar | nao ancore preco em valor inventado | unitario
+C26 | sou louco de fazer isso | e-commerce nao usa tom de infoproduto | unitario
