@@ -1,0 +1,27 @@
+{
+  "idioma": "en",
+  "assunto": "15% OFF",
+  "preheader": "FULL PRICE",
+  "blocos": [
+    "Some weeks call for a better deal. This is one of them.",
+    "Valid until Friday, 11:59 PM.",
+    "The discount doesn't change what you wanted to buy",
+    "It changes the moment to buy. What you put off until later costs 15% less until Friday. After that, it goes back to normal.",
+    "Stay tuned until Friday. After that, it goes back to normal.",
+    "Valid until Friday, 11:59 PM.",
+    "All products are high quality and original."
+  ],
+  "ctas": [
+    "SHOP NOW",
+    "VIEW ENTIRE SITE WITH 15% OFF"
+  ],
+  "alts": [],
+  "brief_numbers": [
+    "11",
+    "15",
+    "24",
+    "48",
+    "59"
+  ],
+  "marca_usa_emoji": true
+}

@@ -1,0 +1,20 @@
+{
+  "idioma": "en",
+  "assunto": "inventory-status",
+  "preheader": "alert-date-title",
+  "blocos": [
+    "ACTIVE DEALS · NO COUPON REQUIRED",
+    "Promotional prices are active while stocks last. Click below to see the rest.",
+    "All products are high quality and original."
+  ],
+  "ctas": [
+    "GET THE LAST ITEMS",
+    "SEE ALL DEALS"
+  ],
+  "alts": [],
+  "brief_numbers": [
+    "24",
+    "48"
+  ],
+  "marca_usa_emoji": true
+}

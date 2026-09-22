@@ -1,0 +1,26 @@
+{
+  "idioma": "en",
+  "assunto": "QuestionNumber",
+  "preheader": "headline-line1",
+  "blocos": [
+    "Three quick questions before the day ends. All about an offer that expires at midnight.",
+    "GOT ALL THREE RIGHT? HERE'S YOUR PRIZE:",
+    "The coupon is valid sitewide. Click below to see the rest.",
+    "HOW DID YOU DO?",
+    "Whether you got them right or not, the result is the same: 17% OFF sitewide until midnight. After that, prices return to normal, and VIP Day won't be back until September next year.",
+    "All products are high quality and original."
+  ],
+  "ctas": [
+    "SHOP VIP DAY",
+    "VIEW FULL CATALOG",
+    "SHOP BEFORE MIDNIGHT"
+  ],
+  "alts": [],
+  "brief_numbers": [
+    "1",
+    "17",
+    "24",
+    "48"
+  ],
+  "marca_usa_emoji": true
+}

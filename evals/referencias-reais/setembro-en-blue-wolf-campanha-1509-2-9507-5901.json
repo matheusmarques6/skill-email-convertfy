@@ -1,0 +1,28 @@
+{
+  "idioma": "en",
+  "assunto": "QUICK VISION TEST",
+  "preheader": "Look at the coupon below. What color do you see?",
+  "blocos": [
+    "Look at the coupon below. What color do you see?",
+    "= Your vision is perfect",
+    "= You need an eye test",
+    "= Your coupon is ready",
+    "Okay, you got it right. This was never a vision test, it was our way of telling you that today is VIP Day at Blue Wolf. The coupon you saw above gives you 17% OFF sitewide and was only sent by email. It's not on the website or social media.",
+    "I PASSED THE TEST",
+    "The coupon is valid sitewide. Click below to see the rest.",
+    "This coupon won't be posted on the website or social media, it's exclusive to email subscribers. It's valid today, for everyone on this list, until midnight.",
+    "All products are high quality and original."
+  ],
+  "ctas": [
+    "CLAIM MY DEAL NOW",
+    "VIEW FULL CATALOG",
+    "SHOP BEFORE MIDNIGHT"
+  ],
+  "alts": [],
+  "brief_numbers": [
+    "17",
+    "24",
+    "48"
+  ],
+  "marca_usa_emoji": true
+}

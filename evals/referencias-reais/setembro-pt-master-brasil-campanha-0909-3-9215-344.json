@@ -1,0 +1,33 @@
+{
+  "idioma": "pt-br",
+  "assunto": "Notícia de última hora",
+  "preheader": "QUARTA, 9 DE SETEMBRO 2026",
+  "blocos": [
+    "Notícia de última hora",
+    "QUARTA, 9 DE SETEMBRO 2026",
+    "6H ATÉ O FIM",
+    "DO 9.9 DO CLIENTE",
+    "A campanha encerra hoje às 23h59. 19%OFF em todo o site com o cupom 0909 no checkout.",
+    "OS DESTAQUES DA MANCHETE:",
+    "Aplique o cupom 0909 no checkout pra ver o preço final com 19% a menos.",
+    "Todos os produtos são de alta qualidade.",
+    "Ambiente seguro para pagamentos online."
+  ],
+  "ctas": [
+    "COMPRAR AGORA",
+    "VER TODAS AS OFERTAS"
+  ],
+  "alts": [],
+  "brief_numbers": [
+    "0909",
+    "19",
+    "2026",
+    "23",
+    "24",
+    "48",
+    "59",
+    "6",
+    "9"
+  ],
+  "marca_usa_emoji": true
+}

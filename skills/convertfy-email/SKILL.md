@@ -55,6 +55,9 @@ pedido explicito no brief.
 | `eml [arquivo]` | Autenticacao e one-click a partir do `.eml` | [email-qa/references/eml.md](../email-qa/references/eml.md) |
 | `revisar [peca]` | Revisor separado, nota /10, lista de IDs | [skills/email-revisor/SKILL.md](../email-revisor/SKILL.md) |
 | `variantes [peca]` | 3 versoes divergindo em eixo nomeado | [skills/email-variantes/SKILL.md](../email-variantes/SKILL.md) |
+| `calendario [loja] [mes]` | Planeja o mes: envios, papel, publico, modelo | [skills/email-calendario/SKILL.md](../email-calendario/SKILL.md) |
+| `sazonal [data] [loja]` | Escolhe o modelo validado do papel | [skills/email-campanhas-sazonais/SKILL.md](../email-campanhas-sazonais/SKILL.md) |
+| `familia [papel]` | Familia de assunto do papel, com o dado | [email-copy/references/familias-de-assunto.md](../email-copy/references/familias-de-assunto.md) |
 | `auditoria [loja]` | Audita a conta Omnisend inteira | [skills/auditoria-omnisend/SKILL.md](../auditoria-omnisend/SKILL.md) |
 | `lint [peca]` | So o gate, sem gerar nada | `scripts/lint_copy.py`, `scripts/lint_email.py` |
 
@@ -70,16 +73,25 @@ Pedido sem comando nomeado: escolha pela tabela de roteamento abaixo.
 | "isso aqui esta bom?" | `revisar` |
 | "pode enviar?" | `qa` |
 | "me da opcoes" | `variantes` |
+| "monta o calendario de novembro" | `calendario` |
+| "qual modelo usar no 11.11" | `sazonal` |
+| "que assunto usar no pico das 18h" | `familia` |
 | "por que a conta X caiu" | `auditoria` |
 | "tira a cara de IA disso" | `revisar`, e so depois `copy` no que ele apontar |
 
 Peca completa do zero e sempre a cadeia inteira:
 
 ```
-flow (se for automacao)  ->  copy  ->  design  ->  qa
+calendario (se for plano)  ->  sazonal (se for data)  ->  copy  ->  design  ->  qa
+flow (se for automacao)    ->  copy  ->  design  ->  qa
 ```
 
 `revisar` e `variantes` sao opcionais e entram entre `copy` e `design`.
+
+**Campanha de data sazonal comeca em `calendario` ou `sazonal`**, nunca
+em `copy`: o papel do envio decide o modelo, e o modelo decide a
+estrutura. Pular para a copy produz peca sem papel, que e o defeito que a
+carteira mediu como esquenta em tom de anuncio (1 pedido).
 
 ## O que vale em toda rota
 
@@ -168,3 +180,7 @@ Ver `docs/vault/migracao-contrato.md`.
 | `docs/pesquisa/a-verificar.md` | O que nao pode ser citado como fato |
 | `docs/indice-vault.md` | Achar a nota de intencao ou estrutura |
 | `shared/vocabulario-arsenal.md` | Traduzir descricao vaga em slug de variante |
+| `shared/principios-carteira.md` | 80/10/10 e os cinco principios da carteira |
+| `shared/segmentacao-e-freios.md` | Camadas, nivel de conta e freios |
+| `docs/dados/resumo-carteira.md` | Os numeros que as skills citam |
+| `docs/reconciliacao-regras-dados.md` | Regras em disputa, aguardando aprovacao |

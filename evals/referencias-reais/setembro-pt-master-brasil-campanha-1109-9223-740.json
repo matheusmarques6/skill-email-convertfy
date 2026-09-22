@@ -1,0 +1,21 @@
+{
+  "idioma": "pt-br",
+  "assunto": "inventory-status",
+  "preheader": "alert-date-title",
+  "blocos": [
+    "OFERTAS ATIVAS · SEM CUPOM NECESSÁRIO",
+    "APROVEITE AS ÚLTIMAS UNIDADES",
+    "Preços promocionais ativos enquanto durar o estoque. Clique abaixo e veja o resto.",
+    "Todos os produtos são de alta qualidade.",
+    "Ambiente seguro para pagamentos online."
+  ],
+  "ctas": [
+    "VER TODAS AS OFERTAS"
+  ],
+  "alts": [],
+  "brief_numbers": [
+    "24",
+    "48"
+  ],
+  "marca_usa_emoji": true
+}

@@ -1,0 +1,29 @@
+{
+  "idioma": "pt-br",
+  "assunto": "QuestionNumber",
+  "preheader": "headline-line1",
+  "blocos": [
+    "Três perguntas rápidas antes do dia acabar. Todas sobre uma oferta que ai do ar à meia-noite.",
+    "ACERTOU AS TRÊS? SEU PRÊMIO É ESSE:",
+    "APROVEITA QUE AINDA DÁ TEMPO",
+    "O cupom vale no site inteiro. Clique abaixo e veja o resto.",
+    "Acertando ou não, o resultado é o mesmo: 17% OFF em todo o site até meia-noite. Depois disso os preços voltam ao normal, e o Dia do Cliente só volta em setembro do ano que vem.",
+    "Todos os produtos são de alta qualidade.",
+    "Ambiente seguro para pagamentos online."
+  ],
+  "ctas": [
+    "APROVEITAR O DIA DO CLIENTE",
+    "APROVEITAR CUPOM",
+    "VER TODO O CATÁLOGO",
+    "APROVEITAR ANTES DAS 00h"
+  ],
+  "alts": [],
+  "brief_numbers": [
+    "00",
+    "1",
+    "17",
+    "24",
+    "48"
+  ],
+  "marca_usa_emoji": true
+}
