@@ -97,29 +97,29 @@ separa de opinião.
 
 | Caminho | Flow | Toque (`serve_a`) | Tipo de regra | Status |
 |---|---|---|---|---|
-| `vault/aprendizados/_global/cada-alegacao-e-uma-promessa-operacional.md` | cross-flow | todos | restricao-dura | aprovada |
-| `vault/aprendizados/_global/incentivo-precisa-existir-em-texto.md` | cross-flow | todos | restricao-dura | aprovada |
-| `vault/aprendizados/_global/posicao-muda-o-efeito-do-dispositivo.md` | cross-flow | welcome 1 a 5 | preferencia | aprovada |
-| `vault/aprendizados/_global/quebra-de-formato-atravessa-a-cegueira.md` | cross-flow | welcome 8 | preferencia | aprovada |
-| `vault/aprendizados/_global/remocao-de-risco-escala-com-o-ticket.md` | cross-flow | welcome 1, 2, 3, 6 | preferencia | aprovada |
-| `vault/aprendizados/_global/titulos-precisam-carregar-o-argumento.md` | cross-flow | todos | preferencia | aprovada |
-| `vault/aprendizados/_global/um-cta-dominante-em-email-curto.md` | cross-flow | todos | preferencia | aprovada |
+| `vault/aprendizados/_global/cada-alegacao-e-uma-promessa-operacional.md` | cross-flow | todos | restrição-dura | aprovada |
+| `vault/aprendizados/_global/incentivo-precisa-existir-em-texto.md` | cross-flow | todos | restrição-dura | aprovada |
+| `vault/aprendizados/_global/posicao-muda-o-efeito-do-dispositivo.md` | cross-flow | welcome 1 a 5 | preferência | aprovada |
+| `vault/aprendizados/_global/quebra-de-formato-atravessa-a-cegueira.md` | cross-flow | welcome 8 | preferência | aprovada |
+| `vault/aprendizados/_global/remocao-de-risco-escala-com-o-ticket.md` | cross-flow | welcome 1, 2, 3, 6 | preferência | aprovada |
+| `vault/aprendizados/_global/titulos-precisam-carregar-o-argumento.md` | cross-flow | todos | preferência | aprovada |
+| `vault/aprendizados/_global/um-cta-dominante-em-email-curto.md` | cross-flow | todos | preferência | aprovada |
 
 ### 3.2 Welcome
 
 | Caminho | Flow | Toque (`serve_a`) | Tipo de regra | Status |
 |---|---|---|---|---|
-| `vault/aprendizados/welcome/ausencia-de-prova-social-assume-abertura.md` | welcome | 2, 3, 4 | preferencia | aprovada |
-| `vault/aprendizados/welcome/cadencia-decide-fechamento-ou-farsa.md` | welcome | 6, 7, 8 | restricao-dura | aprovada |
-| `vault/aprendizados/welcome/cupom-repetido-precisa-de-papel.md` | welcome | 1 a 6 | preferencia | aprovada |
-| `vault/aprendizados/welcome/deadline-antes-do-argumento.md` | welcome | 2 | preferencia | aprovada |
-| `vault/aprendizados/welcome/deadline-falso-queima-o-proximo.md` | welcome | 2, 3, 6, 7, 8 | preferencia | aprovada |
-| `vault/aprendizados/welcome/depoimento-nao-repete-pessoa.md` | welcome | 1, 4, 6 | preferencia | aprovada |
-| `vault/aprendizados/welcome/extensao-declarada-quatro-condicoes.md` | welcome | 8 | restricao-dura | aprovada |
-| `vault/aprendizados/welcome/numeros-de-escassez-precisam-de-backing.md` | welcome | 6, 7 | restricao-dura | aprovada |
-| `vault/aprendizados/welcome/prazo-vago-enfraquece-a-extensao.md` | welcome | 8 | preferencia | aprovada |
-| `vault/aprendizados/welcome/prova-de-terceiro-antes-do-cta.md` | welcome | 1, 4, 6 | preferencia | aprovada |
-| `vault/aprendizados/welcome/saida-rapida-no-primeiro-terco.md` | welcome | 3 | preferencia | aprovada |
+| `vault/aprendizados/welcome/ausencia-de-prova-social-assume-abertura.md` | welcome | 2, 3, 4 | preferência | aprovada |
+| `vault/aprendizados/welcome/cadencia-decide-fechamento-ou-farsa.md` | welcome | 6, 7, 8 | restrição-dura | aprovada |
+| `vault/aprendizados/welcome/cupom-repetido-precisa-de-papel.md` | welcome | 1 a 6 | preferência | aprovada |
+| `vault/aprendizados/welcome/deadline-antes-do-argumento.md` | welcome | 2 | preferência | aprovada |
+| `vault/aprendizados/welcome/deadline-falso-queima-o-proximo.md` | welcome | 2, 3, 6, 7, 8 | preferência | aprovada |
+| `vault/aprendizados/welcome/depoimento-nao-repete-pessoa.md` | welcome | 1, 4, 6 | preferência | aprovada |
+| `vault/aprendizados/welcome/extensao-declarada-quatro-condicoes.md` | welcome | 8 | restrição-dura | aprovada |
+| `vault/aprendizados/welcome/numeros-de-escassez-precisam-de-backing.md` | welcome | 6, 7 | restrição-dura | aprovada |
+| `vault/aprendizados/welcome/prazo-vago-enfraquece-a-extensao.md` | welcome | 8 | preferência | aprovada |
+| `vault/aprendizados/welcome/prova-de-terceiro-antes-do-cta.md` | welcome | 1, 4, 6 | preferência | aprovada |
+| `vault/aprendizados/welcome/saida-rapida-no-primeiro-terco.md` | welcome | 3 | preferência | aprovada |
 
 **Contagem por flow:** `_global` 7 (todas com `aplica_a` citando welcome,
 abandoned_cart, browse_abandonment e post_purchase), welcome 11.
@@ -137,9 +137,9 @@ cobrir com lint, não com prosa.
 
 **Estrutura de origem, por contagem:** avelmore-deadline-objecao 5,
 avelmore-inspecao-antecipada 4, carta-plain-text-extensao 3,
-medicube-comparacao-categoria 2, avelmore-mecanismo-e-origem 2,
+medicube-comparação-categoria 2, avelmore-mecanismo-e-origem 2,
 avelmore-prova-social-cirurgica 1, medicube-escassez-com-prova-de-demanda 1,
-medicube-ultima-batida 1. As 8 estruturas geraram aprendizado; nenhuma ficou
+medicube-última-batida 1. As 8 estruturas geraram aprendizado; nenhuma ficou
 sem rendimento.
 
 ---

@@ -13,7 +13,7 @@ tinha sido aproveitado (item 1c de `docs/auditoria-fusao.md`).
 
 Divergências desta skill em relação ao CLAUDE.md: nenhuma.
 
-## Protocolo obrigatorio
+## Protocolo obrigatório
 
 Segue `shared/protocolo-de-execucao.md`. Especificidades:
 

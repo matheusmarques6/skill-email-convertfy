@@ -11,21 +11,21 @@ priorizado. Vale para as 250+ lojas Shopify da carteira.
 Divergências desta skill em relação ao CLAUDE.md: nenhuma.
 
 
-## Protocolo obrigatorio
+## Protocolo obrigatório
 
 Esta skill segue `shared/protocolo-de-execucao.md` inteiro. Em resumo:
 
 1. **Ficha e brief (P01, P02).** Le `marcas/<cliente>.md` quando existir.
-   Sem ficha e sem brief com **oferta, produto e prazo**, nao gera: pede o
+   Sem ficha e sem brief com **oferta, produto e prazo**, não gera: pede o
    que falta. Campo ausente vira `[FALTA: <campo>]`, nunca invencao.
-2. **Anti-vicios.** Aplica `shared/anti-vicios-copy.md`,
+2. **Anti-vícios.** Aplica `shared/anti-vicios-copy.md`,
    `anti-vicios-design.md`, `anti-vicios-processo.md` e, junto,
-   `shared/calibracao.md`, para nao reprovar convencao legitima de e-mail.
+   `shared/calibracao.md`, para não reprovar convenção legitima de e-mail.
 3. **Gate de lint.** Roda `scripts/lint_copy.py` e `scripts/lint_email.py`
-   antes de entregar. **Violacao B: nao entrega.** O gate e o exit code.
+   antes de entregar. **Violacao B: não entrega.** O gate e o exit code.
 4. **Leitura do brief.** Antes de gerar, uma linha dizendo o que entendeu.
-   Se estiver ambiguo, **uma pergunta so**, juntando tudo que falta.
-5. **So o artefato (C07).** Sem comentario sobre a propria copy, sem
+   Se estiver ambíguo, **uma pergunta só**, juntando tudo que falta.
+5. **Só o artefato (C07).** Sem comentario sobre a própria copy, sem
    explicar a escolha, sem variacao que ninguem pediu.
 6. **Ordem de trabalho (P08).** intencao (var1) -> estrutura (var2) ->
    variantes do arsenal -> copy por schema. Nunca escreve antes de
@@ -229,8 +229,8 @@ forte; captação cai de 10 para 5 porque, na operação da Convertfy, o
 formulário costuma ser responsabilidade de outro time.
 
 A premissa por tras desta distribuicao esta declarada em
-`references/rubrica.md`, que traz tambem a rubrica completa, criterio por
-criterio. A rubrica **nao e neutra**: pontua o que a Convertfy consegue
+`references/rubrica.md`, que traz também a rubrica completa, critério por
+critério. A rubrica **não e neutra**: pontua o que a Convertfy consegue
 mudar, na operacao que a Convertfy tem. Quem usar em outro contexto
 repontua.
 

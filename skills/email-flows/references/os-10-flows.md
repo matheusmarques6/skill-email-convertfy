@@ -381,7 +381,7 @@ carrinho, carrinho acima de navegação, compra acima de tudo.
 
 ## Regra de ouro dos descontos empilhados
 
-Se o welcome oferece 15%, o carrinho abandonado **referencia o mesmo
+Se o welcome oferece 15%, o carrinho abandonado **referência o mesmo
 cupom**, não cria um segundo. Dois cupons vivos ao mesmo tempo é o que
 treina a base a nunca comprar a preço cheio, e é o que mais aparece em
 auditoria de conta herdada.

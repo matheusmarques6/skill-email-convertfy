@@ -231,8 +231,8 @@ Lista viva. Cada item precisa ser fechado no painel do Omnisend ou com o
 suporte deles.
 
 **Estado de T1, T3, T4 e T5: `nao verificado`.** Nenhum foi testado em
-conta real. Enquanto estiverem assim, valem os fallbacks da secao
-"Nao verificado no Omnisend" do `SKILL.md`, e nenhum nome de variavel
+conta real. Enquanto estiverem assim, valem os fallbacks da seção
+"Não verificado no Omnisend" do `SKILL.md`, e nenhum nome de variavel
 pode ser inventado para fecha-los.
 
 Para fechar: `docs/omnisend/roteiro-de-teste.md`. Registro em

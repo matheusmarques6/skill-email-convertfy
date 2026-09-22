@@ -2,7 +2,7 @@
 
 Valor proposto do campo `lint_status` para cada nota de estrutura do
 vault. **Nada foi aplicado**: o vault e somente leitura deste repo. Este
-arquivo existe para voce aplicar no Obsidian.
+arquivo existe para você aplicar no Obsidian.
 
 Gerado rodando `scripts/lint_copy.py` sobre
 `docs/pesquisa/vault-copy-extraida.json`, que traz 59 trechos
@@ -10,12 +10,12 @@ de copy literal citados nas 8 notas var2.
 
 ## Por que isto importa
 
-Nota var2 e referencia: o Estruturador e o redator aprendem com o exemplo
-que ela cita. Copy contaminada em nota de referencia ensina o vicio, e o
-lint so pega depois, na peca. E o P07 do catalogo.
+Nota var2 e referência: o Estruturador e o redator aprendem com o exemplo
+que ela cita. Copy contaminada em nota de referência ensina o vício, e o
+lint só pega depois, na peca. E o P07 do catalogo.
 
-`lint_status: contaminada` nao quer dizer que a nota esta errada. Quer
-dizer que a copy citada nela **nao deve ser usada como modelo de escrita**,
+`lint_status: contaminada` não quer dizer que a nota esta errada. Quer
+dizer que a copy citada nela **não deve ser usada como modelo de escrita**,
 mesmo que a estrutura que ela documenta esteja certa.
 
 ## Resumo
@@ -23,8 +23,8 @@ mesmo que a estrutura que ela documenta esteja certa.
 | | |
 |---|---|
 | Notas analisadas | 8 |
-| `limpa` | 2 |
-| `contaminada` | 6 |
+| `limpa` | 1 |
+| `contaminada` | 7 |
 | Trechos no corpus | 59 |
 
 ## Valor por nota
@@ -48,7 +48,7 @@ No frontmatter da nota, em `vault/estruturas/<flow>/<slug>.md`:
 lint_status: contaminada
 ```
 
-Valores: `limpa` ou `contaminada`. Nota nova nasce sem o campo ate passar
+Valores: `limpa` ou `contaminada`. Nota nova nasce sem o campo até passar
 pelo lint.
 
 Rode de novo depois de editar qualquer nota var2:
@@ -57,7 +57,7 @@ Rode de novo depois de editar qualquer nota var2:
 python3 scripts/lint_copy.py --json docs/pesquisa/vault-copy-extraida.json
 ```
 
-O corpus precisa ser reextraido quando a nota mudar; ele nao se atualiza
+O corpus precisa ser reextraido quando a nota mudar; ele não se atualiza
 sozinho.
 
 ## Detalhe dos achados
@@ -104,3 +104,29 @@ sozinho.
 - **C02** (B, en) `... exclusive discount expires today at 11:59 PM`
 - **C21** (A, en) `start your style journey with a discount`
 
+
+
+## Reexecução após a Fase 4
+
+Rodado de novo em 22/09/2026, depois das regras V (V29, V36, V52) e das
+entradas de infoproduto no léxico.
+
+| | |
+|---|---|
+| Notas | 8 |
+| `limpa` | 1 |
+| `contaminada` | 7 |
+
+| Nota | IDs |
+|---|---|
+| `avelmore-deadline-objecao` | C02, V29_SEM_CONTEXTO |
+| `avelmore-mecanismo-e-origem` | C02, C43, V29_SEM_CONTEXTO |
+| `avelmore-prova-social-cirurgica` | C02, C15 |
+| `carta-plain-text-extensao` | V36 |
+| `medicube-comparacao-categoria` | C43 |
+| `medicube-escassez-com-prova-de-demanda` | C01, C02, C21, C35, C43, V29_SEM_CONTEXTO |
+| `medicube-ultima-batida` | C02, C21, V29_SEM_CONTEXTO |
+
+O resultado não mudou em relação à primeira medição: as mesmas 2 notas
+seguem limpas e as mesmas 6 contaminadas. As regras V novas não
+alcançaram copy citada em nota var2.

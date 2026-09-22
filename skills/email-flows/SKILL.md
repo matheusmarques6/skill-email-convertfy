@@ -13,21 +13,21 @@ secundário: a tabela de equivalência entre os dois está em
 Divergências desta skill em relação ao CLAUDE.md: nenhuma.
 
 
-## Protocolo obrigatorio
+## Protocolo obrigatório
 
 Esta skill segue `shared/protocolo-de-execucao.md` inteiro. Em resumo:
 
 1. **Ficha e brief (P01, P02).** Le `marcas/<cliente>.md` quando existir.
-   Sem ficha e sem brief com **oferta, produto e prazo**, nao gera: pede o
+   Sem ficha e sem brief com **oferta, produto e prazo**, não gera: pede o
    que falta. Campo ausente vira `[FALTA: <campo>]`, nunca invencao.
-2. **Anti-vicios.** Aplica `shared/anti-vicios-copy.md`,
+2. **Anti-vícios.** Aplica `shared/anti-vicios-copy.md`,
    `anti-vicios-design.md`, `anti-vicios-processo.md` e, junto,
-   `shared/calibracao.md`, para nao reprovar convencao legitima de e-mail.
+   `shared/calibracao.md`, para não reprovar convenção legitima de e-mail.
 3. **Gate de lint.** Roda `scripts/lint_copy.py` e `scripts/lint_email.py`
-   antes de entregar. **Violacao B: nao entrega.** O gate e o exit code.
+   antes de entregar. **Violacao B: não entrega.** O gate e o exit code.
 4. **Leitura do brief.** Antes de gerar, uma linha dizendo o que entendeu.
-   Se estiver ambiguo, **uma pergunta so**, juntando tudo que falta.
-5. **So o artefato (C07).** Sem comentario sobre a propria copy, sem
+   Se estiver ambíguo, **uma pergunta só**, juntando tudo que falta.
+5. **Só o artefato (C07).** Sem comentario sobre a própria copy, sem
    explicar a escolha, sem variacao que ninguem pediu.
 6. **Ordem de trabalho (P08).** intencao (var1) -> estrutura (var2) ->
    variantes do arsenal -> copy por schema. Nunca escreve antes de
@@ -291,25 +291,25 @@ Em agência com 250+ lojas, o nome é a única coisa que sobrevive à troca de
 quem opera a conta.
 
 
-## Nao verificado no Omnisend
+## Não verificado no Omnisend
 
-Quatro comportamentos do Omnisend **nao foram verificados em conta real**.
-Ate que sejam, valem os fallbacks abaixo, e o codigo nunca afirma que a
+Quatro comportamentos do Omnisend **não foram verificados em conta real**.
+Até que sejam, valem os fallbacks abaixo, e o código nunca afirma que a
 checagem passou.
 
-| Item | Pergunta aberta | Fallback obrigatorio |
+| Item | Pergunta aberta | Fallback obrigatório |
 |---|---|---|
-| **T1** | Existe valor padrao para merge tag de contato vazia? | A frase precisa ler bem **com o campo vazio**. Prefira o nome no fim da frase, ou nao use nome. Nunca entregue `Oi , tudo bem?` |
-| **T3** | Propriedade de evento serve como merge tag em bloco de texto? | **Nao cite o produto no texto.** Headline generica ("Voce deixou algo para tras"), e o bloco de produto faz o trabalho |
-| **T4** | Qual a tag do link de recuperacao de carrinho na origem `shopify`? | **O link e sempre testado com clique antes do envio**, e o carrinho precisa abrir com o item dentro. Na duvida, pagina da colecao, que converte menos e nunca abre carrinho vazio |
-| **T5** | Qual a tag do link de retomada de checkout na origem `shopify`? | Igual ao T4: clique de teste obrigatorio, e o checkout precisa reabrir com itens e e-mail preenchidos |
+| **T1** | Existe valor padrão para merge tag de contato vazia? | A frase precisa ler bem **com o campo vazio**. Prefira o nome no fim da frase, ou não use nome. Nunca entregue `Oi , tudo bem?` |
+| **T3** | Propriedade de evento serve como merge tag em bloco de texto? | **Não cite o produto no texto.** Headline genérica ("Você deixou algo para tras"), e o bloco de produto faz o trabalho |
+| **T4** | Qual a tag do link de recuperacao de carrinho na origem `shopify`? | **O link e sempre testado com clique antes do envio**, e o carrinho precisa abrir com o item dentro. Na dúvida, página da coleção, que converte menos e nunca abre carrinho vazio |
+| **T5** | Qual a tag do link de retomada de checkout na origem `shopify`? | Igual ao T4: clique de teste obrigatório, e o checkout precisa reabrir com itens e e-mail preenchidos |
 
 Nunca invente nome de variavel para fechar um destes. Nome de tag que
-nao resolve entrega e-mail com colchete cru para o cliente final.
+não resolve entrega e-mail com colchete cru para o cliente final.
 
 Para fechar: `docs/omnisend/roteiro-de-teste.md` (cinco envios para um
 e-mail seed). Registro em `docs/omnisend/verificado.md`. O que o teste
-nao responder vira chamado, com o texto pronto em
+não responder vira chamado, com o texto pronto em
 `docs/omnisend/perguntas-suporte.md`.
 
 ## Referências

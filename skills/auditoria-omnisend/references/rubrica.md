@@ -4,101 +4,101 @@ Aprovada em `docs/decisoes.md`, D-007.
 
 ## A premissa, declarada
 
-Esta rubrica **nao e neutra**. Ela pontua o que a Convertfy consegue
+Esta rubrica **não e neutra**. Ela pontua o que a Convertfy consegue
 mudar, na operacao que a Convertfy tem. Quem usar em outro contexto
 precisa repontuar.
 
-As tres premissas que produziram esta distribuicao:
+As três premissas que produziram esta distribuicao:
 
-1. **Conformidade vale mais que oportunidade.** Autenticacao, taxa de
-   reclamacao e one-click unsubscribe tem evidencia forte e consequencia
-   binaria: ou a conta entrega, ou nao entrega. Oportunidade de receita e
+1. **Conformidade vale mais que oportunidade.** Autenticação, taxa de
+   reclamação e one-click unsubscribe tem evidência forte e consequência
+   binaria: ou a conta entrega, ou não entrega. Oportunidade de receita e
    estimativa. Por isso entregabilidade subiu.
 2. **Captacao costuma ser de outro time.** Na carteira da Convertfy, o
-   formulario e o popup em geral sao da agencia de trafego ou do proprio
-   cliente. Pontuar pesado algo que a auditoria nao consegue destravar
+   formulario e o popup em geral são da agencia de trafego ou do próprio
+   cliente. Pontuar pesado algo que a auditoria não consegue destravar
    produz nota baixa que ninguem aciona. Por isso captacao caiu.
 3. **A conta e comparada com ela mesma primeiro.** Benchmark de mercado
-   entra como contexto, nunca como criterio de pontuacao. Duas contas com
-   a mesma nota podem ter numeros absolutos muito diferentes.
+   entra como contexto, nunca como critério de pontuacao. Duas contas com
+   a mesma nota podem ter números absolutos muito diferentes.
 
-Se alguma das tres nao valer para o caso, a rubrica esta errada para
-aquele caso e a nota nao deve ser comparada com a de outras contas.
+Se alguma das três não valer para o caso, a rubrica esta errada para
+aquele caso e a nota não deve ser comparada com a de outras contas.
 
 ## Distribuicao
 
 | Dimensao | Pontos | Origem | Delta |
 |---|---|---|---|
-| Automacoes e cobertura de ciclo de vida | 25 | 25 | 0 |
+| Automações e cobertura de ciclo de vida | 25 | 25 | 0 |
 | Entregabilidade e conformidade | **20** | 15 | **+5** |
 | Dados e medicao | 15 | 15 | 0 |
 | Programa de campanha | 15 | 15 | 0 |
-| Audiencia e segmentacao | 10 | 10 | 0 |
+| Audiência e segmentação | 10 | 10 | 0 |
 | Conteudo e experimentacao | 10 | 10 | 0 |
 | Captacao | **5** | 10 | **-5** |
 | **Total** | **100** | 100 | |
 
 A soma fecha em 100 dos dois lados: os 5 pontos de captacao foram para
-entregabilidade, nao criados.
+entregabilidade, não criados.
 
-## Automacoes e cobertura (25)
+## Automações e cobertura (25)
 
-| Criterio | Pontos | Como medir |
+| Critério | Pontos | Como medir |
 |---|---|---|
 | Os 4 flows de receita existem e estao ativos | 10 | `get_automations`, conferir status |
 | Carrinho e checkout com link testado | 5 | Envio de teste, clique. Ver T4 e T5 |
 | Timing do primeiro toque coerente | 4 | `trigger.inactivitySettings` |
-| Condicao de saida definida | 3 | `exitConditions` |
-| Sobreposicao controlada | 3 | `overlapLimiter`. Campanha manual **nao** entra nele |
+| Condição de saída definida | 3 | `exitConditions` |
+| Sobreposicao controlada | 3 | `overlapLimiter`. Campanha manual **não** entra nele |
 
 Zero em "os 4 existem" trava a dimensao em 10, porque o resto mede
-qualidade de algo que nao esta rodando.
+qualidade de algo que não esta rodando.
 
 ## Entregabilidade e conformidade (20)
 
-As tres primeiras sao conformidade. Reprovam sozinhas e nao ha nota
-parcial: ou passa, ou nao passa, ou nao foi verificado.
+As três primeiras são conformidade. Reprovam sozinhas e não ha nota
+parcial: ou passa, ou não passa, ou não foi verificado.
 
-| Criterio | Pontos | Como medir |
+| Critério | Pontos | Como medir |
 |---|---|---|
-| SPF, DKIM e DMARC em `pass` | 6 | `.eml`, cabecalho **de cima**. Nao obtenivel pelo MCP |
-| Reclamacao de spam abaixo de 0,1% | 6 | `markedAsSpamRate` como aproximacao; o numero que decide vive no Postmaster Tools |
-| One-click unsubscribe (RFC 8058) | 4 | `List-Unsubscribe-Post` no `.eml`. Link no corpo **nao** conta |
+| SPF, DKIM e DMARC em `pass` | 6 | `.eml`, cabeçalho **de cima**. Não obtenivel pelo MCP |
+| Reclamação de spam abaixo de 0,1% | 6 | `markedAsSpamRate` como aproximacao; o número que decide vive no Postmaster Tools |
+| One-click unsubscribe (RFC 8058) | 4 | `List-Unsubscribe-Post` no `.eml`. Link no corpo **não** conta |
 | Bounce dentro do aceitavel | 2 | `post_analytics_reports` |
 | Higiene de base, sem inativo antigo | 2 | `post_analytics_statistics` |
 
-`dmarc=none` **nao e pass**: e ausencia de politica. Registre como
-pendencia, nunca como aprovado.
+`dmarc=none` **não e pass**: e ausencia de politica. Registre como
+pendência, nunca como aprovado.
 
-Checagem sem evidencia vale `nao verificavel` e **nao pontua**. Nao
-pontuar nao e o mesmo que zerar: diga na nota quantos pontos ficaram
+Checagem sem evidência vale `nao verificavel` e **não pontua**. Não
+pontuar não e o mesmo que zerar: diga na nota quantos pontos ficaram
 fora de medicao.
 
 ## Dados e medicao (15)
 
-| Criterio | Pontos |
+| Critério | Pontos |
 |---|---|
-| UTM consistente entre campanha e automacao | 5 |
+| UTM consistente entre campanha e automação | 5 |
 | Receita atribuida batendo com o Shopify | 5 |
 | Os dois relogios entendidos por quem le o relatorio | 3 |
 | Eventos customizados em uso, quando fazem sentido | 2 |
 
 "Os dois relogios": `post_analytics_reports` conta por data de envio,
 `post_analytics_statistics` por data do evento. Relatorio que mistura os
-dois produz numero que nao fecha, e o cliente perde a confianca no resto.
+dois produz número que não fecha, e o cliente perde a confiança no resto.
 
 ## Programa de campanha (15)
 
-| Criterio | Pontos |
+| Critério | Pontos |
 |---|---|
-| Frequencia coerente com a base | 5 |
-| Segmentacao real, nao envio para tudo | 4 |
+| Frequência coerente com a base | 5 |
+| Segmentação real, não envio para tudo | 4 |
 | Calendario existindo | 3 |
-| Reenvio para nao abriu, feito com criterio | 3 |
+| Reenvio para não abriu, feito com critério | 3 |
 
-## Audiencia e segmentacao (10)
+## Audiência e segmentação (10)
 
-| Criterio | Pontos |
+| Critério | Pontos |
 |---|---|
 | Segmentos de ciclo de vida existem | 4 |
 | Supressao de inativo | 3 |
@@ -106,22 +106,22 @@ dois produz numero que nao fecha, e o cliente perde a confianca no resto.
 
 ## Conteudo e experimentacao (10)
 
-| Criterio | Pontos |
+| Critério | Pontos |
 |---|---|
-| A/B rodando, com metrica declarada | 4 |
+| A/B rodando, com métrica declarada | 4 |
 | Peca passa no `lint_email.py` | 3 |
 | Peca passa no `lint_copy.py` | 3 |
 
 ## Captacao (5)
 
-| Criterio | Pontos |
+| Critério | Pontos |
 |---|---|
 | Formulario existe e alimenta o welcome | 3 |
 | Oferta de captacao coerente com a do welcome | 2 |
 
-Pontuacao baixa aqui **nao** significa que captacao importa pouco.
-Significa que a auditoria em geral nao tem alcance para mudar. Se o
-cliente tambem contratar captacao, repontue e diga no relatorio que
+Pontuacao baixa aqui **não** significa que captacao importa pouco.
+Significa que a auditoria em geral não tem alcance para mudar. Se o
+cliente também contratar captacao, repontue e diga no relatorio que
 repontuou.
 
 ## Como reportar a nota
@@ -132,6 +132,6 @@ Nao verificavel: 10 pontos (autenticacao e one-click, sem .eml)
 Nota sobre o medido: 68 de 90
 ```
 
-Sempre as duas. Nota sobre 100 escondendo 10 pontos nao medidos e nota
-inflada para baixo, e o cliente nao sabe se o problema e a conta ou a
+Sempre as duas. Nota sobre 100 escondendo 10 pontos não medidos e nota
+inflada para baixo, e o cliente não sabe se o problema e a conta ou a
 coleta.

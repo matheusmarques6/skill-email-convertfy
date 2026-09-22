@@ -4,7 +4,7 @@ Dois acervos com propositos opostos.
 
 | Pasta | O que e | O que mede |
 |---|---|---|
-| `ruins/` | Pecas com vicio conhecido | Se o lint **pega** o defeito |
+| `ruins/` | Pecas com vício conhecido | Se o lint **pega** o defeito |
 | `casos/` | E-mails reais aprovados por humano | Se a suite **chega perto** do aprovado |
 
 ## Rodar
@@ -22,18 +22,18 @@ O relatorio separa dois grupos, e a separacao e o ponto:
 
 - **Detectavel por lint.** Regra de vocabulario, forma, pontuacao ou
   estrutura do HTML. Tem que dar 100%. Menos que isso e regressao.
-- **Depende do revisor.** Regra de posicao, sequencia entre toques, ou
+- **Depende do revisor.** Regra de posição, sequência entre toques, ou
   verdade externa ao texto ("o prazo declarado foi cumprido no ESP?").
-  O lint nao alcanca, e isso e projeto, nao defeito.
+  O lint não alcanca, e isso e projeto, não defeito.
 
-Somar os dois e reportar uma taxa unica seria um numero bonito e sem
+Somar os dois e reportar uma taxa única seria um número bonito e sem
 significado. Treze dos 31 casos existem justamente para lembrar que o
-lint sozinho nao fecha a conta: eles pertencem a `email-revisor` e a
+lint sozinho não fecha a conta: eles pertencem a `email-revisor` e a
 `email-qa`.
 
 Quando o lint pega algo "de tabela" num caso de revisor, o relatorio diz.
-Nao conta como acerto: pegar C02 num caso que existe para testar V16 e
-coincidencia, nao cobertura.
+Não conta como acerto: pegar C02 num caso que existe para testar V16 e
+coincidencia, não cobertura.
 
 ## Estrutura de `ruins/`
 
@@ -45,7 +45,7 @@ ruins/
 ```
 
 Cada caso declara `deteccao: lint | revisor`. Caso novo entra no
-manifesto junto com o arquivo, senao nao roda.
+manifesto junto com o arquivo, senao não roda.
 
 Origem dos 31 casos:
 
@@ -58,9 +58,9 @@ Origem dos 31 casos:
 ## Preencher `casos/`
 
 Copie `casos/_template.md`. O template pede o brief **antes** da peca,
-porque caso sem brief nao permite medir geracao, so leitura.
+porque caso sem brief não permite medir geração, só leitura.
 
-Regra que importa: se o lint acusar algo numa peca aprovada, **nao
-conserte a peca**. Ou a regra esta mal calibrada, e vira correcao em
+Regra que importa: se o lint acusar algo numa peca aprovada, **não
+conserte a peca**. Ou a regra esta mal calibrada, e vira correção em
 `shared/calibracao.md`, ou a peca tem o defeito e passou assim, e isso e
-dado sobre o criterio real de aprovacao. Os dois casos sao achado.
+dado sobre o critério real de aprovação. Os dois casos são achado.

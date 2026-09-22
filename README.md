@@ -3,17 +3,17 @@
 Suite de skills de e-mail marketing para e-commerce da Convertfy: 250+
 lojas Shopify, ESP principal Omnisend, secundario Klaviyo.
 
-O objetivo central e eliminar vicios de IA em copy e design de e-mail. A
-peca tem que parecer feita por uma loja, nao gerada por um assistente.
+O objetivo central e eliminar vícios de IA em copy e design de e-mail. A
+peca tem que parecer feita por uma loja, não gerada por um assistente.
 
 ## Comece por aqui
 
-- **`CLAUDE.md`** as regras fixas da Convertfy (layout, tecnica, copy,
-  specs), a taxonomia de blocos, a politica de licenca e a convencao de
+- **`CLAUDE.md`** as regras fixas da Convertfy (layout, técnica, copy,
+  specs), a taxonomia de blocos, a politica de licença e a convenção de
   skills. Leia antes de escrever qualquer skill.
 - **`vault/`** a fonte de verdade, somente leitura. Comece em
   `vault/_INDEX.md` e siga `vault/componentes/_protocolo-de-selecao.md`.
-- **`NOTICE.md`** creditos das referencias externas.
+- **`NOTICE.md`** creditos das referências externas.
 
 ## As 8 skills
 
@@ -25,10 +25,10 @@ Entre pelo roteador. Ele decide a rota e aplica o gate.
 | `email-copy` | Assunto, preheader, headline, corpo, CTA, alt |
 | `email-design` | HTML: 600px, inline, bulletproof, Outlook, dark mode |
 | `email-flows` | Os 10 flows no Omnisend, com equivalencia Klaviyo |
-| `email-qa` | Gate final antes do envio: vai ou nao vai |
+| `email-qa` | Gate final antes do envio: vai ou não vai |
 | `email-revisor` | Revisor separado, contexto limpo, nota /10 |
-| `email-variantes` | 3 versoes por eixo (oferta, prova, problema) |
-| `auditoria-omnisend` | Audita a conta inteira, com evidencia |
+| `email-variantes` | 3 versões por eixo (oferta, prova, problema) |
+| `auditoria-omnisend` | Audita a conta inteira, com evidência |
 
 Cadeia completa de uma peca do zero:
 
@@ -61,50 +61,50 @@ python3 scripts/lint_copy.py  --json peca.json
 python3 scripts/lint_email.py --json peca.html
 ```
 
-Exit code 1 significa que existe B. O gate e o exit code, nao a leitura
-humana da saida.
+Exit code 1 significa que existe B. O gate e o exit code, não a leitura
+humana da saída.
 
 ## Estrutura
 
 | Pasta | Conteudo |
 |---|---|
-| `skills/` | As 8 skills (`SKILL.md` ate 500 linhas, detalhe em `references/`) |
-| `shared/` | Regras usadas por mais de uma skill: anti-vicios, calibracao, protocolo, lexicos |
-| `marcas/` | Ficha por loja: cor, tipografia, tom, restricao |
+| `skills/` | As 8 skills (`SKILL.md` até 500 linhas, detalhe em `references/`) |
+| `shared/` | Regras usadas por mais de uma skill: anti-vícios, calibração, protocolo, lexicos |
+| `marcas/` | Ficha por loja: cor, tipografia, tom, restrição |
 | `assets/arsenal/` | Blocos HTML e manifesto |
 | `scripts/` | Os dois linters, os testes, o setup e o empacotador |
 | `evals/casos/` | Casos bons |
 | `evals/ruins/` | Casos ruins, para o linter pegar |
 | `docs/pesquisa/` | As pesquisas base e o que ainda precisa ser verificado |
-| `docs/destilacao/` | O que foi aproveitado de cada repo de referencia |
-| `LICENSES/` | Licencas de origem dos repos dos quais derivamos algo |
-| `vendor/` | 17 repos de referencia, somente leitura, fora do git |
+| `docs/destilacao/` | O que foi aproveitado de cada repo de referência |
+| `LICENSES/` | Licenças de origem dos repos dos quais derivamos algo |
+| `vendor/` | 17 repos de referência, somente leitura, fora do git |
 | `.claude-plugin/` | Manifesto do plugin e do marketplace |
 
 ## Setup local
 
-O `vault/` e um symlink e o `vendor/` sao clones. Nenhum dos dois e
-versionado, entao recrie os dois apos clonar:
+O `vault/` e um symlink e o `vendor/` são clones. Nenhum dos dois e
+versionado, então recrie os dois após clonar:
 
 ```bash
 ./scripts/setup.sh
 ```
 
 O script clona o vault (`matheusmarques6/all-for-eficiencia`) e os 12
-repos de referencia, e aponta o symlink `vault` para
-`Admin Convertfy/Emails`. Se voce ja tem o vault em disco (Obsidian
+repos de referência, e aponta o symlink `vault` para
+`Admin Convertfy/Emails`. Se você já tem o vault em disco (Obsidian
 local), aponte o caminho com a variavel de ambiente:
 
 ```bash
 CONVERTFY_VAULT="/caminho/para/Admin Convertfy/Emails" ./scripts/setup.sh
 ```
 
-## Regras que nao se negociam
+## Regras que não se negociam
 
 - Layout neutro: fundo branco, texto preto, sem paleta autoral.
 - 600px, `role="presentation"`, estilos inline, botao bulletproof, Outlook,
   dark mode.
-- Copy curta, generica e realista. Sem storytelling elaborado.
-- Travessao proibido em qualquer copy.
+- Copy curta, genérica e realista. Sem storytelling elaborado.
+- Travessão proibido em qualquer copy.
 - `vendor/` nunca e editado nem copiado: o que reaproveitamos e reescrito,
   com credito em `NOTICE.md`.

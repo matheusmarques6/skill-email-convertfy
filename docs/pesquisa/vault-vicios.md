@@ -181,9 +181,9 @@ Restam **24 violações reais**.
 
 `docs/pesquisa/vault-copy-extraida.json`: **59 trechos** de copy literal
 citados nas 8 notas var2. 49 `bloco`, 10 `cta`. 36 em inglês, 23 em pt-BR.
-Por nota: medicube-comparacao-categoria 17, medicube-escassez 10,
+Por nota: medicube-comparação-categoria 17, medicube-escassez 10,
 avelmore-mecanismo-e-origem 9, carta-plain-text-extensao 8,
-medicube-ultima-batida 6, avelmore-prova-social-cirurgica 5,
+medicube-última-batida 6, avelmore-prova-social-cirurgica 5,
 avelmore-deadline-objecao 3, avelmore-inspecao-antecipada 1.
 
 Critério de extração, para quem for auditar:
@@ -212,14 +212,14 @@ tipos, porque só um é problema de copy.
 |---|---|---|---|---|
 | medicube-escassez | **C01** | B | "$35 mais barato que o site oficial — mesma caixa, mesmos selos" | Travessão. O único B que não depende de contexto |
 | medicube-escassez | **C21** | A | "start your style journey" | Vocabulário de IA ("journey") |
-| medicube-ultima-batida | **C21** | A | "start your style journey with a discount" | Idem |
+| medicube-última-batida | **C21** | A | "start your style journey with a discount" | Idem |
 | avelmore-prova-social | **C15** | M | "STILL WANT 10% OFF?" | Pergunta retórica |
 | medicube-escassez | **C02** | B | "412 women already used WELCOME10 this week", "only 16 codes remaining" | Número de escassez. Casa com V19: só com backing |
 | avelmore-prova-social | **C02** | B | "4.8/5 from 3,847 verified reviews" | Agregado. Modelo de formato, nunca de valor |
 | medicube-escassez | **C02** | B | "no outro site, zero tracking por 3 semanas; aqui, tracking em 24h" | Número dentro de depoimento |
-| avelmore-deadline-objecao, avelmore-mecanismo, medicube-escassez, medicube-ultima-batida | **C02** | B | "hoje, 23:59", "today, 11:59 p.m.", "LAST 12 HOURS...", "THE CODE WELCOME10 EXPIRES AT 11:59 PM TODAY", "your exclusive discount expires today at 11:59 PM" | **Falso positivo de contexto:** é hora de prazo, não estatística. Com `brief_numbers` preenchido pela ficha da marca, some |
+| avelmore-deadline-objecao, avelmore-mecanismo, medicube-escassez, medicube-última-batida | **C02** | B | "hoje, 23:59", "today, 11:59 p.m.", "LAST 12 HOURS...", "THE CODE WELCOME10 EXPIRES AT 11:59 PM TODAY", "your exclusive discount expires today at 11:59 PM" | **Falso positivo de contexto:** é hora de prazo, não estatística. Com `brief_numbers` preenchido pela ficha da marca, some |
 | medicube-escassez | **C35** | M | "LAST 12 HOURS FOR YOUR DISCOUNT", "THE CODE WELCOME10 EXPIRES AT 11:59 PM TODAY" | **Falso positivo:** caixa alta em headline é legítima (§8 da pesquisa). O linter não sabe que o trecho é headline |
-| avelmore-mecanismo, medicube-comparacao, medicube-escassez | **C43** | M | "READ THE FULL STORY", "ENJOY DISCOUNT", "SECURE MY 10% OFF" | Discutível: os três são verbo mais objeto. "READ THE FULL STORY" de fato não é CTA de compra, e a própria nota diz que isso é deliberado (tira o e-mail do funil) |
+| avelmore-mecanismo, medicube-comparação, medicube-escassez | **C43** | M | "READ THE FULL STORY", "ENJOY DISCOUNT", "SECURE MY 10% OFF" | Discutível: os três são verbo mais objeto. "READ THE FULL STORY" de fato não é CTA de compra, e a própria nota diz que isso é deliberado (tira o e-mail do funil) |
 
 ### 6.4 O que o linter não pegou e a leitura manual pegou
 
@@ -248,11 +248,11 @@ Duas observações de implementação, para quem mantém o linter:
 
 | Nota | Trecho citado | ID violado | Leitura |
 |---|---|---|---|
-| medicube-comparacao-categoria | "We're not your average Korean skincare store" | **C10** (A) | Antítese de efeito na headline que carrega o e-mail inteiro. A regex proposta no §9.1 (`not (just\|only)`, `it'?s not`) **não pega** "not your average": ampliar para `not your (average\|typical\|usual)` e `n[ãa]o (é\|e) mais um`. |
-| medicube-comparacao-categoria | "Promoções generosas" | **C20** (A) | Superlativo sem objeto, e primeira linha da coluna que sustenta o argumento. Trocar por mecânica ("10% na primeira compra") resolve as duas coisas. |
+| medicube-comparação-categoria | "We're not your average Korean skincare store" | **C10** (A) | Antítese de efeito na headline que carrega o e-mail inteiro. A regex proposta no §9.1 (`not (just\|only)`, `it'?s not`) **não pega** "not your average": ampliar para `not your (average\|typical\|usual)` e `n[ãa]o (é\|e) mais um`. |
+| medicube-comparação-categoria | "Promoções generosas" | **C20** (A) | Superlativo sem objeto, e primeira linha da coluna que sustenta o argumento. Trocar por mecânica ("10% na primeira compra") resolve as duas coisas. |
 | medicube-escassez-com-prova-de-demanda | "start your style journey" | **C21** (A) | "journey" está na lista de vocabulário de IA. A própria nota marca a frase como artefato de montagem (é copy de moda num e-mail de skincare): V35 e C21 batem no mesmo trecho. |
-| medicube-ultima-batida | "start your style journey with a discount" | **C21** (A) | Idem, agravado: é o corpo do único bloco do e-mail. |
-| medicube-ultima-batida | "your exclusive discount" | **C22** (A) | Exclusividade genérica. Contestável: aqui existe cupom real e a nota defende o enquadramento de posse ("não perca o que já é seu"). Fica como alta com ressalva; o desempate é a ficha da marca. |
+| medicube-última-batida | "start your style journey with a discount" | **C21** (A) | Idem, agravado: é o corpo do único bloco do e-mail. |
+| medicube-última-batida | "your exclusive discount" | **C22** (A) | Exclusividade genérica. Contestável: aqui existe cupom real e a nota defende o enquadramento de posse ("não perca o que já é seu"). Fica como alta com ressalva; o desempate é a ficha da marca. |
 | avelmore-prova-social-cirurgica | "STILL WANT 10% OFF?" | **C15** (M) | Pergunta retórica de abertura: é a headline do hero, primeira linha da peça. A nota a chama de "reabertura em uma pergunta", ou seja, o dispositivo é intencional. Se a casa quiser manter, C15 precisa de exceção nomeada para o toque de reabertura. |
 | avelmore-mecanismo-e-origem | "What sets each pair apart" | **C16** (A) | Fórmula de abertura de marketing, da mesma família de "Quando se trata de…". Detecção J, não R: depende de ler que é o título do bloco. |
 | carta-plain-text-extensao | "before it's gone forever" | **C20** (A) | Intensidade no lugar de fato ("forever" contra um prazo de um dia). Ao lado de "one more day" sem hora, ainda cai em V21. |

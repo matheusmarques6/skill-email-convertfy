@@ -2,7 +2,7 @@
 
 Um arquivo autocontido. Sem CDN, sem fonte remota, sem build. Abre com
 duplo clique e funciona offline, porque quem decide costuma abrir no
-proprio computador.
+próprio computador.
 
 ## Estrutura de pastas
 
@@ -15,29 +15,29 @@ proprio computador.
   dados.json       metricas por variante (opcional, ver abaixo)
 ```
 
-Nome do arquivo e o nome do eixo. Nao use `v1`, `v2`, `v3`: o nome tem
+Nome do arquivo e o nome do eixo. Não use `v1`, `v2`, `v3`: o nome tem
 que dizer a aposta.
 
-## Regras da pagina
+## Regras da página
 
 1. **600px por `iframe`.** E a largura real do e-mail. Comparar em
    largura diferente esconde justamente o que quebra.
-2. **Cabecalho por coluna** com: eixo, assunto e preheader. Assunto e
-   preheader decidem a abertura e nao aparecem dentro do corpo, entao
+2. **Cabeçalho por coluna** com: eixo, assunto e preheader. Assunto e
+   preheader decidem a abertura e não aparecem dentro do corpo, então
    precisam estar visiveis no comparativo.
-3. **Linha de dados** por variante: palavras no corpo, numero de CTAs,
+3. **Linha de dados** por variante: palavras no corpo, número de CTAs,
    resultado do lint.
-4. **Um botao de dark mode** que alterna as tres ao mesmo tempo. Comparar
-   uma clara com outra escura nao compara nada.
+4. **Um botao de dark mode** que alterna as três ao mesmo tempo. Comparar
+   uma clara com outra escura não compara nada.
 5. **Sem vencedora.** Sem estrela, sem "recomendada", sem ordenar por
    qualidade. A ordem e sempre oferta, prova, problema.
-6. A propria pagina de comparacao segue o layout neutro da casa: fundo
-   branco, texto preto. Ela nao e a peca, mas cor autoral aqui contamina
-   a leitura das tres.
+6. A própria página de comparação segue o layout neutro da casa: fundo
+   branco, texto preto. Ela não e a peca, mas cor autoral aqui contamina
+   a leitura das três.
 
 ## Esqueleto
 
-Adapte, nao copie sem ler. O que importa e o contrato acima.
+Adapte, não copie sem ler. O que importa e o contrato acima.
 
 ```html
 <!doctype html>
@@ -97,8 +97,8 @@ Adapte, nao copie sem ler. O que importa e o contrato acima.
 
 ## `dados.json`, quando gerar
 
-So se o comparativo for arquivado ou entrar em relatorio. Para escolha
-rapida, a linha de dados na pagina basta.
+Só se o comparativo for arquivado ou entrar em relatorio. Para escolha
+rapida, a linha de dados na página basta.
 
 ```json
 [
@@ -111,7 +111,7 @@ rapida, a linha de dados na pagina basta.
 
 ## Variante reprovada
 
-Variante com B **nao entra** no `iframe`. No lugar dela, a coluna mostra
+Variante com B **não entra** no `iframe`. No lugar dela, a coluna mostra
 o eixo, o ID que bloqueou e o trecho:
 
 ```html
@@ -122,5 +122,5 @@ o eixo, o ID que bloqueou e o trecho:
 </div>
 ```
 
-Manter a coluna visivel importa: mostra que o eixo foi tentado e por que
-caiu. Sumir com ela faz parecer que so duas foram pensadas.
+Manter a coluna visível importa: mostra que o eixo foi tentado e por que
+caiu. Sumir com ela faz parecer que só duas foram pensadas.

@@ -14,7 +14,7 @@ papel.
 
 Divergências desta skill em relação ao CLAUDE.md: nenhuma.
 
-## Protocolo obrigatorio
+## Protocolo obrigatório
 
 Segue `shared/protocolo-de-execucao.md` inteiro. Especificidades:
 

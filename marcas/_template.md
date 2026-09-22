@@ -46,7 +46,7 @@ emoji_no_corpo: false
 exclamacao_maxima: 1          # por e-mail (C30)
 palavras_proibidas: []        # lista da marca, além do léxico global
 termos_obrigatorios: []       # marca registrada, nome de linha, grafia fixa
-tratamento: voce              # voce | tu | vos | neutro
+tratamento: você              # você | tu | vos | neutro
 merge_tags_com_fallback: []   # ex.: ["{{first_name|Oi}}"] (C47)
 
 # --- fatos que o lint pode conferir ---

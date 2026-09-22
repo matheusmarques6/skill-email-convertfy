@@ -16,21 +16,21 @@ determinística é `scripts/lint_email.py`.
 Divergências desta skill em relação ao CLAUDE.md: nenhuma.
 
 
-## Protocolo obrigatorio
+## Protocolo obrigatório
 
 Esta skill segue `shared/protocolo-de-execucao.md` inteiro. Em resumo:
 
 1. **Ficha e brief (P01, P02).** Le `marcas/<cliente>.md` quando existir.
-   Sem ficha e sem brief com **oferta, produto e prazo**, nao gera: pede o
+   Sem ficha e sem brief com **oferta, produto e prazo**, não gera: pede o
    que falta. Campo ausente vira `[FALTA: <campo>]`, nunca invencao.
-2. **Anti-vicios.** Aplica `shared/anti-vicios-copy.md`,
+2. **Anti-vícios.** Aplica `shared/anti-vicios-copy.md`,
    `anti-vicios-design.md`, `anti-vicios-processo.md` e, junto,
-   `shared/calibracao.md`, para nao reprovar convencao legitima de e-mail.
+   `shared/calibracao.md`, para não reprovar convenção legitima de e-mail.
 3. **Gate de lint.** Roda `scripts/lint_copy.py` e `scripts/lint_email.py`
-   antes de entregar. **Violacao B: nao entrega.** O gate e o exit code.
+   antes de entregar. **Violacao B: não entrega.** O gate e o exit code.
 4. **Leitura do brief.** Antes de gerar, uma linha dizendo o que entendeu.
-   Se estiver ambiguo, **uma pergunta so**, juntando tudo que falta.
-5. **So o artefato (C07).** Sem comentario sobre a propria copy, sem
+   Se estiver ambíguo, **uma pergunta só**, juntando tudo que falta.
+5. **Só o artefato (C07).** Sem comentario sobre a própria copy, sem
    explicar a escolha, sem variacao que ninguem pediu.
 6. **Ordem de trabalho (P08).** intencao (var1) -> estrutura (var2) ->
    variantes do arsenal -> copy por schema. Nunca escreve antes de
@@ -309,10 +309,10 @@ todas as imagens da mesma linha, com `object-fit: cover`. Nunca
 
 ## Contrato de variante
 
-O **contrato novo e o canonico**. Esta skill so gera no contrato novo.
+O **contrato novo e o canonico**. Esta skill só gera no contrato novo.
 
-Das 75 notas de variante do vault, 32 ja estao no contrato novo e **43
-estao no legado**. Quando o protocolo de selecao escolher uma legada,
+Das 75 notas de variante do vault, 32 já estao no contrato novo e **43
+estao no legado**. Quando o protocolo de seleção escolher uma legada,
 converta antes de usar:
 
 ```bash
@@ -322,12 +322,12 @@ python3 scripts/adaptar_variante_legado.py <slug> --json
 O adaptador carrega os campos compartilhados, deriva `profundidade` e
 aposenta `momento`, `ativa` e os outros campos que sairam do contrato.
 
-**`aliviador` nao deriva de nada.** Vem de `shared/aliviador-legado.json`,
-que e o registro das decisoes humanas. Slug sem entrada la volta como
+**`aliviador` não deriva de nada.** Vem de `shared/aliviador-legado.json`,
+que e o registro das decisões humanas. Slug sem entrada la volta como
 `[FALTA: decisao humana]` e o adaptador sai com exit code 1.
 
-Variante legada com pendencia **nao pode ser usada para gerar**: peca a
-decisao de `aliviador` ou escolha outra variante. Nunca preencha por
+Variante legada com pendência **não pode ser usada para gerar**: peca a
+decisão de `aliviador` ou escolha outra variante. Nunca preencha por
 inferencia, nem copie o `aliviador` de uma variante parecida.
 
 Ver `docs/vault/migracao-contrato.md`.

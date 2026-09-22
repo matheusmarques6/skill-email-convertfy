@@ -18,7 +18,7 @@ Regra 80/10/10: o plano fecha acima do mínimo de 80% validado.
 | Categoria | Envios |
 |---|---|
 | oferta | 18 |
-| antecipacao | 17 |
+| antecipação | 17 |
 | pico | 17 |
 | fechamento | 10 |
 | pos | 3 |
