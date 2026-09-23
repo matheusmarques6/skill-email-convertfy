@@ -145,14 +145,27 @@ Zero defeitos no lint, e ainda assim cai. É o ponto do padrão.
 
 | # | Pergunta | Resposta |
 |---|---|---|
-| Q1 | Oferta e condição sem rolar? | **sim** |
+| Q1 | Oferta e condição sem rolar? | **não** |
 | Q2 | Diz um fato que só esta loja poderia dizer? | **não** |
-| Q3 | O papel do envio está cumprido? | sim |
+| Q3 | O papel do envio está cumprido? | **não** |
 | Q4 | Ação única e óbvia? | sim |
 | Q5 | Funciona com as imagens desligadas? | sim |
 | Q6 | Alguém da loja assina, e existe? | **não** |
 
-**4 de 6.** Abaixo do mínimo de 5, então a nota trava em 6.
+**2 de 6.** Abaixo do mínimo de 5, então a nota trava em 6.
+
+**Correção a esta tabela.** A primeira versão dela dizia Q1 e Q3 sim, e
+eu a escrevi de cabeça, sem olhar o render. Rodando o revisor de verdade
+sobre `desktop-600.png`:
+
+- **Q1 é não.** O corpo diz "Use o código BEMVINDA10" e "Válido por 7
+  dias, sem valor mínimo", mas **o valor 10% só existe no assunto**. Com
+  o assunto fora da tela, a peça não diz de quanto é o desconto.
+- **Q3 é não.** Lendo só a peça, não dá para saber que é um welcome: lê
+  como um e-mail de cupom qualquer.
+
+É o tipo de erro que o padrão existe para pegar, e que eu cometi
+exatamente por não ter olhado a imagem antes de pontuar.
 
 ```
 PQ2  "Prata 925 com banho de ródio" serve para qualquer loja de prata.

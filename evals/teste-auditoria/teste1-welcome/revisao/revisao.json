@@ -1,0 +1,37 @@
+{
+  "_leia": "Responda sim ou nao. Sem meio-termo: se precisa de ressalva, e nao. Olhe os tres PNGs antes.",
+  "_contexto_limpo": "Este pacote tem SO os PNGs e a ficha. O HTML, o brief e a copy ficaram de fora de proposito: quem sabe a intencao le a intencao, nao o resultado.",
+  "versao_catalogo": "cat-ccfd3472",
+  "papel": "antecipacao",
+  "respostas": {
+    "Q1": false,
+    "Q2": false,
+    "Q3": false,
+    "Q4": true,
+    "Q5": true,
+    "Q6": false,
+    "Q7a": true,
+    "Q8a": false,
+    "Q9a": true,
+    "Q10a": false
+  },
+  "perguntas": {
+    "Q1": "A oferta e a condicao aparecem sem rolar, no desktop e no mobile?",
+    "Q2": "A peca diz um fato que so esta loja poderia dizer?",
+    "Q3": "O papel do envio esta cumprido, lendo so a peca?",
+    "Q4": "Existe uma acao unica e obvia?",
+    "Q5": "A peca funciona com as imagens desligadas?",
+    "Q6": "Alguem da loja assina, e essa pessoa existe?",
+    "Q7a": "Traz uma noticia nova que os toques anteriores nao deram?",
+    "Q8a": "Pede uma tarefa (votar, confirmar vaga, salvar favorito)?",
+    "Q9a": "Nao repete a promessa do toque anterior?",
+    "Q10a": "Diz o que acontece na data, nao so que algo vem?"
+  },
+  "achados_visuais": [
+    "R11 mobile-375.png: mais de uma tela de branco depois do rodape",
+    "R12 desktop-600.png: peca anemica, quatro paragrafos soltos e um botao, sem hero nem vitrine",
+    "R13 desktop-600.png: 'Tres pecas que saem mais rapido:' termina em dois-pontos e nao vem grade nenhuma depois",
+    "dark-600.png: legivel, texto inverteu certo e o botao virou branco com texto preto. Sem R18"
+  ],
+  "o_que_a_peca_acerta": "O dark mode esta correto sem truque: o texto inverte, o botao mantem contraste e nada some. A condicao da oferta (prazo e ausencia de minimo) esta escrita em texto vivo, nao em imagem."
+}

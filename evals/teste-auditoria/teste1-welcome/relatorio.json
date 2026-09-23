@@ -1,0 +1,33 @@
+{
+  "nome": "t1",
+  "fonte": "/home/user/skill-email-convertfy/evals/teste-auditoria/teste1-welcome/a-suite.html",
+  "peso_kb": 2.0,
+  "capturas": {
+    "desktop": "desktop-600.png",
+    "mobile": "mobile-375.png",
+    "dark": "dark-600.png"
+  },
+  "altura_px": 900,
+  "largura_max": 600,
+  "imagens": 0,
+  "imagens_quebradas": [],
+  "imagens_sem_alt": [],
+  "botoes": [
+    {
+      "texto": "Ver a coleção",
+      "topo": 222,
+      "altura": 47
+    }
+  ],
+  "primeira_dobra_px": 900,
+  "cta_na_primeira_dobra": true,
+  "mobile": {
+    "altura_px": 1744,
+    "largura_max": 600,
+    "rola_horizontal": true,
+    "cta_na_primeira_dobra": true
+  },
+  "avisos": [
+    "R09 rolagem horizontal no mobile: largura 600 px em viewport de 375"
+  ]
+}

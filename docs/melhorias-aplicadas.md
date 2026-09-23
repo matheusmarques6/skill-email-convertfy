@@ -50,13 +50,49 @@ carimbo, a versão mudou sozinha de `cat-55633817` para `cat-ccfd3472`.
 Cinco testes travam o comportamento, incluindo um que edita o léxico,
 confere que a versão andou, e restaura.
 
+## 3. O revisor virou executável
+
+**O problema.** `skills/email-revisor` eram 163 linhas de prosa e zero
+linhas de código. Nada em `scripts/` chamava o revisor. O contexto limpo
+era uma instrução que dependia de alguém lembrar, e a nota que o lote
+mostrava era só a mecânica do lint.
+
+**O que foi feito.** `scripts/revisar.py`, com a divisão honesta: o
+julgamento continua sendo do agente, porque exige olhar as imagens; tudo
+em volta virou código.
+
+| Comando | O que faz |
+|---|---|
+| `--preparar` | Copia **só** os três PNGs e a ficha para `<peça>/revisao/`, gera o formulário do papel e avisa se vazou HTML, brief ou copy |
+| `--pontuar` | Recusa formulário incompleto, lê o lint do disco, aplica a regra da nota. Exit 1 se não aprovada |
+| `--estado` | Diz se já foi revisada e por qual versão do catálogo |
+
+A galeria passou a ter três estados: **aprovada** (lint limpo e revisor
+passou), **aguarda revisor** (lint limpo, revisor não passou) e
+**reprovada**. Antes, "lint limpo" já contava como aprovada.
+
+**O efeito, medido na peça do Teste 1:**
+
+```
+NOTA: 6/10 · reprovada
+Defeitos: 0 B · 0 A · 0 M
+Padrão de qualidade: 2/6 gerais · 2/4 do papel
+```
+
+Zero defeitos e reprovada. É a peça que passava em tudo.
+
+**E um erro meu que o revisor pegou.** Eu tinha pontuado essa peça de
+cabeça em 4 de 6, sem olhar o render. Olhando: **Q1 também é não**, porque
+o valor "10%" só existe no assunto e não aparece no corpo. Com o assunto
+fora da tela, a peça não diz de quanto é o desconto. Corrigido em
+`evals/teste-auditoria/README.md`.
+
 ## O que continua aberto
 
 Da lista que sugeri, três não foram feitas:
 
 | # | O quê | Por quê |
 |---|---|---|
-| 2 | O revisor não roda em código | Esforço M. Exige o `produzir_lote` abrir os PNGs e chamar o revisor de verdade |
 | 3 | Nada volta da realidade | Esforço G, e depende de decidir o acoplamento com o Omnisend da conta |
 | 4 | `evals/casos/` vazio | Depende de você escolher os e-mails aprovados |
 | 6 | `shared/` com 1.555 linhas | Esforço P, mas mexe em como toda skill carrega contexto |

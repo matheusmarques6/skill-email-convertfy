@@ -11,6 +11,32 @@ o que esta escrito.
 
 Aplica `shared/postura-revisao.md`. O que segue e o procedimento.
 
+
+## Como rodar
+
+O revisor tem harness em código. O julgamento continua sendo seu, mas o
+que está em volta não pode mais ser pulado em silêncio.
+
+```bash
+python3 scripts/revisar.py --preparar <peça>   # monta o contexto limpo
+# abra os três PNGs, responda revisao.json
+python3 scripts/revisar.py --pontuar  <peça>   # calcula a nota
+```
+
+`--preparar` copia **só** os três PNGs e a ficha da marca para
+`<peça>/revisao/`, e gera o formulário com as perguntas do papel. O HTML,
+o brief, a copy e a lista de correções ficam de fora por construção, e o
+script avisa se algum vazou.
+
+`--pontuar` recusa formulário incompleto, lê o lint que o lote já rodou, e
+aplica a regra da nota. Sai com código 1 quando a peça não é aprovada.
+
+A peça **não fica aprovada na galeria sem `veredito.json`**. Sem revisor,
+o status é "aguarda revisor", que não é reprovação: é trabalho que falta.
+
+O veredito carimba a versão do catálogo. Se as regras mudarem depois,
+`revisao_velha` fica verdadeiro e a revisão precisa ser refeita.
+
 ## Contexto limpo, e isso e a regra principal
 
 Esta skill recebe **exatamente duas coisas**:

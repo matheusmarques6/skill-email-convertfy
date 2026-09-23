@@ -38,3 +38,7 @@ out/
 dist/
 out/
 evals/render/
+
+# Pacote de contexto limpo do revisor: as imagens sao copia, regeravel com
+# `revisar.py --preparar`. O formulario e o veredito ficam versionados.
+**/revisao/*.png

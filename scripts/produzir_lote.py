@@ -267,6 +267,11 @@ def produz(brief: dict, loja: str, ficha: dict, idioma: str) -> dict:
 
     lc = roda("lint_copy.py", dest / "copy.json")
     le = roda("lint_email.py", dest / "email.html")
+    # o revisor pontua a partir daqui, entao o lint precisa ficar em disco
+    (dest / "lint_copy.json").write_text(
+        json.dumps(lc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (dest / "lint_email.json").write_text(
+        json.dumps(le, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     nota, motivos = nota_mecanica(lc, le, rel)
     bloqueia = lc.get("bloqueia") or le.get("bloqueia")
 
@@ -275,7 +280,8 @@ def produz(brief: dict, loja: str, ficha: dict, idioma: str) -> dict:
 
     return {"slug": slug, "dir": dest, "nota": nota, "motivos": motivos,
             "bloqueia": bool(bloqueia), "rel": rel, "lc": lc, "le": le,
-            "brief": brief, "copy": c, "montado": montado}
+            "brief": brief, "copy": c, "montado": montado,
+            "revisao": {"revisada": False, "motivo": "revisor ainda nao passou"}}
 
 
 def relatorio(b, c, lc, le, rel, nota, motivos, montado=None) -> str:
@@ -349,9 +355,13 @@ def galeria(loja: str, pecas: list[dict]) -> str:
                    if p.get("lc", {}).get("versao_catalogo")), "n/d")
     cards = []
     for p in sorted(pecas, key=lambda x: (-x["nota"], x["slug"])):
-        ok = not p["bloqueia"] and p["nota"] >= NOTA_MINIMA
+        rev = p.get("revisao") or {}
+        # so e aprovada quando o revisor passou. Sem veredito, e "medida".
+        ok = (not p["bloqueia"] and p["nota"] >= NOTA_MINIMA
+              and rev.get("revisada") and rev.get("aprovada"))
+        medida = not p["bloqueia"] and p["nota"] >= NOTA_MINIMA and not ok
         rel_dir = p["dir"].name if ok else f"_reprovados/{p['dir'].name}"
-        cor = "#0a6b2e" if ok else "#a10000"
+        cor = "#0a6b2e" if ok else ("#8a5a00" if medida else "#a10000")
         motivos = ", ".join(p["motivos"][:4]) or "sem achados"
         cards.append(f"""
   <article style="border:1px solid #ddd;padding:14px;">
@@ -363,7 +373,7 @@ def galeria(loja: str, pecas: list[dict]) -> str:
     <p style="margin:0 0 6px;font-size:12px;color:#555;">
       {p['brief'].get('data')} {p['brief'].get('hora')} · {html_mod.escape(p['brief'].get('papel','')[:54])}</p>
     <p style="margin:0 0 6px;font-weight:700;color:{cor};font-size:13px;">
-      {'APROVADA' if ok else 'REPROVADA'} · nota {p['nota']}/10</p>
+      {'APROVADA' if ok else ('AGUARDA REVISOR' if medida else 'REPROVADA')} · nota {p['nota']}/10</p>
     <p style="margin:0;font-size:12px;color:#666;">{html_mod.escape(motivos)}</p>
     <p style="margin:8px 0 0;font-size:12px;">
       <a href="{rel_dir}/relatorio.md">relatório</a> ·
@@ -371,7 +381,12 @@ def galeria(loja: str, pecas: list[dict]) -> str:
       <a href="{rel_dir}/mobile-375.png">mobile</a> ·
       <a href="{rel_dir}/dark-600.png">dark</a></p>
   </article>""")
-    ap = sum(1 for p in pecas if not p["bloqueia"] and p["nota"] >= NOTA_MINIMA)
+    ap = sum(1 for p in pecas
+             if not p["bloqueia"] and p["nota"] >= NOTA_MINIMA
+             and (p.get("revisao") or {}).get("aprovada"))
+    aguarda = sum(1 for p in pecas
+                  if not p["bloqueia"] and p["nota"] >= NOTA_MINIMA
+                  and not (p.get("revisao") or {}).get("aprovada"))
     return f"""<!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8">
 <title>Lote {html_mod.escape(loja)}</title>
@@ -382,7 +397,8 @@ def galeria(loja: str, pecas: list[dict]) -> str:
  h1{{font-size:18px;margin:0 0 4px;}} .sub{{color:#555;margin:0 0 20px;}}
 </style></head><body>
 <h1>Lote: {html_mod.escape(loja)}</h1>
-<p class="sub">{len(pecas)} peças · <b>{ap} aprovadas</b> · {len(pecas)-ap} reprovadas ·
+<p class="sub">{len(pecas)} peças · <b>{ap} aprovadas</b> · {aguarda} aguardando revisor ·
+{len(pecas)-ap-aguarda} reprovadas ·
 gerado em {datetime.now():%Y-%m-%d %H:%M}<br>
 Reprova quem tem violação B ou nota abaixo de {NOTA_MINIMA}.
 A nota é mecânica e só conta defeito: o revisor e o padrão de qualidade
@@ -415,6 +431,9 @@ def main(argv=None) -> int:
     for i, b in enumerate(briefs, 1):
         print(f"[{i}/{len(briefs)}] {b.get('nome','')[:56]}", flush=True)
         p = produz(b, a.loja, ficha, a.idioma)
+        # reprovada pelo lint vai para _reprovados. Aprovada pelo lint mas
+        # sem revisor fica na raiz como "aguarda revisor": nao e reprovacao,
+        # e trabalho que falta.
         if p["bloqueia"] or p["nota"] < NOTA_MINIMA:
             alvo = destino / "_reprovados" / p["dir"].name
             shutil.move(str(p["dir"]), str(alvo))
@@ -430,7 +449,13 @@ def main(argv=None) -> int:
 
     (destino / "index.html").write_text(galeria(a.loja, pecas), encoding="utf-8")
     ok = sum(1 for p in pecas if not p["bloqueia"] and p["nota"] >= NOTA_MINIMA)
-    print(f"\n{len(pecas)} pecas | {ok} aprovadas | {len(pecas)-ok} reprovadas")
+    print(f"\n{len(pecas)} pecas | {ok} passaram no lint | "
+          f"{len(pecas)-ok} reprovadas pelo lint")
+    if ok:
+        print(f"{ok} aguardam o revisor. Para cada uma:")
+        print("  python3 scripts/revisar.py --preparar <peca>")
+        print("  (abra os PNGs, responda revisao.json)")
+        print("  python3 scripts/revisar.py --pontuar <peca>")
     print(f"galeria: {destino / 'index.html'}")
     return 0
 
