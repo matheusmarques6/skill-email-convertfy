@@ -130,3 +130,60 @@ que o lint não vê**:
 | A suíte reproduz o que a carteira validou? | **Sim, na estrutura.** A peça do teste 2 é bloco a bloco a campanha real |
 | A suíte entrega o nível de Impeccable e Taste? | **Ainda não.** Impeccable produz direção visual; a suíte produz ausência de defeito. Falta direção de imagem, medição de altura e os dials |
 | Alguma regra atrapalha? | **Sim.** V29 bloqueou a reprodução de uma campanha validada. C31 removeu um emoji que o dado sustenta |
+
+
+---
+
+## Reavaliação pelo padrão de qualidade
+
+Catálogo `cat-ccfd3472`. Aplicando `shared/padrao-de-qualidade.md` às mesmas peças,
+depois que o padrão passou a existir.
+
+### Teste 1, peça da suíte: de 8/10 para **6/10**
+
+Zero defeitos no lint, e ainda assim cai. É o ponto do padrão.
+
+| # | Pergunta | Resposta |
+|---|---|---|
+| Q1 | Oferta e condição sem rolar? | **sim** |
+| Q2 | Diz um fato que só esta loja poderia dizer? | **não** |
+| Q3 | O papel do envio está cumprido? | sim |
+| Q4 | Ação única e óbvia? | sim |
+| Q5 | Funciona com as imagens desligadas? | sim |
+| Q6 | Alguém da loja assina, e existe? | **não** |
+
+**4 de 6.** Abaixo do mínimo de 5, então a nota trava em 6.
+
+```
+PQ2  "Prata 925 com banho de ródio" serve para qualquer loja de prata.
+     Troque o nome da loja: a peça continua fazendo sentido.
+PQ6  Não há assinatura. Os 4 modelos titulares do ranking são formato de
+     pessoa, e este envio é um welcome, onde a apresentação importa.
+```
+
+Na Fase 5 eu escrevi que a peça era "correta e esquecível" em prosa, no
+fim do relatório, como observação. Agora isso tem ID, entra no veredito e
+muda a nota. Era a lacuna exata que o padrão fecha.
+
+### Teste 2, peça da suíte: segue em 3/10
+
+Já travava em 3 pelo V29. O padrão não muda o resultado, mas muda o
+diagnóstico:
+
+| # | Pergunta | Resposta |
+|---|---|---|
+| Q1 | Oferta e condição sem rolar? | sim |
+| Q2 | Fato que só esta loja poderia dizer? | sim, o cupom 1111 e os 24 mais vendidos |
+| Q3 | Papel cumprido? | sim |
+| Q4 | Ação única? | sim |
+| Q5 | Sem imagens? | sim |
+| Q6 | Assina alguém real? | **não**, "Nathan" não está na ficha |
+
+**5 de 6**, e no bloco de pico 4 de 4. A peça do teste 2 é
+substancialmente melhor que a do teste 1, e antes as duas apareciam
+como "sem violações".
+
+### O que isso mostra
+
+O lint separava peça errada de peça certa. O padrão separa peça certa de
+peça boa, e as duas do teste caem em lados diferentes dessa linha.

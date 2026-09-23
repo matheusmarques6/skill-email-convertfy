@@ -61,6 +61,45 @@ homogeneidade é o problema observado de verdade (20 de 20 lojas Shopify não
 relacionadas mandando o mesmo texto de boas-vindas na Trendtrack). Não é o
 provedor que penaliza: é o cliente que já viu esse e-mail.
 
+
+## A nota tem dois lados
+
+Contar defeito mede se a peça errou. Não mede se a peça é boa. Uma peça
+com zero violações pode ser correta e esquecível, e isso não é nota 10.
+
+| Lado | Onde | O que mede |
+|---|---|---|
+| Defeitos | `anti-vicios-*.md`, `calibracao.md` | O que a peça errou |
+| Acertos | `shared/padrao-de-qualidade.md` | O que a peça entregou |
+
+### Como calcular
+
+1. Conte os defeitos na escala de sempre: **B trava em 3**, cada A tira 1,
+   cada M tira 0,5 com teto de 2.
+2. Responda as perguntas do padrão de qualidade, sim ou não.
+3. **Menos de 5 sim em Q1 a Q6, ou menos de 3 no bloco do papel: a nota
+   não passa de 6**, mesmo com o lint limpo.
+4. Nota 10 exige lint limpo **e** todos os sim.
+
+### No veredito
+
+Os "não" entram como achado, com o ID `PQ<n>`:
+
+```
+NOTA: 6/10   (defeitos: 0 · padrão de qualidade: 4 de 6)
+
+Padrão de qualidade (PQ): 2
+  PQ2  a peça não diz nada que só esta loja poderia dizer
+  PQ6  assinatura sem pessoa real por trás
+
+Bloqueia (B): 0
+Corrigir (A): 0
+```
+
+Peça com zero defeitos e nota 6 não é contradição: é a peça que passou no
+lint e não entregou. Era invisível antes.
+
+
 ## Formato do relatório do crítico
 
 Curto e acionável, nesta ordem:

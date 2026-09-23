@@ -536,6 +536,23 @@ def regra_v02(leitor: LeitorEmail):
 ORDEM_SEV = {"B": 0, "A": 1, "M": 2}
 
 
+
+def _versao_catalogo() -> str:
+    """Carimba a versao das regras na saida, para medicao antiga nao passar
+    por atual. Falha silenciosa e proposital: o lint nao deve quebrar porque
+    o carimbo nao foi calculado."""
+    try:
+        import importlib.util
+        _p = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                          "versao_catalogo.py")
+        _s = importlib.util.spec_from_file_location("versao_catalogo", _p)
+        _m = importlib.util.module_from_spec(_s)
+        _s.loader.exec_module(_m)
+        return _m.versao()
+    except Exception:
+        return "cat-desconhecida"
+
+
 def lint(html: str, cores_marca=None) -> dict:
     cores_marca = {c.upper() for c in (cores_marca or [])}
     leitor = LeitorEmail()
@@ -558,6 +575,7 @@ def lint(html: str, cores_marca=None) -> dict:
     violacoes.sort(key=lambda v: (ORDEM_SEV[v["severidade"]], v["regra"]))
     bloqueia = any(v["severidade"] == "B" for v in violacoes)
     return {
+        "versao_catalogo": _versao_catalogo(),
         "ok": not violacoes,
         "bloqueia": bloqueia,
         "total": len(violacoes),

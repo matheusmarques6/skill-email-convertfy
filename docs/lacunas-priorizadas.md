@@ -1,5 +1,9 @@
 # Lacunas priorizadas
 
+> **Fechadas desde a última revisão:** o padrão positivo de qualidade
+> (`shared/padrao-de-qualidade.md`) e o versionamento do catálogo
+> (`scripts/versao_catalogo.py`). Ver `docs/melhorias-aplicadas.md`.
+
 Da auditoria (Fase 1), da reconciliação (Fase 2) e dos testes (Fase 5).
 Ordenado por quanto trava trabalho real.
 

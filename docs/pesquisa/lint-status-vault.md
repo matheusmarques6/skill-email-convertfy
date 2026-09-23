@@ -1,5 +1,10 @@
 # `lint_status` por nota var2
 
+> **Catálogo `cat-ccfd3472`.** Este valor é derivado do conteúdo das regras. Se a
+> versão do catálogo mudou desde esta medição, os valores abaixo estão
+> velhos e precisam ser regerados. Foi exatamente isso que aconteceu entre
+> a primeira e a segunda medição deste arquivo.
+
 Valor proposto do campo `lint_status` para cada nota de estrutura do
 vault. **Nada foi aplicado**: o vault e somente leitura deste repo. Este
 arquivo existe para você aplicar no Obsidian.

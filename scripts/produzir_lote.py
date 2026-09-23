@@ -295,12 +295,18 @@ def relatorio(b, c, lc, le, rel, nota, motivos, montado=None) -> str:
 | Janela | {b.get('janela','')} |
 | Oferta | {b.get('oferta','')} |
 | **Nota mecânica** | **{nota}/10** |
+| Versão do catálogo | `{lc.get("versao_catalogo", "n/d")}` |
 | Bloqueia | {'SIM' if lc.get('bloqueia') or le.get('bloqueia') else 'não'} |
 
 > A nota acima é **mecânica**, derivada do lint e dos avisos de render.
 > Não substitui `skills/email-revisor`, que precisa ler os três PNGs em
-> contexto limpo. Enquanto o revisor não passar, esta peça não está
-> aprovada, só medida.
+> contexto limpo **e responder as perguntas de
+> `shared/padrao-de-qualidade.md`**. Enquanto o revisor não passar, esta
+> peça não está aprovada, só medida.
+>
+> A nota mecânica só conta **defeito**. O padrão de qualidade conta
+> **acerto**, e é ele que separa a peça correta da peça boa. Peça com zero
+> defeitos pode ficar em 6 depois do PQ.
 
 ## Motivos
 
@@ -333,11 +339,14 @@ def relatorio(b, c, lc, le, rel, nota, motivos, montado=None) -> str:
 
 1. Abrir `desktop-600.png`, `mobile-375.png` e `dark-600.png`.
 2. Rodar o ciclo de `skills/email-design/references/ciclo-de-render.md`.
-3. Passar pelo `email-revisor` em contexto limpo.
+3. Responder as perguntas de `shared/padrao-de-qualidade.md`.
+4. Passar pelo `email-revisor` em contexto limpo.
 """
 
 
 def galeria(loja: str, pecas: list[dict]) -> str:
+    versao = next((p["lc"].get("versao_catalogo") for p in pecas
+                   if p.get("lc", {}).get("versao_catalogo")), "n/d")
     cards = []
     for p in sorted(pecas, key=lambda x: (-x["nota"], x["slug"])):
         ok = not p["bloqueia"] and p["nota"] >= NOTA_MINIMA
@@ -376,7 +385,9 @@ def galeria(loja: str, pecas: list[dict]) -> str:
 <p class="sub">{len(pecas)} peças · <b>{ap} aprovadas</b> · {len(pecas)-ap} reprovadas ·
 gerado em {datetime.now():%Y-%m-%d %H:%M}<br>
 Reprova quem tem violação B ou nota abaixo de {NOTA_MINIMA}.
-A nota é mecânica: o revisor em contexto limpo ainda não passou.</p>
+A nota é mecânica e só conta defeito: o revisor e o padrão de qualidade
+ainda não passaram.<br>
+Catálogo: <code>{versao}</code></p>
 <div class="grid">{''.join(cards)}
 </div></body></html>"""
 

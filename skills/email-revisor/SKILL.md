@@ -46,6 +46,16 @@ um ponto de partida.
 - Se depois de ler inteiro não houver achado nenhum, diga isso
   explicitamente, com o que você verificou. Silencio não e aprovação.
 
+## A nota tem dois lados
+
+Não basta contar defeito. Uma peça com zero violações pode ser correta e
+esquecível, e isso não é 10.
+
+Depois de contar os defeitos, responda as perguntas de
+`shared/padrao-de-qualidade.md`: são sim ou não sobre o que a peça precisa
+**ter**. Menos de 5 sim em Q1 a Q6, ou menos de 3 no bloco do papel, e a
+nota não passa de 6. Os "não" entram no veredito como `PQ<n>`.
+
 ## Ordem de leitura
 
 Leia na ordem do cliente, não na ordem do código.
@@ -145,7 +155,8 @@ estao sendo entendidos. Reescreva o achado, não repita.
 
 | Arquivo | Quando |
 |---|---|
-| `shared/postura-revisao.md` | A postura completa |
+| `shared/postura-revisao.md` | A postura completa e a nota de dois lados |
+| `shared/padrao-de-qualidade.md` | As perguntas PQ: o que a peça tem que TER |
 | `shared/calibracao.md` | Antes de cada achado |
 | `shared/anti-vicios-copy.md` | Para o ID e o exemplo bom |
 | `shared/anti-vicios-design.md` | Para achado de design |

@@ -38,6 +38,7 @@ Sempre em vigor, sem exceção silenciosa:
 | `shared/anti-vicios-design.md` | D01 a D20, com status em e-mail |
 | `shared/anti-vicios-processo.md` | P01 a P09 |
 | `shared/calibracao.md` | o que **não** e vício, para não gerar falso positivo |
+| `shared/padrao-de-qualidade.md` | o que a peça precisa **ter**, em perguntas de sim ou não |
 | `shared/lexico/pt-br.txt`, `en.txt` | as listas de C20 a C26 |
 
 Leia `calibracao.md` junto com as outras. Reprovar caixa alta em headline
