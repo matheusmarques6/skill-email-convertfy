@@ -87,6 +87,75 @@ o valor "10%" só existe no assunto e não aparece no corpo. Com o assunto
 fora da tela, a peça não diz de quanto é o desconto. Corrigido em
 `evals/teste-auditoria/README.md`.
 
+## 4. Camada de direção visual na `email-design`
+
+**O problema.** A `email-design` garantia que a peça não quebra (tabela,
+VML, dark mode, peso) e reconhecia vício. Não dizia como fazer a peça boa:
+que tamanho tem o título, quanto espaço vai entre blocos, que proporção
+tem a foto da grade, que cor vai no botão. O agente preenchia isso com o
+default dele.
+
+**O que foi feito.** Estudo do `design-taste-frontend`, do `impeccable` e
+das skills do Emil Kowalski, mais a doutrina de design do Max no vault e o
+design system real da Blue Wolf, reescritos para e-mail de e-commerce em
+onze referências novas (`skills/email-design/references/`):
+`direcao-visual`, `modulos-ecommerce`, `tipografia`, `espaco-e-ritmo`,
+`cor-e-contraste`, `direcao-de-imagem`, `movimento-e-gif`,
+`critica-visual`, `operacoes`, `checklist-de-design` e
+`extracao-de-marca`. O `SKILL.md` ganhou a seção "Camada de direção
+visual" e continua abaixo de 500 linhas.
+
+**Regra dura em código, não em prosa:**
+
+- `lint_email.py` passou a checar D21, D26, D27, D28 e D29, todas como
+  `revisar` (severidade M, D-003). 14 testes novos.
+- Os 14 trechos de HTML de `modulos-ecommerce.md` são extraídos e montados
+  por `scripts/vitrine_modulos.py`. O teste
+  `scripts/tests/test_vitrine_modulos.py` exige zero achado de lint, todo
+  slot com valor, slot com sublinhado e espaço só da escala.
+
+**O que o render pegou que a leitura não pegava:**
+
+1. **Botão encolhendo no celular.** `width:300px; padding:16px 0` vira um
+   retângulo do tamanho do texto, porque a `casca-600` zera o `width` de
+   link no celular. Os módulos usam `min-width` e padding lateral, como o
+   `cta-1` do arsenal já fazia.
+2. **Logo com o dobro do tamanho no celular.** A `casca-600` forçava
+   `width:auto` em toda imagem; imagem exportada em 2x voltava para a
+   largura natural. Medido: o cabeçalho tinha 80px no desktop e 116px no
+   celular. **A regra foi corrigida na casca** (só `max-width:100%` e
+   `height:auto`), e o md5 do manifesto atualizado. Com a correção, 80px
+   nos dois.
+3. **Slot sem sublinhado saindo cru.** `SAUDACAO` não era reconhecido como
+   slot e aparecia na peça. Renomeado, e o script agora recusa slot sem
+   sublinhado.
+
+**Achados nas 44 variantes do vault** (somente leitura: registrados aqui
+para correção no Obsidian), com as regras novas do lint:
+
+| Variante | Achado |
+|---|---|
+| `body-6-skin-minimalism-101` | D27, `text-shadow` |
+| `body-7-faq` | D26, texto de 10px (6 trechos) |
+| `hero-5-cupom-em-tres-lugares` | D21, imagem principal fora de link |
+| `products-3-arco-de-novidades` | D21, imagem grande fora de link |
+| `products-7-dois-com-galeria-de-angulos` | D21, duas fotos grandes de produto fora de link |
+| `products-9-grade-de-tamanho` | D27, `text-shadow` |
+| `reviews-1-depoimento-com-credencial` | D26, texto de 10px |
+| `reviews-8-ugc-de-comunidade` | D21, fotos de UGC fora de link |
+
+8 de 44. Todas em M: avisam, não bloqueiam.
+
+**Achado fora do escopo, registrado.** Rodando `produzir_lote.py --loja
+blue-wolf --limite 4`, duas peças acusam R09 (rolagem horizontal no
+celular). A causa é um link de variante do vault com `width:525px` e texto
+que não quebra, que trava a tabela em 600px. O R09 é o mesmo antes e
+depois da correção da casca: não foi introduzido aqui.
+
+**O que não veio.** O zip de skills da Scalero (email-design-qa,
+personalization-spec) não estava acessível pelo ambiente; quando chegar,
+entra pela mesma régua de licença.
+
 ## O que continua aberto
 
 Da lista que sugeri, três não foram feitas:

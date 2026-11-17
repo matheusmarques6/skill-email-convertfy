@@ -38,6 +38,12 @@ nossos IDs; nenhum texto ou código copiado):
 | Piso de qualidade que vale antes de qualquer edicao | `shared/protocolo-de-execucao.md` |
 | Formato de SKILL.md como roteador, com tabela comando para reference | `skills/convertfy-email/SKILL.md` |
 | Ideia de capturar contexto duravel do projeto em ficha | `marcas/_template.md` |
+| Duas avaliacoes isoladas (design antes do detector), veredito de especificidade, personas, P0 a P3 e o limite de rodadas do `critique` | `skills/email-design/references/critica-visual.md` |
+| Os comandos `polish`, `distill`, `clarify`, `typeset`, `layout`, `adapt`, `quieter`, `bolder`, reescritos como operacoes de e-mail com escopo proprio | `skills/email-design/references/operacoes.md` |
+| Papeis tipograficos antes de tamanhos, medida de leitura, compensacao de texto claro em fundo escuro (`typeset`) | `skills/email-design/references/tipografia.md` |
+| Agrupar por proximidade, contraste entre intervalos, mais espaco acima do titulo, squint test (`layout`, `craft-floor`) | `skills/email-design/references/espaco-e-ritmo.md` e `direcao-visual.md` |
+| Cor por papel, raridade do acento, nunca cinza sobre cor (`colorize`, `quieter`) | `skills/email-design/references/cor-e-contraste.md` |
+| Um momento de movimento com proposito, nao efeito espalhado (`animate`) | `skills/email-design/references/movimento-e-gif.md` |
 
 **Alteracoes feitas** (declaradas conforme a clausula 4(b) da Apache 2.0):
 
@@ -58,7 +64,15 @@ nossos IDs; nenhum texto ou código copiado):
    Brasil, com os IDs do nosso catalogo, sem reaproveitar o texto de
    origem.
 5. **Comandos diferentes.** Nenhum dos 24 comandos do Impeccable foi
-   mantido. O roteador tem comandos proprios, ligados a e-mail.
+   mantido. O roteador tem comandos proprios, ligados a e-mail. As
+   operacoes de `skills/email-design/references/operacoes.md` tem nomes em
+   portugues e escopo de e-mail (sem estados de interface, sem teclado,
+   sem browser ao vivo); `bolder` e `quieter` ficaram presos a paleta da
+   ficha, sem cor nova.
+6. **Critica sem nota propria.** A rubrica de heuristicas de Nielsen e o
+   score de 40 nao foram trazidos. A critica de design da casa marca eixos
+   de 0 a 4 so como ferramenta de quem monta; a nota continua sendo a do
+   `email-revisor`, ligada a IDs.
 
 Nenhum arquivo do Impeccable e redistribuido por este repo. `vendor/`
 não e versionado.
@@ -67,17 +81,17 @@ não e versionado.
 
 | Repo | Fonte | Reaproveitado |
 |---|---|---|
-| Leonxlnx/taste-skill | https://github.com/Leonxlnx/taste-skill | Via F10 da pesquisa: a disciplina contra truncamento (seção faltando, placeholder repetido, "o resto segue o padrão"), reescrita em P04 de `shared/anti-vicios-processo.md`. Os números de `research/laziness` foram DESCARTADOS por serem folclore sem fonte primaria |
+| Leonxlnx/taste-skill | https://github.com/Leonxlnx/taste-skill | Via F10 da pesquisa: a disciplina contra truncamento (seção faltando, placeholder repetido, "o resto segue o padrão"), reescrita em P04 de `shared/anti-vicios-processo.md`. Os números de `research/laziness` foram DESCARTADOS por serem folclore sem fonte primaria. Lido direto (`design-taste-frontend`): a linha de leitura de design e os tres dials (reduzidos a tres niveis e trocados por densidade, peso de imagem e intensidade de marca), presets por tipo, defaults de IA a recusar, limite de repeticao de layout e de ziguezague, contagem exata de celulas na grade, disciplina de serifa, protocolo de redesenho com alavancas em ordem, e o pre-voo, em `skills/email-design/references/direcao-visual.md`, `tipografia.md` e `checklist-de-design.md`. A regra anti-centro e a de eyebrow banido foram ADAPTADAS: centralizado e convencao de e-mail (§8) e rotulo com prazo e informacao |
 | blader/humanizer | https://github.com/blader/humanizer | Taxonomia de 25 padrões de escrita de IA, reescrita nos IDs C10 a C26 de `shared/anti-vicios-copy.md` |
 | Henzen3d/Deslop-ptBR | https://github.com/Henzen3d/Deslop-ptBR | A ideia de tiers por severidade, reescrita na escala B/A/M e em `shared/lexico/pt-br.txt` |
 | mackswendhell/humanizer-pt-br | https://github.com/mackswendhell/humanizer-pt-br | Via F6 da pesquisa: os 25 padrões de pt-BR, reescritos em C10 a C26 de `shared/anti-vicios-copy.md` e nas entradas de `shared/lexico/pt-br.txt` |
 | msigor/humanizer-br | https://github.com/msigor/humanizer-br | Via F6 da pesquisa: a observacao de uniformidade no tamanho das frases, que virou C18, e itens de vocabulario em `shared/lexico/pt-br.txt` |
 | ravidsrk/slop-detect | https://github.com/ravidsrk/slop-detect | Metodo de limiar por densidade (adaptado para contagem absoluta por e-mail) e o catalogo de padrões de design, em `scripts/lint_copy.py` e `shared/anti-vicios-design.md` |
-| emilkowalski/skills | https://github.com/emilkowalski/skills | O principio de que aprovação se conquista (review-animations), em `shared/postura-revisao.md` |
+| emilkowalski/skills | https://github.com/emilkowalski/skills | O principio de que aprovação se conquista (review-animations), em `shared/postura-revisao.md`. Lido direto (`emil-design-eng`): a tabela de frequencia (deve animar?), o proposito obrigatorio, curva de entrada e saida, nunca surgir de escala zero, hover so em `@media (hover:hover)`, e o formato antes/depois/por que de revisao, em `skills/email-design/references/movimento-e-gif.md` e `critica-visual.md`. Os tempos de interface (abaixo de 300 ms) NAO valem para GIF de e-mail e foram substituidos |
 | CosmoBlk/email-marketing-bible | https://github.com/CosmoBlk/email-marketing-bible | Laco de critica com nota e teto de 4 rodadas (`shared/postura-revisao.md`); checklist pre-envio, par "dois leitores", ban do gradiente roxo-azul e do banho bege, `#121212` no dark mode, limiares de entregabilidade e benchmarks rotulados como direcionais (`skills/email-design/draft/`, `skills/auditoria-omnisend/draft/`) |
 | 808enzo/chappie | https://github.com/808enzo/chappie | Disciplina de fronteira na `description` (o que a skill não cobre), promessa herdada e não inventada, gatilho como regra, e estados de bloco na montagem, em `skills/email-flows/draft/` e `skills/email-design/draft/` |
 | davidharttx/email-campaign-skill | https://github.com/davidharttx/email-campaign-skill | Modelo de duas camadas (entrada por fonte / ciclo de vida), ordem de prioridade de receita, as 10 especificacoes de flow, matriz de colisao entre flows e disciplina de fallback em merge tag, em `skills/email-flows/draft/` |
-| framix-team/skill-email-html-mjml | https://github.com/framix-team/skill-email-html-mjml | Gotchas de Outlook (VML, fonte com fallback), atributo de componente sobre classe CSS no Gmail, `#121212` em vez de `#000`, bug do `vertical-align`, ban de accordion e carousel, em `skills/email-design/draft/`. A toolchain MJML NÃO foi adotada |
+| framix-team/skill-email-html-mjml | https://github.com/framix-team/skill-email-html-mjml | Gotchas de Outlook (VML, fonte com fallback), atributo de componente sobre classe CSS no Gmail, `#121212` em vez de `#000`, bug do `vertical-align`, ban de accordion e carousel, em `skills/email-design/draft/`. Imagem de fundo com VML para o hero com texto vivo, em `skills/email-design/references/modulos-ecommerce.md` (modulo 3). A toolchain MJML NÃO foi adotada |
 | EmailBoutique-Digital-Inc/email-html-qa-skill | https://github.com/EmailBoutique-Digital-Inc/email-html-qa-skill | O de maior aproveitamento: principio de verificar mecanica e não suficiencia, as duas metas de `color-scheme`, alt intencional, os três overrides de auto-link, leitura de `Authentication-Results` e `List-Unsubscribe-Post` a partir do `.eml`, matriz de QA de dark mode e escala de severidade, em `skills/email-design/draft/` e `skills/auditoria-omnisend/draft/` |
 | jayreis/prescott-amelia-agents | https://github.com/jayreis/prescott-amelia-agents | Placeholder marcado em vez de invencao, um nível de card, piso de tamanho de fonte com "corte a copy, não a fonte", tratar `<style>` como melhor esforco, cards de mesma altura e área de toque de 44px, em `skills/email-design/draft/`. Title Case em headline e a proibicao de `<head>` foram DESCARTADOS |
 | thatrebeccarae/claude-marketing | https://github.com/thatrebeccarae/claude-marketing | Framework de auditoria em 4 fases, recomendação em três camadas e checklist dos 10 flows essenciais (klaviyo-analyst), em `skills/auditoria-omnisend/draft/` |
@@ -109,3 +123,4 @@ As exceções, onde lemos o repo direto e não a pesquisa, são
 | Repo | Fonte | Situacao |
 |---|---|---|
 | Join-Ground-AI/Ground-Retention-Skills | https://github.com/Join-Ground-AI/Ground-Retention-Skills | Nenhum arquivo de licença no repo. Sem licença não ha permissao de uso ou derivação. Tratar como leitura para entender o problema, nunca como base. Não derivar até que o autor publique uma licença. |
+| jasoncarrigan/ecom-klaviyo-email-skill | https://github.com/jasoncarrigan/ecom-klaviyo-email-skill | Nenhum arquivo de licença no repo (conferido em 17/11/2026). Lido para entender o fluxo de marca e de pagina de produto; nada derivado. `extracao-de-marca.md` foi escrito a partir da ficha da casa e do metodo da Blue Wolf, nao deste repo. |

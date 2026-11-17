@@ -49,6 +49,10 @@ pedido explícito no brief.
 | `oferta [loja]` | Condição da oferta: valor, código, prazo, mínimo | [email-copy/references/oferta-e-condição.md](../email-copy/references/oferta-e-condição.md) |
 | `design [peca]` | Monta o HTML: 600px, inline, bulletproof, dark mode | [skills/email-design/SKILL.md](../email-design/SKILL.md) |
 | `darkmode [peca]` | Só o passe de dark mode | [email-design/references/dark-mode.md](../email-design/references/dark-mode.md) |
+| `ajuste [operacao] [peca]` | Polir, enxugar, esclarecer, tipografar, diagramar, adaptar, acalmar, reforçar, redesenhar | [email-design/references/operacoes.md](../email-design/references/operacoes.md) |
+| `critica [peca]` | Crítica visual do render: oito eixos, personas, achado com ID | [email-design/references/critica-visual.md](../email-design/references/critica-visual.md) |
+| `marca [loja]` | Preenche a parte visual da ficha: tipografia, cor, logo, foto | [email-design/references/extracao-de-marca.md](../email-design/references/extracao-de-marca.md) |
+| `imagem [peca]` | Brief de foto e prompt por slot | [email-design/references/direcao-de-imagem.md](../email-design/references/direcao-de-imagem.md) |
 | `flow [tipo] [loja]` | Desenha a automação no Omnisend | [skills/email-flows/SKILL.md](../email-flows/SKILL.md) |
 | `klaviyo [variavel]` | Equivalencia Klaviyo para Omnisend | [email-flows/references/equivalencia-klaviyo-omnisend.md](../email-flows/references/equivalencia-klaviyo-omnisend.md) |
 | `qa [peca]` | Gate final: vai ou não vai | [skills/email-qa/SKILL.md](../email-qa/SKILL.md) |

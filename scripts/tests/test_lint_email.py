@@ -27,8 +27,8 @@ BOM = """<!doctype html>
        border="0" align="center" bgcolor="#FFFFFF">
   <tr><td align="center" style="background-color:#FFFFFF;color:#1A1A1A;
       font-family:Helvetica,Arial,sans-serif;font-size:16px;">
-    <img src="hero.jpg" width="600" height="400"
-         alt="Relogio de aco com 17% OFF ate domingo">
+    <a href="https://loja.com.br/club"><img src="hero.jpg" width="600"
+         height="400" alt="Relogio de aco com 17% OFF ate domingo"></a>
   </td></tr>
   <tr><td align="center" style="background-color:#FFFFFF;color:#000000;
       font-family:Helvetica,Arial,sans-serif;font-size:16px;">
@@ -205,6 +205,108 @@ class ContainerLegado(unittest.TestCase):
         r = self._regras(640)
         self.assertEqual(r.get("E_CONTAINER"), "A")
         self.assertNotIn("E_CONTAINER_LEGADO", r)
+
+
+def _peca(miolo: str, head: str = "") -> str:
+    return (
+        f'<html><head>{head}</head><body>'
+        '<span style="display:none">Oferta 10% OFF</span>'
+        '<table role="presentation" width="600"><tr><td style="color:#000;'
+        f'background:#fff;font-family:Arial,sans-serif;font-size:16px">{miolo}'
+        '</td></tr><tr><td style="font-size:12px;color:#333;background:#fff">'
+        'Rua Exemplo 100, Sao Paulo, SP, Brasil, CEP 01000-000. '
+        '<a href="{{unsubscribe_url}}" style="color:#333">Descadastrar</a>'
+        '</td></tr></table></body></html>'
+    )
+
+
+def _sev(html: str) -> dict:
+    r = lint_email.lint(html)
+    return {v["regra"]: v["severidade"] for v in r["violacoes"]}
+
+
+class CamadaVisual(unittest.TestCase):
+    """D21, D26 a D29: catalogadas como `revisar` (D-003), avisam em M."""
+
+    def test_d21_imagem_grande_sem_link(self):
+        r = _sev(_peca('<img src="h.jpg" width="600" alt="Bota com 10% OFF">'))
+        self.assertEqual(r.get("D21"), "M")
+
+    def test_d21_imagem_linkada_passa(self):
+        r = _sev(_peca('<a href="https://l.com"><img src="h.jpg" width="600" '
+                       'alt="Bota com 10% OFF"></a>'))
+        self.assertNotIn("D21", r)
+
+    def test_d21_logo_pequeno_sem_link_passa(self):
+        r = _sev(_peca('<img src="logo.png" width="140" alt="Loja">'))
+        self.assertNotIn("D21", r)
+
+    def test_d26_corpo_pequeno(self):
+        r = _sev(_peca('<p style="font-size:12px">Frete gratis para todo o '
+                       'Brasil em pedidos acima de cem reais nesta semana.</p>'))
+        self.assertEqual(r.get("D26"), "M")
+
+    def test_d26_rotulo_curto_de_12px_passa(self):
+        # Selo e legenda de preco: rotulo curto, nao e corpo.
+        r = _sev(_peca('<span style="font-size:12px">ATE DOMINGO</span>'))
+        self.assertNotIn("D26", r)
+
+    def test_d26_rodape_de_12px_passa(self):
+        # O _peca ja traz rodape de 12px antes do descadastro, no mesmo td.
+        self.assertNotIn("D26", _sev(_peca("Oferta de 10% OFF hoje.")))
+
+    def test_d26_rodape_abaixo_de_11px(self):
+        html = _peca("Oferta de 10% OFF hoje.").replace("font-size:12px",
+                                                         "font-size:9px")
+        self.assertEqual(_sev(html).get("D26"), "M")
+
+    def test_d26_pt_convertido(self):
+        # 9pt = 12px, e frase longa: corpo pequeno.
+        r = _sev(_peca('<p style="font-size:9pt">Frete gratis para todo o '
+                       'Brasil em pedidos acima de cem reais nesta semana.</p>'))
+        self.assertIn("D26", r)
+
+    def test_d27_text_shadow(self):
+        r = _sev(_peca('<h1 style="text-shadow:0 2px 4px #000">10% OFF</h1>'))
+        self.assertEqual(r.get("D27"), "M")
+
+    def test_d28_tres_familias(self):
+        r = _sev(_peca(
+            '<p style="font-family:Montserrat,Arial,sans-serif">A</p>'
+            '<p style="font-family:Georgia,serif">B</p>'
+            '<p style="font-family:\'Courier New\',monospace">C</p>'))
+        self.assertEqual(r.get("D28"), "M")
+
+    def test_d28_duas_familias_passa(self):
+        # O _peca ja declara Arial no td. Montserrat com fallback Arial mais
+        # Arial sozinha: duas familias.
+        r = _sev(_peca(
+            '<p style="font-family:Montserrat,Arial,sans-serif">A</p>'
+            '<p style="font-family:Arial,sans-serif">B</p>'))
+        self.assertNotIn("D28", r)
+
+    def test_d29_duas_cores_de_botao(self):
+        r = _sev(_peca(
+            '<a href="https://l.com/a" style="background:#111111;color:#fff;'
+            'padding:16px 32px;display:inline-block">COMPRAR</a>'
+            '<a href="https://l.com/b" style="background:#C8102E;color:#fff;'
+            'padding:16px 32px;display:inline-block">VER TUDO</a>'))
+        self.assertEqual(r.get("D29"), "M")
+
+    def test_d29_botao_fantasma_nao_conta(self):
+        r = _sev(_peca(
+            '<a href="https://l.com/a" style="background:#111111;color:#fff;'
+            'padding:16px 32px;display:inline-block">COMPRAR</a>'
+            '<a href="https://l.com/b" style="background:#FFFFFF;color:#111;'
+            'border:2px solid #111;padding:14px 30px;display:inline-block">'
+            'VER TUDO</a>'))
+        self.assertNotIn("D29", r)
+
+    def test_camada_visual_nunca_bloqueia(self):
+        html = _peca(
+            '<img src="h.jpg" width="600" alt="Bota com 10% OFF">'
+            '<h1 style="text-shadow:0 1px 0 #000">X</h1>')
+        self.assertFalse(lint_email.lint(html)["bloqueia"])
 
 
 if __name__ == "__main__":

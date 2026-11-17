@@ -67,6 +67,11 @@ O lint cobre o que dá para provar em HTML. O resto é revisão (ver
 | CTA só em imagem, sem nenhum link com texto vivo | E_CTA_IMAGEM | A |
 | Índigo ou violeta em botão, fundo bege, sem constar na ficha da marca | D01, D03 | A |
 | `img` sem largura declarada e sem alt | D17 | M |
+| Imagem de 300px ou mais fora de link (faixa decorativa abaixo de 150px de altura passa) | D21 | M |
+| Texto vivo abaixo de 14px com 7 palavras ou mais fora do rodapé; qualquer texto abaixo de 11px | D26 | M |
+| `text-shadow` | D27 | M |
+| Três ou mais famílias (a primeira de cada pilha; Arial e Helvetica contam como uma) | D28 | M |
+| Duas ou mais cores de fundo em botão (link com padding); botão branco ou quase branco não conta | D29 | M |
 
 Uso:
 

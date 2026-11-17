@@ -29,7 +29,10 @@
        unica forma de conter a largura sem reescrever o HTML do vault. */
     .wrap table{width:100%!important;max-width:100%!important;}
     .wrap td{width:auto!important;}
-    .wrap img{width:auto!important;max-width:100%!important;height:auto!important;}
+    /* Sem width:auto aqui: imagem exportada em 2x (logo de 280px exibido
+       a 140) voltava para a largura natural no celular e saia com o dobro
+       do tamanho. max-width ja contem a imagem larga. */
+    .wrap img{max-width:100%!important;height:auto!important;}
     .wrap a[style*="width:"]{width:auto!important;max-width:100%!important;}
   }
 </style>
