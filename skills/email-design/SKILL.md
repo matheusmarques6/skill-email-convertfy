@@ -1,6 +1,6 @@
 ---
 name: email-design
-description: Use ao montar, revisar ou fazer QA do HTML de um e-mail: estrutura de tabela, container de 600px, estilo inline, botão bulletproof com VML, compatibilidade com Outlook, comportamento em dark mode, alt de imagem, tamanho do arquivo e clipping do Gmail. Também ao decidir se um padrão visual é vício de IA ou convenção legítima de e-mail. Não escreve copy (isso é email-copy) nem escolhe a estrutura da peça (isso vem do vault).
+description: Use ao montar, revisar ou fazer QA do HTML de um e-mail: estrutura de tabela, container de 600px, estilo inline, botão bulletproof com VML, compatibilidade com Outlook, comportamento em dark mode, alt de imagem, tamanho do arquivo e clipping do Gmail. Também ao decidir se um padrão visual é vício de IA ou convenção legítima de e-mail, e em toda decisão de direção visual: hierarquia, tipografia, espaçamento, cor de marca, módulos de e-commerce (hero, oferta com cupom, grade de produto, preço de/por, avaliação, rodapé), direção de imagem por slot, GIF e crítica do render. Também quando o pedido é "melhora", "enxuga", "tá apagado", "no celular fica ruim" ou "refaz o template da loja". Não escreve copy (isso é email-copy) nem escolhe a estrutura da peça (isso vem do vault).
 ---
 
 # email-design
@@ -89,7 +89,10 @@ Catálogo completo com a coluna de status:
 
 1. **Ler o brief** em `marcas/<cliente>.md`: tipografia principal, fonte
    secundária, cor primária, cor secundária. Se o brief não deu cor, a
-   peça fica neutra. O agente não escolhe paleta.
+   peça fica neutra. O agente não escolhe paleta. Ficha sem a parte visual:
+   `references/extracao-de-marca.md`.
+   Depois, **a linha de leitura de design** (`references/direcao-visual.md`):
+   tipo de e-mail, regime, densidade, peso de imagem.
 2. **Pegar a estrutura no vault.** As variantes vêm do protocolo de
    seleção em `vault/componentes/_protocolo-de-selecao.md`, nove passos,
    eliminando antes de rankear. Esta skill não inventa estrutura.
@@ -281,6 +284,44 @@ porque o `<td>` externo estica até a coluna mais alta. E altura fixa em
 todas as imagens da mesma linha, com `object-fit: cover`. Nunca
 `height:auto` em imagens lado a lado.
 
+## Camada de direção visual
+
+O que está acima garante que a peça **não quebra**. Esta camada garante que
+ela **é boa**: hierarquia, tipografia, espaço, cor, imagem e clique, com a
+cara de peça de produção da loja. Estudada no `design-taste-frontend`, no
+`impeccable` e no Emil Kowalski, e reescrita para e-mail (créditos em
+`NOTICE.md`). As regras que o HTML prova sozinho estão no lint (D21, D26 a
+D29); o resto é do olho, no ciclo de render.
+
+As dez regras que mais pesam:
+
+1. **Leitura de design antes do HTML**, em uma linha. Regime neutro por
+   padrão; regime marca só quando a ficha manda.
+2. **Primeira dobra do celular (667px)** com título, oferta e botão. Hero
+   4:3, não 1:1.
+3. **Texto vivo para tudo que é compra**: oferta, preço, cupom, prazo,
+   botão. Imagem ilustra.
+4. **Escala tipográfica por papel**: corpo 16, título do hero 30 a 36 (o
+   dobro do corpo), no máximo 5 tamanhos e 2 famílias.
+5. **Texto dentro de imagem desenhada a 600px encolhe 0,57 no celular**:
+   corpo em imagem com 28px no mínimo.
+6. **Espaço só da escala** 4, 8, 12, 16, 24, 32, 40, 48, 64. Perto o que é
+   junto, longe o que é separado.
+7. **Uma cor de ação**, testada com o texto que vai sobre ela (4,5:1).
+8. **Grade com fotos na mesma proporção**, recortadas antes do upload, CTA
+   por produto e fecho geral.
+9. **Botão por `min-width` e padding**, nunca `width` com padding zero (a
+   `casca-600` zera o `width` no celular).
+10. **Movimento quase nunca**: um GIF por peça, com propósito, primeiro
+    quadro legível, até 1 MB.
+
+O HTML de referência de cada módulo é testado pelo
+`scripts/vitrine_modulos.py`: trecho que não passa no lint não fica no
+arquivo.
+
+Pedido de ajuste ("enxuga", "tá apagado", "no celular fica ruim", "refaz o
+template") entra por `references/operacoes.md`.
+
 ## Gate de entrega
 
 - [ ] `scripts/lint_email.py` sem achado de bloqueio
@@ -305,6 +346,7 @@ todas as imagens da mesma linha, com `object-fit: cover`. Nunca
 - [ ] `[[unsubscribe_link]]` presente e resolvendo
 - [ ] Nenhuma cor fora do brief
 - [ ] Nenhum placeholder repetido, nenhuma seção em branco
+- [ ] Checklist de design passado (`references/checklist-de-design.md`)
 
 
 ## Contrato de variante
@@ -377,3 +419,14 @@ Catálogo dos vícios visuais: `shared/anti-vicios-visuais.md`.
 | `references/vicios-de-design.md` | Ao julgar se um padrão é vício ou convenção |
 | `shared/anti-vicios-design.md` | Sempre |
 | `vault/componentes/_protocolo-de-selecao.md` | Para escolher variante |
+| `references/direcao-visual.md` | Antes do HTML: leitura de design, regime neutro ou marca, dials, defaults de IA a recusar |
+| `references/modulos-ecommerce.md` | Ao montar ou consertar hero, oferta, botão, produto, grade, avaliação, garantias, texto de pessoa, rodapé |
+| `references/tipografia.md` | Escala, pilhas de fonte, fonte em imagem, preço e data |
+| `references/espaco-e-ritmo.md` | Escala de espaço, padding por bloco, primeira dobra, transição |
+| `references/cor-e-contraste.md` | Papel de cada cor, cor de botão, paleta por momento, cor no escuro |
+| `references/direcao-de-imagem.md` | Proporção e peso por slot, brief de foto, prompt de imagem gerada, fatias do Figma |
+| `references/movimento-e-gif.md` | Antes de pôr qualquer GIF ou hover |
+| `references/critica-visual.md` | No ciclo de render: oito eixos, personas, formato do achado |
+| `references/operacoes.md` | Pedido de ajuste: polir, enxugar, esclarecer, tipografar, diagramar, adaptar, acalmar, reforçar, redesenhar |
+| `references/checklist-de-design.md` | Antes de mandar ao revisor |
+| `references/extracao-de-marca.md` | Ficha sem tipografia, cor, logo ou foto |

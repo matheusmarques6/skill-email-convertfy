@@ -3,6 +3,14 @@
 > **Fechadas desde a última revisão:** o padrão positivo de qualidade
 > (`shared/padrao-de-qualidade.md`) e o versionamento do catálogo
 > (`scripts/versao_catalogo.py`). Ver `docs/melhorias-aplicadas.md`.
+>
+> **Fechadas na camada de direção visual da `email-design`** (ver
+> `docs/melhorias-aplicadas.md`, seção 4): a **3** (direção de imagem por
+> slot, `references/direcao-de-imagem.md`), a **7** (`polish`, `distill`,
+> `clarify`, `typeset`, `layout` em `references/operacoes.md`) e a parte de
+> design da **11** (redesenho com alavancas em ordem e "o que nunca muda
+> sem aprovação", em `references/direcao-visual.md`). D21 e D26 a D29
+> ganharam checagem no lint.
 
 Da auditoria (Fase 1), da reconciliação (Fase 2) e dos testes (Fase 5).
 Ordenado por quanto trava trabalho real.

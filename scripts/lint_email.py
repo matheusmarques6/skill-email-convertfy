@@ -38,7 +38,19 @@ SEVERIDADE = {
     "E_CTA_IMAGEM": "A", "E_PLACEHOLDER": "B",
     # Regra do vault (docs/pesquisa/vault-vicios.md), detectavel aqui.
     "V02": "B",
+    # D21 a D31 entram como `revisar` (docs/decisoes.md, D-003): avisam em M,
+    # nunca bloqueiam. Ver skills/email-design/references/tipografia.md.
+    "D21": "M", "D26": "M", "D27": "M", "D28": "M", "D29": "M",
 }
+# D26: corpo abaixo de 14px; rodape abaixo de 11px. Rotulo curto (selo,
+# legenda de preco) pode ter 12-13px: so conta como corpo a partir de
+# PALAVRAS_DE_CORPO palavras.
+PISO_CORPO_PX = 14
+PISO_RODAPE_PX = 11
+PALAVRAS_DE_CORPO = 7
+# D21: imagem a partir desta largura, fora de link, rouba o clique no Gmail.
+LARGURA_IMAGEM_GRANDE = 300
+ALTURA_FAIXA_DECORATIVA = 150
 LIMITE_CLIPPING = 102 * 1024
 CONTAINER_PADRAO = 600
 # 598 e legado aceito: avisa em M e NAO manda regerar peca que ja existe.
@@ -148,6 +160,50 @@ def largura_de(attrs: dict) -> int | None:
     return None
 
 
+def tamanho_px(valor: str) -> float | None:
+    """font-size em px. Aceita px e pt (pt * 4/3). em, rem e % voltam None:
+    sem a base, o lint nao chuta."""
+    m = re.match(r"\s*(\d+(?:\.\d+)?)\s*(px|pt)?\s*(!important)?\s*$",
+                 valor or "", re.IGNORECASE)
+    if not m:
+        return None
+    n = float(m.group(1))
+    return n * 4 / 3 if (m.group(2) or "").lower() == "pt" else n
+
+
+GENERICAS = {"sans-serif", "serif", "monospace", "cursive", "fantasy",
+             "system-ui", "-apple-system", "inherit", "initial"}
+
+
+def primeira_familia(valor: str) -> str | None:
+    """Primeira familia de uma pilha font-family, normalizada. A pilha
+    'Montserrat, Helvetica, Arial' conta como Montserrat: e a familia que o
+    designer escolheu, o resto e fallback."""
+    for parte in (valor or "").split(","):
+        nome = parte.strip().strip("'\"").strip().lower()
+        nome = re.sub(r"\s*!important$", "", nome)
+        if nome and nome not in GENERICAS:
+            # Arial e Helvetica sao a mesma escolha (a fallback segura); nao
+            # contam como duas familias. Idem Georgia e Times.
+            return FAMILIA_SEGURA.get(nome, nome)
+    return None
+
+
+FAMILIA_SEGURA = {
+    "arial": "sans segura", "helvetica": "sans segura",
+    "helvetica neue": "sans segura", "arial nova": "sans segura",
+    "georgia": "serif segura", "times new roman": "serif segura",
+    "times": "serif segura",
+}
+
+
+RX_DESCADASTRO = re.compile(
+    r"unsubscribe|descadastr|cancelar\s+inscri|darse\s+de\s+baja|abmelden"
+    r"|desinscri",
+    re.IGNORECASE,
+)
+
+
 OCULTO = re.compile(
     r"(display\s*:\s*none|max-height\s*:\s*0|font-size\s*:\s*0|opacity\s*:\s*0"
     r"|mso-hide\s*:\s*all)",
@@ -167,6 +223,15 @@ class LeitorEmail(HTMLParser):
         self.larguras_container = []
         self.tem_svg = False
         self._link_atual = None
+        # Camada de tipografia (D26, D28): pilha paralela a `pilha`, com o
+        # tamanho de fonte herdado e o td mais interno de cada elemento.
+        self.pilha_tipo = []       # [(px, id_td)]
+        self.tipos = []            # dict: texto, px, td, apos_descadastro, oculto
+        self.familias = []         # primeira familia de cada font-family inline
+        self.botoes = []           # dict: fundo, texto (a com padding)
+        self._td_seq = 0
+        self._viu_descadastro = False
+        self.tds_descadastro = set()
 
     # -- estado ------------------------------------------------------------
     def _herda(self):
@@ -190,13 +255,24 @@ class LeitorEmail(HTMLParser):
         oculto = oculto_pai or bool(OCULTO.search(a.get("style", ""))) or (
             "preheader" in (a.get("class", "") + a.get("id", "")).lower()
         )
+        px_pai, td_pai = self.pilha_tipo[-1] if self.pilha_tipo else (None, None)
+        px = tamanho_px(style.get("font-size", "")) or px_pai
+        td = td_pai
+        if tag == "td":
+            self._td_seq += 1
+            td = self._td_seq
+        familia = primeira_familia(style.get("font-family", ""))
+        if familia:
+            self.familias.append(familia)
         if tag not in ("img", "br", "hr", "meta", "link", "input", "source"):
             self.pilha.append((tag, cor, fundo, oculto))
+            self.pilha_tipo.append((px, td))
 
         if tag == "svg":
             self.tem_svg = True
         if tag == "img":
             a["_largura"] = largura_de(a)
+            a["_linkada"] = self._link_atual is not None
             self.imagens.append(a)
             if self._link_atual is not None:
                 self._link_atual["tem_img"] = True
@@ -205,9 +281,19 @@ class LeitorEmail(HTMLParser):
             if w and w >= 300:
                 self.larguras_container.append(w)
         if tag == "a":
+            href = a.get("href", "")
             self._link_atual = {"texto": "", "tem_img": False, "fundo": fundo,
-                                "href": a.get("href", "")}
+                                "href": href}
             self.links.append(self._link_atual)
+            if RX_DESCADASTRO.search(href):
+                self._marca_descadastro(td)
+            if "padding" in style and not oculto:
+                self.botoes.append({"fundo": fundo, "link": self._link_atual})
+
+    def _marca_descadastro(self, td):
+        self._viu_descadastro = True
+        if td is not None:
+            self.tds_descadastro.add(td)
 
     def handle_endtag(self, tag):
         if tag == "a":
@@ -215,6 +301,7 @@ class LeitorEmail(HTMLParser):
         for i in range(len(self.pilha) - 1, -1, -1):
             if self.pilha[i][0] == tag:
                 del self.pilha[i:]
+                del self.pilha_tipo[i:]
                 break
 
     def handle_data(self, data):
@@ -222,8 +309,15 @@ class LeitorEmail(HTMLParser):
             return
         cor, fundo, oculto = self._herda()
         self.textos.append((data.strip(), cor, fundo, oculto))
+        px, td = self.pilha_tipo[-1] if self.pilha_tipo else (None, None)
         if self._link_atual is not None:
             self._link_atual["texto"] += data
+            if RX_DESCADASTRO.search(data):
+                self._marca_descadastro(td)
+        self.tipos.append({
+            "texto": data.strip(), "px": px, "td": td, "oculto": oculto,
+            "apos_descadastro": self._viu_descadastro,
+        })
 
 
 # ---------------------------------------------------------------------------
@@ -531,6 +625,112 @@ def regra_v02(leitor: LeitorEmail):
 
 
 # ---------------------------------------------------------------------------
+# Camada visual: D21, D26, D27, D28, D29 (status `revisar`, severidade M)
+# ---------------------------------------------------------------------------
+# Catalogadas em shared/anti-vicios-design.md desde a destilacao, sem
+# checagem em codigo ate aqui. Regra dura so em prosa e o que o vault
+# proibe; estas sao as partes que o HTML prova sozinho.
+
+def regra_d21(leitor: LeitorEmail):
+    """Imagem grande fora de link: o Gmail abre no lightbox e o toque nao
+    vai para a loja."""
+    soltas = []
+    for img in leitor.imagens:
+        largura = img.get("_largura") or 0
+        m = re.match(r"\s*(\d+)", str(img.get("height") or ""))
+        altura = int(m.group(1)) if m else None
+        # Faixa decorativa baixa (divisor, transicao de 70px) nao abre
+        # lightbox: e o espacador da regra, nao imagem grande.
+        if altura is not None and altura < ALTURA_FAIXA_DECORATIVA:
+            continue
+        if largura >= LARGURA_IMAGEM_GRANDE and not img.get("_linkada"):
+            soltas.append(img.get("src", "")[:60] or "(sem src)")
+    if not soltas:
+        return []
+    return [achado(
+        "D21", "img", f"{soltas[0]} ({len(soltas)} imagem(ns))",
+        "imagem grande sem link: envolva em <a> com o mesmo destino do CTA "
+        "(a hero) ou do produto (foto de produto)")]
+
+
+def _e_rodape(t: dict, leitor: LeitorEmail) -> bool:
+    return t["apos_descadastro"] or (t["td"] in leitor.tds_descadastro)
+
+
+def regra_d26(leitor: LeitorEmail):
+    """Fonte pequena para caber copy: corte a copy, nao a fonte."""
+    corpo, rodape = [], []
+    for t in leitor.tipos:
+        if t["oculto"] or t["px"] is None:
+            continue
+        if _e_rodape(t, leitor):
+            if t["px"] < PISO_RODAPE_PX:
+                rodape.append(t)
+        elif t["px"] < PISO_CORPO_PX and len(t["texto"].split()) >= PALAVRAS_DE_CORPO:
+            corpo.append(t)
+        elif t["px"] < PISO_RODAPE_PX:
+            corpo.append(t)
+    out = []
+    if corpo:
+        t = corpo[0]
+        out.append(achado(
+            "D26", "texto",
+            f"{t['texto'][:50]} ({t['px']:g}px; {len(corpo)} trecho(s))",
+            f"corpo com piso de {PISO_CORPO_PX}px (16 preferido). Se nao cabe, "
+            "a secao esta cheia: corte a copy, nao a fonte"))
+    if rodape:
+        t = rodape[0]
+        out.append(achado(
+            "D26", "rodape",
+            f"{t['texto'][:50]} ({t['px']:g}px)",
+            f"rodape com piso de {PISO_RODAPE_PX}px"))
+    return out
+
+
+RX_TEXT_SHADOW = re.compile(r"text-shadow\s*:", re.IGNORECASE)
+
+
+def regra_d27(html: str):
+    m = RX_TEXT_SHADOW.search(html)
+    if not m:
+        return []
+    return [achado("D27", "html", "text-shadow",
+                   "sombra em texto some ou borra em varios clientes: "
+                   "resolva legibilidade com contraste e fundo chapado")]
+
+
+def regra_d28(leitor: LeitorEmail):
+    """Tres ou mais familias. Conta a primeira familia de cada pilha."""
+    vistas = []
+    for f in leitor.familias:
+        if f not in vistas:
+            vistas.append(f)
+    if len(vistas) >= 3:
+        return [achado("D28", "font-family", ", ".join(vistas[:5]),
+                       "no maximo duas familias: a tipografia principal e a "
+                       "fonte secundaria da ficha")]
+    return []
+
+
+def regra_d29(leitor: LeitorEmail):
+    """Duas cores de botao principal. Botao = <a> com padding e fundo de cor.
+    Fundo branco ou quase branco e botao fantasma (secundario): nao conta."""
+    cores = []
+    for b in leitor.botoes:
+        fundo = b["fundo"]
+        if fundo is None or luminancia(fundo) > 0.85:
+            continue
+        hx = hexa(fundo)
+        if hx not in cores:
+            cores.append(hx)
+    if len(cores) >= 2:
+        return [achado("D29", "a", ", ".join(cores),
+                       "uma cor de CTA na peca inteira: o segundo botao vira "
+                       "link de texto ou botao fantasma")]
+    return []
+
+
+# ---------------------------------------------------------------------------
 # Execucao
 # ---------------------------------------------------------------------------
 ORDEM_SEV = {"B": 0, "A": 1, "M": 2}
@@ -571,6 +771,11 @@ def lint(html: str, cores_marca=None) -> dict:
     violacoes += regra_placeholder(leitor)
     violacoes += regra_cores_marca(leitor, cores_marca)
     violacoes += regra_v02(leitor)
+    violacoes += regra_d21(leitor)
+    violacoes += regra_d26(leitor)
+    violacoes += regra_d27(html)
+    violacoes += regra_d28(leitor)
+    violacoes += regra_d29(leitor)
 
     violacoes.sort(key=lambda v: (ORDEM_SEV[v["severidade"]], v["regra"]))
     bloqueia = any(v["severidade"] == "B" for v in violacoes)
